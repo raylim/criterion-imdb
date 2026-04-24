@@ -59,4 +59,4 @@ Notes:
 - `--max-lookups` is helpful if you want a quick first pass instead of resolving every filtered title.
 - IMDb's public site and the old public metadata endpoint are both unreliable from this environment, so the script now uses an OMDb API key for IMDb ratings.
 - `--html` writes a browsable page to `.cache/criterion-movies.html` by default, and `--open` opens it in your browser.
-- The HTML page supports live filtering by search text, genre, and minimum IMDb rating.
+- The HTML page supports live filtering by search text, genre, language, year, runtime, and minimum IMDb rating.
