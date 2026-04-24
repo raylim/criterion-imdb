@@ -1,0 +1,17 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "Quince reservation watcher",
+  "main": "quince-reservation.js",
+  "scripts": {
+    "watch:quince": "node quince-reservation.js",
+    "movies:criterion": "node criterion-imdb-suggester.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright": "^1.58.2"
+  }
+}
