@@ -1,0 +1,127 @@
+{
+  "comment": "Manual cache overrides for Criterion titles that need to be force-added or refreshed in firefox-extension/data/criterion-cache.json by the suggester.",
+  "entries": [
+    {
+      "url": "https://www.criterionchannel.com/the-elephant-man",
+      "path": "/the-elephant-man",
+      "title": "The Elephant Man",
+      "director": "david lynch",
+      "genres": ["biography", "drama"],
+      "languages": ["english"],
+      "imdbRating": 7.8,
+      "year": 1980,
+      "runtimeMinutes": 124
+    },
+    {
+      "url": "https://www.criterionchannel.com/woman-of-the-year",
+      "path": "/woman-of-the-year",
+      "title": "Woman of the Year",
+      "director": "george stevens",
+      "genres": [
+        "comedy",
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "english",
+        "french",
+        "russian",
+        "german",
+        "spanish",
+        "greek"
+      ],
+      "imdbRating": 7.1,
+      "year": 1942,
+      "runtimeMinutes": 114
+    },
+    {
+      "url": "https://www.criterionchannel.com/cat-people",
+      "path": "/cat-people",
+      "title": "Cat People",
+      "director": "jacques tourneur",
+      "genres": [
+        "fantasy",
+        "horror",
+        "thriller"
+      ],
+      "languages": [
+        "english",
+        "czech",
+        "serbian"
+      ],
+      "imdbRating": 7.2,
+      "year": 1942,
+      "runtimeMinutes": 73
+    },
+    {
+      "url": "https://www.criterionchannel.com/cat-people-1",
+      "path": "/cat-people-1",
+      "title": "Cat People",
+      "director": "paul schrader",
+      "genres": [
+        "fantasy",
+        "horror",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.2,
+      "year": 1982,
+      "runtimeMinutes": 118
+    },
+    {
+      "url": "https://www.criterionchannel.com/his-girl-friday",
+      "path": "/his-girl-friday",
+      "title": "His Girl Friday",
+      "director": "howard hawks",
+      "genres": [
+        "comedy",
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "english",
+        "french"
+      ],
+      "imdbRating": 7.8,
+      "year": 1940,
+      "runtimeMinutes": 92
+    },
+    {
+      "url": "https://www.criterionchannel.com/point-break",
+      "path": "/point-break",
+      "title": "Point Break",
+      "director": "kathryn bigelow",
+      "genres": [
+        "action",
+        "crime",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.3,
+      "year": 1991,
+      "runtimeMinutes": 122
+    },
+    {
+      "url": "https://www.criterionchannel.com/the-thing",
+      "path": "/the-thing",
+      "title": "The Thing",
+      "director": "john carpenter",
+      "genres": [
+        "horror",
+        "mystery",
+        "sci-fi"
+      ],
+      "languages": [
+        "english",
+        "norwegian"
+      ],
+      "imdbRating": 8.2,
+      "year": 1982,
+      "runtimeMinutes": 109
+    }
+  ]
+}

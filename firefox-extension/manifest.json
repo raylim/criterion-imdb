@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Criterion IMDb Overlay",
+  "version": "0.1.0",
+  "description": "Overlay IMDb ratings and film metadata on Criterion pages.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://www.criterion.com/*",
+    "https://criterionchannel.com/*",
+    "https://www.criterionchannel.com/*",
+    "https://films.criterionchannel.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "src/background.js"
+    ]
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.criterion.com/*",
+        "https://criterionchannel.com/*",
+        "https://www.criterionchannel.com/*",
+        "https://films.criterionchannel.com/*"
+      ],
+      "js": [
+        "src/content/dom-scraper.js",
+        "src/content/criterion-overlay.js"
+      ],
+      "css": [
+        "src/content/overlay.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "criterion-imdb-overlay@example.com"
+    }
+  }
+}

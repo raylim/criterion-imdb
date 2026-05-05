@@ -1,0 +1,32 @@
+{
+  "apur sansar|1959": {
+    "searchTitle": "The World of Apu",
+    "matchTitle": "The World of Apu"
+  },
+  "11 09 01 september 11|2002": {
+    "searchTitle": "11'09''01 September 11",
+    "matchTitle": "11'09''01 September 11"
+  },
+  "birth of a nation|2017": {
+    "searchTitle": "The Birth of a Nation",
+    "matchTitle": "The Birth of a Nation"
+  },
+  "ashes of time redux|2008": {
+    "imdbId": "tt0109688",
+    "searchTitle": "Ashes of Time",
+    "matchTitle": "Ashes of Time",
+    "matchYear": 1994
+  },
+  "the dead|1987": {
+    "imdbId": "tt0092843",
+    "searchTitle": "The Dead",
+    "matchTitle": "The Dead",
+    "matchDirector": "John Huston"
+  },
+  "the elephant man|1980": {
+    "imdbId": "tt0080678",
+    "searchTitle": "The Elephant Man",
+    "matchTitle": "The Elephant Man",
+    "matchDirector": "David Lynch"
+  }
+}
