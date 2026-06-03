@@ -8,6 +8,7 @@
   const pendingNodes = new WeakSet();
   let scanScheduled = false;
   let latestSettings = null;
+  let debugMode = false;
 
   function scheduleScan() {
     if (scanScheduled) {
@@ -82,10 +83,15 @@
 
     const overlay = document.createElement("div");
     overlay.className = ROOT_CLASS;
-    overlay.innerHTML = [
-      '<div class="criterion-imdb-overlay__pill">IMDb …</div>',
-      '<div class="criterion-imdb-overlay__details">Loading…</div>'
-    ].join("");
+    const pill = document.createElement("div");
+    pill.className = "criterion-imdb-overlay__pill";
+    pill.textContent = "IMDb …";
+
+    const details = document.createElement("div");
+    details.className = "criterion-imdb-overlay__details";
+    details.textContent = "Loading…";
+
+    overlay.append(pill, details);
 
     if (globalScope.getComputedStyle(host).position === "static") {
       host.classList.add("criterion-imdb-overlay-host");
@@ -108,7 +114,18 @@
     return statusNode;
   }
 
+  function syncDebugMode(settings) {
+    debugMode = Boolean(settings?.debugMode);
+    const statusNode = document.querySelector(`.${STATUS_CLASS}`);
+    if (!debugMode && statusNode) {
+      statusNode.remove();
+    }
+  }
+
   function setStatus(text, tone) {
+    if (!debugMode) {
+      return;
+    }
     const statusNode = ensureStatusNode();
     statusNode.textContent = text;
     statusNode.dataset.tone = tone || "neutral";
@@ -194,6 +211,7 @@
     });
 
     latestSettings = response.settings;
+    syncDebugMode(latestSettings);
     const matchedCount = response.results.filter((result) => result && result.matched).length;
     const missingCount = response.results.length - matchedCount;
     setStatus(
@@ -213,12 +231,12 @@
   }
 
   async function bootstrap() {
-    setStatus("Criterion IMDb: content script loaded", "neutral");
-
     try {
       latestSettings = await extensionApi.runtime.sendMessage({
         type: "criterion-imdb:get-settings"
       });
+      syncDebugMode(latestSettings);
+      setStatus("Criterion IMDb: content script loaded", "neutral");
       setStatus("Criterion IMDb: ready", "neutral");
       scheduleScan();
 
@@ -231,6 +249,7 @@
         subtree: true
       });
     } catch (error) {
+      syncDebugMode(latestSettings);
       setStatus(`Criterion IMDb: startup failed - ${error.message || "unknown error"}`, "error");
       console.error("[criterion-imdb] startup failed", error);
     }

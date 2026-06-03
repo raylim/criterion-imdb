@@ -2,19 +2,28 @@ const extensionApi = globalThis.browser || globalThis.chrome;
 
 const CACHE_STORAGE_KEY = "criterionImdbCache";
 const CACHE_META_STORAGE_KEY = "criterionImdbCacheMeta";
+const REMOTE_INDEX_STORAGE_KEY = "criterionImdbRemoteIndex";
+const REMOTE_INDEX_META_STORAGE_KEY = "criterionImdbRemoteIndexMeta";
 const SETTINGS_STORAGE_KEY = "criterionImdbSettings";
-const CACHE_SCHEMA_VERSION = 7;
+const CACHE_SCHEMA_VERSION = 8;
+const BUNDLED_CACHE_URL = "data/criterion-cache.json";
+const REMOTE_CACHE_URLS = [
+  "https://raylim.github.io/criterion-imdb/criterion-cache.json",
+  "https://raw.githubusercontent.com/raylim/criterion-imdb/main/docs/criterion-cache.json"
+];
 const DEFAULT_SETTINGS = {
   minRating: 7.5,
+  maxCacheAgeDays: 30,
   showRuntime: true,
   showGenres: true,
   showLanguages: true,
   showDirector: true,
   showCountry: true,
-  dimLowRated: false
+  dimLowRated: false,
+  debugMode: false
 };
 
-let bundledIndexPromise = null;
+let activeIndexPromise = null;
 
 function normalizeText(text) {
   return String(text || "")
@@ -50,50 +59,147 @@ function isVideoPath(path) {
   return /(^|\/)videos(\/|$)/i.test(String(path || ""));
 }
 
-async function loadBundledIndex() {
-  if (!bundledIndexPromise) {
-    bundledIndexPromise = (async () => {
-      const response = await fetch(extensionApi.runtime.getURL("data/criterion-cache.json"));
+function buildIndexFromPayload(payload, source) {
+  const byPath = new Map();
+  const byTitleYear = new Map();
+  const byTitle = new Map();
+  const byNormalizedTitle = new Map();
+
+  for (const entry of payload.entries || []) {
+    if (entry.path) {
+      byPath.set(entry.path, entry);
+    }
+
+    const titleYearKey = `${normalizeText(entry.title)}|${entry.year || "unknown"}`;
+    byTitleYear.set(titleYearKey, entry);
+
+    const titleKey = normalizeText(entry.title);
+    const titleMatches = byTitle.get(titleKey) || [];
+    titleMatches.push(entry);
+    byTitle.set(titleKey, titleMatches);
+
+    const normalizedMatches = byNormalizedTitle.get(entry.normalizedTitle) || [];
+    normalizedMatches.push(entry);
+    byNormalizedTitle.set(entry.normalizedTitle, normalizedMatches);
+  }
+
+  return {
+    count: Number(payload.count) || 0,
+    generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : "",
+    source,
+    byPath,
+    byTitleYear,
+    byTitle,
+    byNormalizedTitle
+  };
+}
+
+function isValidCachePayload(payload) {
+  return Boolean(payload) && Array.isArray(payload.entries);
+}
+
+async function loadBundledPayload() {
+  const response = await fetch(extensionApi.runtime.getURL(BUNDLED_CACHE_URL), { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Bundled cache request failed (${response.status})`);
+  }
+
+  return response.json();
+}
+
+async function getStoredRemotePayload(maxCacheAgeDays) {
+  const stored = await extensionApi.storage.local.get([REMOTE_INDEX_STORAGE_KEY, REMOTE_INDEX_META_STORAGE_KEY]);
+  const payload = stored[REMOTE_INDEX_STORAGE_KEY];
+  const meta = stored[REMOTE_INDEX_META_STORAGE_KEY] || {};
+
+  if (!isValidCachePayload(payload) || !meta.fetchedAt) {
+    return null;
+  }
+
+  const maxAgeMs = Math.max(1, Number(maxCacheAgeDays) || DEFAULT_SETTINGS.maxCacheAgeDays) * 24 * 60 * 60 * 1000;
+  const fetchedAtMs = new Date(meta.fetchedAt).getTime();
+  if (!Number.isFinite(fetchedAtMs) || (Date.now() - fetchedAtMs) > maxAgeMs) {
+    return null;
+  }
+
+  return {
+    payload,
+    url: meta.url || "remote cache",
+    fetchedAt: meta.fetchedAt
+  };
+}
+
+async function saveRemotePayload(payload, url) {
+  await extensionApi.storage.local.set({
+    [REMOTE_INDEX_STORAGE_KEY]: payload,
+    [REMOTE_INDEX_META_STORAGE_KEY]: {
+      url,
+      fetchedAt: new Date().toISOString(),
+      generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : ""
+    }
+  });
+}
+
+async function fetchRemotePayload() {
+  let lastError = null;
+
+  for (const url of REMOTE_CACHE_URLS) {
+    try {
+      const response = await fetch(url, {
+        cache: "no-store",
+        headers: {
+          accept: "application/json"
+        }
+      });
+
       if (!response.ok) {
-        throw new Error(`Bundled cache request failed (${response.status})`);
+        throw new Error(`Remote cache request failed (${response.status})`);
       }
 
       const payload = await response.json();
-      const byPath = new Map();
-      const byTitleYear = new Map();
-      const byTitle = new Map();
-      const byNormalizedTitle = new Map();
-
-      for (const entry of payload.entries || []) {
-        if (entry.path) {
-          byPath.set(entry.path, entry);
-        }
-
-        const titleYearKey = `${normalizeText(entry.title)}|${entry.year || "unknown"}`;
-        byTitleYear.set(titleYearKey, entry);
-
-        const titleKey = normalizeText(entry.title);
-        const titleMatches = byTitle.get(titleKey) || [];
-        titleMatches.push(entry);
-        byTitle.set(titleKey, titleMatches);
-
-        const normalizedMatches = byNormalizedTitle.get(entry.normalizedTitle) || [];
-        normalizedMatches.push(entry);
-        byNormalizedTitle.set(entry.normalizedTitle, normalizedMatches);
+      if (!isValidCachePayload(payload)) {
+        throw new Error("Remote cache payload is invalid");
       }
 
+      await saveRemotePayload(payload, url);
       return {
-        count: Number(payload.count) || 0,
-        generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : "",
-        byPath,
-        byTitleYear,
-        byTitle,
-        byNormalizedTitle
+        payload,
+        url
       };
-    })();
+    } catch (error) {
+      lastError = error;
+    }
   }
 
-  return bundledIndexPromise;
+  throw lastError || new Error("Could not fetch remote Criterion cache");
+}
+
+async function loadActiveIndex(options = {}) {
+  const { forceRemoteRefresh = false } = options;
+  if (!forceRemoteRefresh && activeIndexPromise) {
+    return activeIndexPromise;
+  }
+
+  activeIndexPromise = (async () => {
+    const settings = await getSettings();
+
+    if (!forceRemoteRefresh) {
+      const storedRemote = await getStoredRemotePayload(settings.maxCacheAgeDays);
+      if (storedRemote) {
+        return buildIndexFromPayload(storedRemote.payload, storedRemote.url);
+      }
+    }
+
+    try {
+      const remote = await fetchRemotePayload();
+      return buildIndexFromPayload(remote.payload, remote.url);
+    } catch (_error) {
+      const bundledPayload = await loadBundledPayload();
+      return buildIndexFromPayload(bundledPayload, "bundled extension cache");
+    }
+  })();
+
+  return activeIndexPromise;
 }
 
 function getCacheKey(film) {
@@ -169,12 +275,14 @@ async function getSettings() {
   return {
     ...DEFAULT_SETTINGS,
     minRating: Number.isFinite(Number(rawSettings.minRating)) ? Number(rawSettings.minRating) : DEFAULT_SETTINGS.minRating,
+    maxCacheAgeDays: Number.isInteger(Number.parseInt(rawSettings.maxCacheAgeDays, 10)) ? Number.parseInt(rawSettings.maxCacheAgeDays, 10) : DEFAULT_SETTINGS.maxCacheAgeDays,
     showRuntime: rawSettings.showRuntime ?? DEFAULT_SETTINGS.showRuntime,
     showGenres: rawSettings.showGenres ?? DEFAULT_SETTINGS.showGenres,
     showLanguages: rawSettings.showLanguages ?? DEFAULT_SETTINGS.showLanguages,
     showDirector: rawSettings.showDirector ?? DEFAULT_SETTINGS.showDirector,
     showCountry: rawSettings.showCountry ?? DEFAULT_SETTINGS.showCountry,
-    dimLowRated: rawSettings.dimLowRated ?? DEFAULT_SETTINGS.dimLowRated
+    dimLowRated: rawSettings.dimLowRated ?? DEFAULT_SETTINGS.dimLowRated,
+    debugMode: rawSettings.debugMode ?? DEFAULT_SETTINGS.debugMode
   };
 }
 
@@ -202,7 +310,7 @@ async function saveCache(cache, bundleGeneratedAt) {
 
 async function lookupFilms(films) {
   const settings = await getSettings();
-  const index = await loadBundledIndex();
+  const index = await loadActiveIndex();
   const cache = await getCache(index.generatedAt);
   const results = [];
   let cacheChanged = false;
@@ -237,7 +345,21 @@ async function lookupFilms(films) {
   return {
     settings,
     results,
-    datasetCount: index.count
+    datasetCount: index.count,
+    dataSource: index.source,
+    bundleGeneratedAt: index.generatedAt
+  };
+}
+
+async function refreshExtensionCache() {
+  activeIndexPromise = null;
+  const index = await loadActiveIndex({ forceRemoteRefresh: true });
+  await extensionApi.storage.local.remove([CACHE_STORAGE_KEY, CACHE_META_STORAGE_KEY]);
+  return {
+    cleared: true,
+    datasetCount: index.count,
+    bundleGeneratedAt: index.generatedAt,
+    dataSource: index.source
   };
 }
 
@@ -256,6 +378,10 @@ extensionApi.runtime.onMessage.addListener((message) => {
 
   if (message.type === "criterion-imdb:clear-cache") {
     return extensionApi.storage.local.remove([CACHE_STORAGE_KEY, CACHE_META_STORAGE_KEY]);
+  }
+
+  if (message.type === "criterion-imdb:refresh-extension-cache") {
+    return refreshExtensionCache();
   }
 
   return undefined;

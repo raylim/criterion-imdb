@@ -8,11 +8,17 @@ const DEFAULT_SETTINGS = {
   showLanguages: true,
   showDirector: true,
   showCountry: true,
-  dimLowRated: false
+  dimLowRated: false,
+  debugMode: false
 };
 
 const form = document.getElementById("settings-form");
 const statusNode = document.getElementById("status");
+const refreshButton = document.getElementById("refresh-cache");
+
+function setStatus(message) {
+  statusNode.textContent = message;
+}
 
 function setFormValues(settings) {
   document.getElementById("minRating").value = settings.minRating;
@@ -23,6 +29,7 @@ function setFormValues(settings) {
   document.getElementById("showDirector").checked = settings.showDirector;
   document.getElementById("showCountry").checked = settings.showCountry;
   document.getElementById("dimLowRated").checked = settings.dimLowRated;
+  document.getElementById("debugMode").checked = settings.debugMode;
 }
 
 async function loadSettings() {
@@ -44,21 +51,43 @@ form.addEventListener("submit", async (event) => {
     showLanguages: document.getElementById("showLanguages").checked,
     showDirector: document.getElementById("showDirector").checked,
     showCountry: document.getElementById("showCountry").checked,
-    dimLowRated: document.getElementById("dimLowRated").checked
+    dimLowRated: document.getElementById("dimLowRated").checked,
+    debugMode: document.getElementById("debugMode").checked
   };
 
   await extensionApi.storage.local.set({
     [SETTINGS_STORAGE_KEY]: settings
   });
 
-  statusNode.textContent = "Saved.";
+  setStatus("Saved.");
   globalThis.setTimeout(() => {
     if (statusNode.textContent === "Saved.") {
-      statusNode.textContent = "";
+      setStatus("");
     }
   }, 1500);
 });
 
+refreshButton.addEventListener("click", async () => {
+  refreshButton.disabled = true;
+  setStatus("Refreshing extension scores cache…");
+
+  try {
+    const result = await extensionApi.runtime.sendMessage({
+      type: "criterion-imdb:refresh-extension-cache"
+    });
+    const snapshotDate = result?.bundleGeneratedAt
+      ? new Date(result.bundleGeneratedAt).toLocaleString()
+      : "the current cache snapshot";
+    const datasetCount = Number.isFinite(result?.datasetCount) ? result.datasetCount : "current";
+    const dataSource = result?.dataSource || "the bundled extension cache";
+    setStatus(`Scores cache refreshed. Reload your Criterion tab to use ${datasetCount} entries from ${dataSource} (${snapshotDate}).`);
+  } catch (error) {
+    setStatus(error.message || "Could not refresh extension scores cache.");
+  } finally {
+    refreshButton.disabled = false;
+  }
+});
+
 loadSettings().catch((error) => {
-  statusNode.textContent = error.message || "Could not load settings.";
+  setStatus(error.message || "Could not load settings.");
 });

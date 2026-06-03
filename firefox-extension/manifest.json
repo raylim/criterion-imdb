@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Criterion IMDb Overlay",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Overlay IMDb ratings and film metadata on Criterion pages.",
   "permissions": [
     "storage"
@@ -10,7 +10,9 @@
     "https://www.criterion.com/*",
     "https://criterionchannel.com/*",
     "https://www.criterionchannel.com/*",
-    "https://films.criterionchannel.com/*"
+    "https://films.criterionchannel.com/*",
+    "https://raylim.github.io/*",
+    "https://raw.githubusercontent.com/*"
   ],
   "background": {
     "scripts": [
@@ -41,7 +43,12 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "criterion-imdb-overlay@example.com"
+      "id": "criterion-imdb-overlay@example.com",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
     }
   }
 }

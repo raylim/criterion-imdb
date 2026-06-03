@@ -93,6 +93,20 @@
       cursor: pointer;
     }
 
+    .secondary-button {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
     #status {
       min-height: 1.5em;
       color: var(--muted);
@@ -102,7 +116,7 @@
 <body>
   <main>
     <h1>Criterion IMDb Overlay</h1>
-    <p>Uses the bundled Criterion IMDb cache from this repo, then lets you choose what metadata appears on Criterion pages.</p>
+    <p>Uses the Criterion IMDb cache hosted from this repo when available, then falls back to the bundled copy inside the extension.</p>
 
     <form id="settings-form">
       <label>
@@ -124,8 +138,13 @@
         <label><input id="dimLowRated" type="checkbox"> Dim titles below the threshold</label>
       </section>
 
-      <div>
+      <section class="checks">
+        <label><input id="debugMode" type="checkbox"> Show debug status chip and candidate-match diagnostics</label>
+      </section>
+
+      <div class="actions">
         <button type="submit">Save settings</button>
+        <button id="refresh-cache" class="secondary-button" type="button">Fetch latest scores from GitHub</button>
       </div>
       <div id="status" aria-live="polite"></div>
     </form>

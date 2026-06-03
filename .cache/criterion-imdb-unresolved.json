@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-05-05T15:27:35.139Z",
-  "count": 855,
+  "updatedAt": "2026-06-03T14:46:35.415Z",
+  "count": 793,
   "items": [
     {
       "title": "21 Days",
@@ -20,17 +20,6 @@
       "country": "United Kingdom",
       "url": "https://www.criterionchannel.com/49th-parallel",
       "reason": "OMDb error for tt40938734: Error getting data.",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Aerie",
-      "year": 2024,
-      "director": "",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/aerie",
-      "reason": "OMDb error for tt34542645: Error getting data.",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -190,17 +179,6 @@
       "matchedYear": null
     },
     {
-      "title": "Now, Hear Me Good",
-      "year": 2025,
-      "director": "Dwayne LeBlanc",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/now-hear-me-good",
-      "reason": "OMDb error for tt34385102: Error getting data.",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "OctoGod",
       "year": 2019,
       "director": "Shievar Olegario",
@@ -289,17 +267,6 @@
       "matchedYear": null
     },
     {
-      "title": "Seven Second Love Affair",
-      "year": 1965,
-      "director": "Robert Abel",
-      "country": "",
-      "url": "https://www.criterionchannel.com/seven-second-love-affair",
-      "reason": "OMDb error for tt38865898: Error getting data.",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Sinclair",
       "year": 2010,
       "director": "Guy Maddin",
@@ -382,17 +349,6 @@
       "director": "Mira Nair",
       "country": "United States",
       "url": "https://www.criterionchannel.com/11-09-01-september-11",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "65 Revisited",
-      "year": 2007,
-      "director": "D. A. Pennebaker",
-      "country": "",
-      "url": "https://www.criterionchannel.com/65-revisited",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -1026,17 +982,6 @@
       "matchedYear": null
     },
     {
-      "title": "BASQUIAT - Black and White Version",
-      "year": 2024,
-      "director": "Julian Schnabel",
-      "country": "",
-      "url": "https://www.criterionchannel.com/basquiat-1",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Bata Wormhole",
       "year": 2020,
       "director": "Jake Meginsky",
@@ -1268,17 +1213,6 @@
       "matchedYear": null
     },
     {
-      "title": "Big Ben Beat",
-      "year": 2025,
-      "director": "Richard Ayoade",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/big-ben-beat",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "The Big Trim",
       "year": 2020,
       "director": "John Magary",
@@ -1327,7 +1261,7 @@
       "year": 2014,
       "director": "Shikeith",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/blackmendream",
+      "url": "https://www.criterionchannel.com/videos/blackmendream",
       "reason": "IMDb rating missing for tt8119302",
       "imdbId": null,
       "matchedTitle": null,
@@ -1950,17 +1884,6 @@
       "matchedYear": null
     },
     {
-      "title": "Caring Cabin",
-      "year": 2025,
-      "director": "",
-      "country": "Canada",
-      "url": "https://www.criterionchannel.com/caring-cabin",
-      "reason": "IMDb rating missing for tt37509402",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Carlos: Part 1",
       "year": 2010,
       "director": "Olivier Assayas",
@@ -2000,17 +1923,6 @@
       "country": "United States",
       "url": "https://www.criterionchannel.com/carne-seca",
       "reason": "IMDb rating missing for tt4328638",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Carol & Joy",
-      "year": 2025,
-      "director": "Nathan Silver",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/carol-joy",
-      "reason": "IMDb rating missing for tt37899809",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -2176,17 +2088,6 @@
       "country": "United States",
       "url": "https://www.criterionchannel.com/christopher-and-me",
       "reason": "IMDb rating missing for tt7030414",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Chuu Chuu",
-      "year": 2022,
-      "director": "",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/chuu-chuu",
-      "reason": "IMDb rating missing for tt18648274",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -2522,17 +2423,6 @@
       "matchedYear": null
     },
     {
-      "title": "A Documentary About Transit",
-      "year": 1971,
-      "director": "Sara Gómez",
-      "country": "Cuba",
-      "url": "https://www.criterionchannel.com/a-documentary-about-transit",
-      "reason": "IMDb rating missing for tt35665094",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Dog Movie",
       "year": 2023,
       "director": "Henry Hanson",
@@ -2638,17 +2528,6 @@
       "country": "France",
       "url": "https://www.criterionchannel.com/du-cote-de-la-cote",
       "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Dugout Dick",
-      "year": 2022,
-      "director": "Harrod Blank and Joanne Shen",
-      "country": "",
-      "url": "https://www.criterionchannel.com/dugout-dick",
-      "reason": "IMDb rating missing for tt18672010",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -3100,17 +2979,6 @@
       "country": "United States",
       "url": "https://www.criterionchannel.com/everybody-s-watching",
       "reason": "IMDb rating missing for tt12605136",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Excursion to Vueltabajo",
-      "year": 1965,
-      "director": "Sara Gómez",
-      "country": "Cuba",
-      "url": "https://www.criterionchannel.com/excursion-to-vueltabajo",
-      "reason": "IMDb rating missing for tt35664769",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -4216,17 +4084,6 @@
       "matchedYear": null
     },
     {
-      "title": "God Is Good",
-      "year": 2024,
-      "director": "C Prinz",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/god-is-good",
-      "reason": "IMDb rating missing for tt34208918",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Godzilla",
       "year": 1954,
       "director": "Ishiro Honda",
@@ -4298,204 +4155,6 @@
       "director": "Jake Meginsky and Sarah Lanzillotta",
       "country": "United States",
       "url": "https://www.criterionchannel.com/graves-in-the-garden",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Anchovy",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-anchovy",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Anglerfish",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-anglerfish",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Barnacle",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-barnacle",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Bee",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-bee",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Dragonfly",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-dragonfly",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Elephant Seal",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-elephant-seal",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Firefly",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-firefly",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Fly",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-fly",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Limpet",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-limpet",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Mantis",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-mantis",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Shrimp",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-shrimp",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Snail",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-snail",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Spider",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-spider",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Squid",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-squid",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Starfish",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-starfish",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Whale",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-whale",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Why Vagina",
-      "year": 2009,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-why-vagina",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "GREEN PORNO: Worm",
-      "year": 2008,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/green-porno-worm",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -4810,17 +4469,6 @@
       "matchedYear": null
     },
     {
-      "title": "Hinkelten",
-      "year": 2023,
-      "director": "Svetlana Romanova",
-      "country": "",
-      "url": "https://www.criterionchannel.com/hinkelten",
-      "reason": "IMDb rating missing for tt32327720",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Hito",
       "year": 2023,
       "director": "Stephen Lopez",
@@ -5001,7 +4649,7 @@
       "year": 2023,
       "director": "Silvia Del Carmen Castaños and Estefanía \"Beba\" Contreras",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/hummingbirds",
+      "url": "https://www.criterionchannel.com/videos/hummingbirds",
       "reason": "IMDb rating missing for tt26773767",
       "imdbId": null,
       "matchedTitle": null,
@@ -5045,7 +4693,7 @@
       "year": 1993,
       "director": "H. Lenn Keller",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/ife",
+      "url": "https://www.criterionchannel.com/videos/ife",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -5201,17 +4849,6 @@
       "country": "Canada",
       "url": "https://www.criterionchannel.com/it-s-him",
       "reason": "IMDb rating missing for tt6841378",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "It Smells Like Springtime",
-      "year": 2022,
-      "director": "Mackie Mallison",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/it-smells-like-springtime",
-      "reason": "IMDb rating missing for tt22027508",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -5547,28 +5184,6 @@
       "matchedYear": null
     },
     {
-      "title": "Lemmings, Part 2: Injuries",
-      "year": 1979,
-      "director": "Michael Haneke",
-      "country": "Austria",
-      "url": "https://www.criterionchannel.com/lemmings-part-2-injuries",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Lemmings, Part 1: Arcades",
-      "year": 1979,
-      "director": "Michael Haneke",
-      "country": "Austria",
-      "url": "https://www.criterionchannel.com/lemmings-part-1-arcadia",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Lemon",
       "year": 1969,
       "director": "Hollis Frampton",
@@ -5586,17 +5201,6 @@
       "country": "United States",
       "url": "https://www.criterionchannel.com/lessons-in-semaphore",
       "reason": "IMDb rating missing for tt29283638",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Lettre de la Sierra Morena",
-      "year": 1983,
-      "director": "Jacques Rozier",
-      "country": "",
-      "url": "https://www.criterionchannel.com/lettre-de-la-sierra-morena",
-      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -5745,6 +5349,17 @@
       "matchedYear": null
     },
     {
+      "title": "The Love That Remains",
+      "year": 2025,
+      "director": "Hlynur Pálmason",
+      "country": "Iceland",
+      "url": "https://www.criterionchannel.com/the-love-that-remains",
+      "reason": "IMDb rating missing for tt33381401",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
       "title": "Lumiere, Le Cinema!",
       "year": 2025,
       "director": "",
@@ -5844,33 +5459,11 @@
       "matchedYear": null
     },
     {
-      "title": "Magellan",
-      "year": 2025,
-      "director": "Lav Diaz",
-      "country": "Philippines",
-      "url": "https://www.criterionchannel.com/magellan",
-      "reason": "IMDb rating missing for tt36456563",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "The Magic Horse",
       "year": 1953,
       "director": "Lotte Reiniger",
       "country": "United Kingdom",
       "url": "https://www.criterionchannel.com/the-magic-horse",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "The Magnificent Butcher: English-Dubbed Version",
-      "year": 1979,
-      "director": "",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/the-magnificent-butcher-english-dubbed-version",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -5894,116 +5487,6 @@
       "country": "Palestinian Territory",
       "url": "https://www.criterionchannel.com/ma-loul-celebrates-its-destruction",
       "reason": "IMDb rating missing for tt9759376",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Cichlid Fish",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-cichlid-fish",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Cuckoo",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-cuckoo",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Dunnock",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-dunnock",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Hamster",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-hamster",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Maternal Instinct",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-maternal-instinct",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Oil Beetle",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-oil-beetle",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Piping Plover",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-piping-plover",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Spider",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-spider",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Toad",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-toad",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "MAMMAS: Wasp",
-      "year": 2013,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/mammas-wasp",
-      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -6064,22 +5547,11 @@
       "matchedYear": null
     },
     {
-      "title": "Maurice Pialat: Love Exists",
-      "year": 2007,
-      "director": "Jean-Pierre Devillers and Anne-Marie Faux",
-      "country": "",
-      "url": "https://www.criterionchannel.com/maurice-pialat-love-exists",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Max",
       "year": 1992,
       "director": "Monika Treut",
       "country": "Germany",
-      "url": "https://www.criterionchannel.com/max",
+      "url": "https://www.criterionchannel.com/videos/max",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -6211,7 +5683,7 @@
       "year": 2022,
       "director": "Jude Dry",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/monsieur-le-butch",
+      "url": "https://www.criterionchannel.com/videos/monsieur-le-butch",
       "reason": "IMDb rating missing for tt17678676",
       "imdbId": null,
       "matchedTitle": null,
@@ -6526,28 +5998,6 @@
       "matchedYear": null
     },
     {
-      "title": "Nostos",
-      "year": 2024,
-      "director": "Sofia Camargo",
-      "country": "Colombia",
-      "url": "https://www.criterionchannel.com/nostos",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Le notti bianche",
-      "year": 1957,
-      "director": "Luchino Visconti",
-      "country": "Italy",
-      "url": "https://www.criterionchannel.com/le-notti-bianche",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Nou Voix",
       "year": 2018,
       "director": "Maxime Jean-Baptiste",
@@ -6708,17 +6158,6 @@
       "country": "Cuba",
       "url": "https://www.criterionchannel.com/on-sugar-workers-quarters",
       "reason": "IMDb rating missing for tt35665199",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Opened Ending",
-      "year": 2020,
-      "director": "Jem Cohen",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/opened-ending",
-      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -7010,17 +6449,6 @@
       "matchedYear": null
     },
     {
-      "title": "ping pong ping pong ping pong ping pong ping pong",
-      "year": 2024,
-      "director": "Daphne Xu",
-      "country": "",
-      "url": "https://www.criterionchannel.com/ping-pong-ping-pong-ping-pong-ping-pong-ping-pong",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "A Place on the Edge of Breath",
       "year": 2022,
       "director": "Veronica Rutledge",
@@ -7065,17 +6493,6 @@
       "matchedYear": null
     },
     {
-      "title": "Prenatal Care",
-      "year": 1972,
-      "director": "Sara Gómez",
-      "country": "Cuba",
-      "url": "https://www.criterionchannel.com/prenatal-care",
-      "reason": "IMDb rating missing for tt13435400",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Presentation, or Charlotte and Her Steak",
       "year": 1951,
       "director": "Eric Rohmer",
@@ -7102,7 +6519,7 @@
       "year": 2023,
       "director": "Pierre Creton",
       "country": "France",
-      "url": "https://www.criterionchannel.com/a-prince",
+      "url": "https://www.criterionchannel.com/videos/a-prince",
       "reason": "IMDb rating missing for tt27706804",
       "imdbId": null,
       "matchedTitle": null,
@@ -7192,17 +6609,6 @@
       "country": "Belgium",
       "url": "https://www.criterionchannel.com/queens-of-drama",
       "reason": "IMDb rating missing for tt28349668",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Queens of the Stone Age: Alive in the Catacombs",
-      "year": 2024,
-      "director": "Thomas Rame",
-      "country": "",
-      "url": "https://www.criterionchannel.com/queens-of-the-stone-age-alive-in-the-catacombs",
-      "reason": "IMDb rating missing for tt37256920",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -7604,116 +7010,6 @@
       "matchedYear": null
     },
     {
-      "title": "SEDUCE ME: Bedbug",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-bedbug",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Cuttlefish",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-cuttlefish",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Deer",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-deer",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Dolphin",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-dolphin",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Duck",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-duck",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Noah’s Ark",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-noah-s-ark",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Salmon",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-salmon",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Seahorse",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-seahorse",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Snake",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-snake",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "SEDUCE ME: Spider",
-      "year": 2010,
-      "director": "Isabella Rossellini",
-      "country": "",
-      "url": "https://www.criterionchannel.com/videos/seduce-me-spider",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Seoul 1988",
       "year": 1989,
       "director": "Lee Kwang-soo",
@@ -7923,17 +7219,6 @@
       "matchedYear": null
     },
     {
-      "title": "Spacewoman",
-      "year": 2018,
-      "director": "Richard Ayoade",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/spacewoman",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Spanky: To the Pier and Back",
       "year": 2008,
       "director": "Guy Maddin",
@@ -7960,7 +7245,7 @@
       "year": 1992,
       "director": "Susan Muska",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/stafford-s-story",
+      "url": "https://www.criterionchannel.com/videos/stafford-s-story",
       "reason": "IMDb rating missing for tt0137218",
       "imdbId": null,
       "matchedTitle": null,
@@ -8181,17 +7466,6 @@
       "director": "Claude Autant-Lara",
       "country": "France",
       "url": "https://www.criterionchannel.com/sylvie-et-le-fantome",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Symbiopsychotaxiplasm: Two Takes by William Greaves",
-      "year": 0,
-      "director": "William Greaves",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/symbiopsychotaxiplasm-take-one",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -8532,7 +7806,7 @@
       "year": 1994,
       "director": "Sophie E. Constantinou",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/trans",
+      "url": "https://www.criterionchannel.com/videos/trans",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -8599,17 +7873,6 @@
       "director": "Lindsay McIntyre",
       "country": "",
       "url": "https://www.criterionchannel.com/tuktuit",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "The Tuner",
-      "year": 2004,
-      "director": "Kira Muratova",
-      "country": "Russia",
-      "url": "https://www.criterionchannel.com/the-tuner",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -8715,17 +7978,6 @@
       "matchedYear": null
     },
     {
-      "title": "Undercurrent",
-      "year": 1956,
-      "director": "Kozaburo Yoshimura",
-      "country": "",
-      "url": "https://www.criterionchannel.com/undercurrent-1",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
       "title": "Underground",
       "year": 1976,
       "director": "Haskell Wexler, Emile de Antonio, and Mary Lampson",
@@ -8808,17 +8060,6 @@
       "director": "Ishiro Honda",
       "country": "Japan",
       "url": "https://www.criterionchannel.com/varan-the-unbelievable",
-      "reason": "No confident IMDb match found",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Varda by Agnès",
-      "year": 2019,
-      "director": "Agnès Varda",
-      "country": "France",
-      "url": "https://www.criterionchannel.com/varda-by-agnes",
       "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
@@ -8983,7 +8224,7 @@
       "year": 2013,
       "director": "Monique Walton",
       "country": "United States",
-      "url": "https://www.criterionchannel.com/we-will-always-be-here",
+      "url": "https://www.criterionchannel.com/videos/we-will-always-be-here",
       "reason": "IMDb rating missing for tt18412910",
       "imdbId": null,
       "matchedTitle": null,
@@ -9265,12 +8506,56 @@
       "matchedYear": null
     },
     {
-      "title": "Zydeco",
-      "year": 1984,
-      "director": "Nicholas R. Spitzer",
-      "country": "",
-      "url": "https://www.criterionchannel.com/zydeco",
-      "reason": "IMDb rating missing for tt35418288",
+      "title": "Rupert Remembers",
+      "year": 2000,
+      "director": "Xanthra Phillippa Mackay",
+      "country": "Canada",
+      "url": "https://www.criterionchannel.com/lgbtq-favorites/season:1/videos/rupert-remembers",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Gender Troublemakers",
+      "year": 1993,
+      "director": "Mirha-Soleil Ross and Xanthra Phillippa Mackay",
+      "country": "Canada",
+      "url": "https://www.criterionchannel.com/lgbtq-favorites/season:1/videos/gender-troublemakers",
+      "reason": "IMDb rating missing for tt29045136",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "By the Kiss",
+      "year": 2006,
+      "director": "Yann Gonzalez",
+      "country": "France",
+      "url": "https://www.criterionchannel.com/short-films-by-yann-gonzalez/season:1/videos/by-the-kiss",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Intermission",
+      "year": 2007,
+      "director": "Yann Gonzalez",
+      "country": "France",
+      "url": "https://www.criterionchannel.com/short-films-by-yann-gonzalez/season:1/videos/intermission",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "THE MAGNIFICENT BUTCHER: English-Dubbed Version",
+      "year": 1979,
+      "director": "Yuen Woo-ping",
+      "country": "Hong Kong",
+      "url": "https://www.criterionchannel.com/sammo-hung-kicks-ass/season:1/videos/the-magnificent-butcher-english-dubbed-version",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -9402,6 +8687,39 @@
       "director": "Neil Jordan",
       "country": "United States",
       "url": "https://www.criterionchannel.com/we-re-no-angels-1",
+      "reason": "fetch failed",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Basquiat",
+      "year": 2024,
+      "director": "Julian Schnabel",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/starring-courtney-love/season:1/videos/basquiat-black-and-white-version",
+      "reason": "fetch failed",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Walker",
+      "year": 1987,
+      "director": "Alex Cox",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/directed-by-alex-cox",
+      "reason": "fetch failed",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Haiti: The Way to Freedom",
+      "year": 1973,
+      "director": "Arnold Antonin",
+      "country": "Haiti",
+      "url": "https://www.criterionchannel.com/caribbean-activist-cinema/season:1/videos/haiti-the-way-to-freedom",
       "reason": "fetch failed",
       "imdbId": null,
       "matchedTitle": null,

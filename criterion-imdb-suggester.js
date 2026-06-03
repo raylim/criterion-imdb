@@ -5,6 +5,7 @@ const path = require("path");
 const { execFileSync } = require("child_process");
 
 const CRITERION_FILMS_URL = "https://films.criterionchannel.com/";
+const CRITERION_BROWSE_URL = "https://www.criterionchannel.com/browse";
 const DEFAULT_CACHE_FILE = path.join(__dirname, ".cache", "criterion-imdb-cache.json");
 const DEFAULT_CONCURRENCY = 1;
 const DEFAULT_HTML_FILE = path.join(__dirname, ".cache", "criterion-movies.html");
@@ -12,6 +13,7 @@ const DEFAULT_ALIAS_FILE = path.join(__dirname, "criterion-imdb-aliases.json");
 const DEFAULT_UNRESOLVED_FILE = path.join(__dirname, ".cache", "criterion-imdb-unresolved.json");
 const DEFAULT_BUNDLED_CACHE_FILE = path.join(__dirname, "firefox-extension", "data", "criterion-cache.json");
 const DEFAULT_MANUAL_BUNDLED_FILE = path.join(__dirname, "criterion-imdb-manual.json");
+const DEFAULT_SUPPLEMENTAL_URLS_FILE = path.join(__dirname, "criterion-imdb-supplemental-urls.json");
 const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
 const MATCHER_VERSION = 6;
 const ALLOWED_IMDB_KINDS = new Set(["movie", "feature", "TV movie", "tvMovie", "short", "tvShort", "tvSpecial"]);
@@ -35,6 +37,7 @@ function parseArgs(argv) {
     unresolvedFile: DEFAULT_UNRESOLVED_FILE,
     bundledCacheFile: DEFAULT_BUNDLED_CACHE_FILE,
     manualBundledFile: DEFAULT_MANUAL_BUNDLED_FILE,
+    supplementalUrlsFile: DEFAULT_SUPPLEMENTAL_URLS_FILE,
     omdbApiKeys: parseOmdbKeys(process.env.OMDB_API_KEYS || process.env.OMDB_API_KEY || ""),
     html: false,
     htmlFile: DEFAULT_HTML_FILE,
@@ -89,6 +92,9 @@ function parseArgs(argv) {
       i += 1;
     } else if (arg === "--manual-bundled-file" && next) {
       args.manualBundledFile = path.resolve(next);
+      i += 1;
+    } else if (arg === "--supplemental-urls-file" && next) {
+      args.supplementalUrlsFile = path.resolve(next);
       i += 1;
     } else if (arg === "--omdb-api-key" && next) {
       args.omdbApiKeys = parseOmdbKeys(next);
@@ -162,6 +168,7 @@ Options:
   --cache-file <path>   Override the cache file path
   --alias-file <path>   Override the alias file path
   --unresolved-file <path> Override the unresolved report path
+  --supplemental-urls-file <path> Override the supplemental page URL file
   --omdb-api-key <keys> Use OMDb keys, comma-separated if multiple
   --html                Write a browsable HTML page
   --html-file <path>    Override the HTML output path
@@ -228,6 +235,22 @@ function loadAliasMap(aliasFile) {
   return {};
 }
 
+function loadSupplementalUrls(filePath) {
+  try {
+    const raw = fs.readFileSync(filePath, "utf8");
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      return parsed.filter((item) => typeof item === "string" && item.trim());
+    }
+  } catch (error) {
+    if (error.code !== "ENOENT") {
+      console.warn(`Could not read supplemental URL file ${filePath}: ${error.message}`);
+    }
+  }
+
+  return [];
+}
+
 function decodeHtml(text) {
   return text
     .replace(/&amp;/g, "&")
@@ -244,6 +267,10 @@ function stripTags(text) {
 
 function cleanCountry(text) {
   return stripTags(text).replace(/\s*,\s*$/, "").trim();
+}
+
+function escapeRegExp(text) {
+  return String(text || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function normalizeText(text) {
@@ -448,6 +475,394 @@ async function fetchCriterionFilms() {
       return { title, director, country, year, url };
     })
     .filter(Boolean);
+}
+
+function isBrowsableFilmUrl(url) {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== "www.criterionchannel.com") {
+      return false;
+    }
+
+    const pathname = parsed.pathname.replace(/\/+$/, "") || "/";
+    if (
+      pathname === "/" ||
+      pathname === "/browse" ||
+      pathname === "/search" ||
+      pathname === "/my-list" ||
+      pathname === "/continue-watching" ||
+      pathname === "/watch-live" ||
+      pathname === "/help" ||
+      pathname === "/tos" ||
+      pathname === "/privacy" ||
+      pathname === "/cookies" ||
+      pathname === "/new-collections" ||
+      pathname === "/top-stories"
+    ) {
+      return false;
+    }
+
+    return !/^\/(events|checkout|gift|account)(\/|$)/.test(pathname);
+  } catch (_error) {
+    return false;
+  }
+}
+
+function parseCriterionChannelPage(url, html) {
+  const title = stripTags((html.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || "")
+    .replace(/\s*-\s*The Criterion Channel\s*$/i, "")
+    .trim();
+  const description = decodeHtml((html.match(/<meta name="description" content="([\s\S]*?)"\s*\/?>/i) || [])[1] || "");
+  const detailsMatch = description.match(/Directed by\s+(.+?)\s+•\s+(\d{4})\s+•\s+([^\n<"]+)/i);
+
+  if (!title || !detailsMatch) {
+    return null;
+  }
+
+  return {
+    title,
+    director: stripTags(detailsMatch[1] || ""),
+    year: Number.parseInt(detailsMatch[2], 10),
+    country: cleanCountry(detailsMatch[3] || ""),
+    url
+  };
+}
+
+function parseJsonDataPropsObjects(html) {
+  return [...html.matchAll(/data-props="([\s\S]*?)"/gi)]
+    .map((match) => {
+      try {
+        return JSON.parse(decodeHtml(match[1] || ""));
+      } catch (_error) {
+        return null;
+      }
+    })
+    .filter(Boolean);
+}
+
+function parseBrowseRowsPayload(html) {
+  return parseJsonDataPropsObjects(html).find((item) => item && item.rows) || null;
+}
+
+function normalizeCriterionUrl(url) {
+  try {
+    const parsed = new URL(url);
+    parsed.hash = "";
+    parsed.search = "";
+    return parsed.href.replace(/\/+$/, "");
+  } catch (_error) {
+    return String(url || "").replace(/[?#].*$/, "").replace(/\/+$/, "");
+  }
+}
+
+function isCriterionCollectionUrl(url) {
+  try {
+    const parsed = new URL(url);
+    if (parsed.hostname !== "www.criterionchannel.com") {
+      return false;
+    }
+
+    const pathname = parsed.pathname.replace(/\/+$/, "") || "/";
+    if (
+      pathname === "/" ||
+      pathname === "/browse" ||
+      pathname === "/search" ||
+      pathname === "/my-list" ||
+      pathname === "/continue-watching" ||
+      pathname === "/help" ||
+      pathname === "/tos" ||
+      pathname === "/privacy" ||
+      pathname === "/cookies"
+    ) {
+      return false;
+    }
+
+    return !isCriterionVideoUrl(url) && !/^\/(events|checkout|gift|account|login)(\/|$)/.test(pathname);
+  } catch (_error) {
+    return false;
+  }
+}
+
+function isCriterionVideoUrl(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.hostname === "www.criterionchannel.com" && /(^|\/)videos(\/|$)/i.test(parsed.pathname);
+  } catch (_error) {
+    return false;
+  }
+}
+
+function parsePaginationPageCount(url, fallbackCount = 1) {
+  try {
+    const parsed = new URL(url);
+    const page = Number.parseInt(parsed.searchParams.get("page"), 10);
+    return Number.isInteger(page) && page > 0 ? page : fallbackCount;
+  } catch (_error) {
+    return fallbackCount;
+  }
+}
+
+function extractBrowseCollectionUrlsFromPayload(payload) {
+  const items = payload?.rows?._embedded?.items || [];
+
+  return [...new Set(
+    items
+      .map((item) => normalizeCriterionUrl(item?._links?.collection_page?.href || ""))
+      .filter(isCriterionCollectionUrl)
+  )];
+}
+
+function browsePageUrl(pageNumber) {
+  if (pageNumber <= 1) {
+    return CRITERION_BROWSE_URL;
+  }
+
+  return `${CRITERION_BROWSE_URL}?page=${pageNumber}`;
+}
+
+async function fetchBrowseCollectionUrls(args) {
+  const firstHtml = await fetchText(CRITERION_BROWSE_URL);
+  const firstPayload = parseBrowseRowsPayload(firstHtml);
+  if (!firstPayload) {
+    return [];
+  }
+
+  const firstUrls = extractBrowseCollectionUrlsFromPayload(firstPayload);
+  const lastHref = firstPayload.rows?._links?.last?.href || firstPayload.rows?._links?.self?.href || "";
+  const pageCount = parsePaginationPageCount(lastHref, 1);
+  const otherPageNumbers = [];
+
+  for (let pageNumber = 2; pageNumber <= pageCount; pageNumber += 1) {
+    otherPageNumbers.push(pageNumber);
+  }
+
+  const otherPages = await mapWithConcurrency(otherPageNumbers, args.concurrency, async (pageNumber) => {
+    try {
+      const html = await fetchText(browsePageUrl(pageNumber));
+      return parseBrowseRowsPayload(html);
+    } catch (error) {
+      console.warn(`Could not fetch browse page ${pageNumber}: ${error.message}`);
+      return null;
+    }
+  });
+
+  return [...new Set([
+    ...firstUrls,
+    ...otherPages
+      .filter(Boolean)
+      .flatMap((payload) => extractBrowseCollectionUrlsFromPayload(payload)),
+  ])];
+}
+
+function extractCollectionVideoUrls(html, baseUrl) {
+  return [...new Set(
+    [...html.matchAll(/href="([^"#?]+)"/gi)]
+      .map((match) => {
+        try {
+          return normalizeCriterionUrl(new URL(match[1], baseUrl).href);
+        } catch (_error) {
+          return "";
+        }
+      })
+      .filter(isCriterionVideoUrl)
+  )];
+}
+
+function extractCollectionItemBlocks(html) {
+  return html.match(/<li[\s\S]*?class="js-collection-item[\s\S]*?<\/li>/gi) || [];
+}
+
+function extractCollectionItemHref(block, baseUrl) {
+  const rawHref = block.match(/<a[^>]+href="([^"]+)"/i)?.[1] || "";
+  if (!rawHref) {
+    return "";
+  }
+
+  try {
+    return normalizeCriterionUrl(new URL(rawHref, baseUrl).href);
+  } catch (_error) {
+    return "";
+  }
+}
+
+function extractCollectionFilmFromBlock(block, baseUrl) {
+  const itemType = (block.match(/data-item-type="([^"]+)"/i)?.[1] || "").toLowerCase();
+  if (!["movie", "video"].includes(itemType)) {
+    return null;
+  }
+
+  const url = extractCollectionItemHref(block, baseUrl);
+  const title =
+    stripTags(block.match(/<strong[^>]*title="([^"]+)"/i)?.[1] || "") ||
+    stripTags(block.match(/<h3[^>]*>\s*<strong>([\s\S]*?)<\/strong>/i)?.[1] || "");
+  const detailsMatch = block.match(/Directed by\s+(.+?)\s+•\s+(\d{4})\s+•\s+([^<\n]+)/i);
+  const year = Number.parseInt(detailsMatch?.[2], 10);
+
+  if (!title || !Number.isInteger(year) || !url) {
+    return null;
+  }
+
+  return {
+    title: decodeHtml(title).trim(),
+    director: stripTags(detailsMatch?.[1] || "").trim(),
+    year,
+    country: cleanCountry(detailsMatch?.[3] || ""),
+    url,
+  };
+}
+
+function extractNestedCollectionUrlsFromBlock(block, baseUrl) {
+  const itemType = (block.match(/data-item-type="([^"]+)"/i)?.[1] || "").toLowerCase();
+  if (["movie", "video"].includes(itemType)) {
+    return [];
+  }
+
+  const href = extractCollectionItemHref(block, baseUrl);
+  return isCriterionCollectionUrl(href) ? [href] : [];
+}
+
+function parseCollectionPage(html, pageUrl) {
+  const blocks = extractCollectionItemBlocks(html);
+  const films = [];
+  const nestedCollectionUrls = new Set();
+
+  for (const block of blocks) {
+    const film = extractCollectionFilmFromBlock(block, pageUrl);
+    if (film) {
+      films.push(film);
+      continue;
+    }
+
+    for (const nestedUrl of extractNestedCollectionUrlsFromBlock(block, pageUrl)) {
+      nestedCollectionUrls.add(nestedUrl);
+    }
+  }
+
+  return {
+    films,
+    nestedCollectionUrls: [...nestedCollectionUrls],
+  };
+}
+
+async function fetchCriterionChannelPagePayloads(urls, args) {
+  return mapWithConcurrency(urls, args.concurrency, async (url) => {
+    try {
+      const html = await fetchText(url);
+      return {
+        url,
+        html,
+        film: parseCriterionChannelPage(url, html),
+      };
+    } catch (error) {
+      console.warn(`Could not fetch supplemental Criterion page ${url}: ${error.message}`);
+      return null;
+    }
+  });
+}
+
+async function fetchCriterionChannelPages(urls, args) {
+  const payloads = (await fetchCriterionChannelPagePayloads(urls, args)).filter(Boolean);
+  const seenUrls = new Set(payloads.map((payload) => payload.url));
+  const nestedVideoUrls = [...new Set(
+    payloads.flatMap((payload) => payload.film ? [] : extractCollectionVideoUrls(payload.html, payload.url))
+  )].filter((url) => !seenUrls.has(url));
+  const nestedPayloads = (await fetchCriterionChannelPagePayloads(nestedVideoUrls, args)).filter(Boolean);
+
+  return [...payloads, ...nestedPayloads]
+    .map((payload) => payload.film)
+    .filter(Boolean);
+}
+
+async function fetchBrowseSupplement(args) {
+  const seedCollectionUrls = await fetchBrowseCollectionUrls(args);
+  const seenCollectionUrls = new Set();
+  const seenFilmUrls = new Set();
+  const films = [];
+  let pendingCollectionUrls = seedCollectionUrls.slice();
+
+  while (pendingCollectionUrls.length > 0) {
+    const batch = pendingCollectionUrls;
+    pendingCollectionUrls = [];
+
+    const payloads = await mapWithConcurrency(batch, args.concurrency, async (url) => {
+      if (seenCollectionUrls.has(url)) {
+        return null;
+      }
+
+      seenCollectionUrls.add(url);
+
+      try {
+        const html = await fetchText(url);
+        return {
+          url,
+          parsed: parseCollectionPage(html, url),
+        };
+      } catch (error) {
+        console.warn(`Could not fetch collection page ${url}: ${error.message}`);
+        return null;
+      }
+    });
+
+    for (const payload of payloads.filter(Boolean)) {
+      for (const film of payload.parsed.films) {
+        const normalizedUrl = normalizeCriterionUrl(film.url);
+        if (seenFilmUrls.has(normalizedUrl)) {
+          continue;
+        }
+
+        seenFilmUrls.add(normalizedUrl);
+        films.push(film);
+      }
+
+      for (const nestedUrl of payload.parsed.nestedCollectionUrls) {
+        if (!seenCollectionUrls.has(nestedUrl)) {
+          pendingCollectionUrls.push(nestedUrl);
+        }
+      }
+    }
+  }
+
+  return {
+    films,
+    collectionUrlCount: seedCollectionUrls.length,
+    crawledCollectionUrlCount: seenCollectionUrls.size,
+  };
+}
+
+function mergeCriterionFilms(primaryFilms, supplementalFilms) {
+  const merged = new Map();
+
+  for (const film of [...primaryFilms, ...supplementalFilms]) {
+    if (!film || !film.title || !Number.isInteger(film.year) || !film.url) {
+      continue;
+    }
+
+    const key = [
+      normalizeText(film.title),
+      film.year,
+      normalizeText(film.director || ""),
+    ].join("|");
+    const existing = merged.get(key);
+
+    if (!existing) {
+      merged.set(key, film);
+      continue;
+    }
+
+    const existingIsVideo = isCriterionVideoUrl(existing.url);
+    const nextIsVideo = isCriterionVideoUrl(film.url);
+
+    if (existingIsVideo && !nextIsVideo) {
+      merged.set(key, film);
+      continue;
+    }
+
+    if (existingIsVideo === nextIsVideo && film.url.length < existing.url.length) {
+      merged.set(key, film);
+    }
+  }
+
+  return [...merged.values()];
 }
 
 function filterFilms(films, args) {
@@ -1386,7 +1801,12 @@ async function main() {
 
   const cache = loadCache(args.cacheFile);
   const aliasMap = loadAliasMap(args.aliasFile);
-  const allFilms = await fetchCriterionFilms();
+  const catalogFilms = await fetchCriterionFilms();
+  const browseSupplement = await fetchBrowseSupplement(args);
+  const explicitSupplementUrls = [...new Set(loadSupplementalUrls(args.supplementalUrlsFile))];
+  const explicitSupplementFilms = await fetchCriterionChannelPages(explicitSupplementUrls, args);
+  const supplementalFilms = mergeCriterionFilms(browseSupplement.films, explicitSupplementFilms);
+  const allFilms = mergeCriterionFilms(catalogFilms, supplementalFilms);
   const filteredFilms = prioritizeFilmsForLookup(filterFilms(allFilms, args), cache);
 
   if (filteredFilms.length === 0) {
@@ -1467,6 +1887,10 @@ async function main() {
     });
 
   console.log(`Criterion titles scanned: ${allFilms.length}`);
+  console.log(`Browse supplements added: ${supplementalFilms.length}`);
+  console.log(`Browse seed collections discovered: ${browseSupplement.collectionUrlCount}`);
+  console.log(`Browse collection pages crawled: ${browseSupplement.crawledCollectionUrlCount}`);
+  console.log(`Explicit supplemental URLs queried: ${explicitSupplementUrls.length}`);
   console.log(`Matched filters: ${filteredFilms.length}`);
   console.log(`New IMDb lookups this run: ${newLookups}`);
   console.log(`Cache file: ${args.cacheFile}`);
