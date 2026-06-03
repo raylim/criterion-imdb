@@ -23,12 +23,19 @@
     "/all-films"
   ]);
   const BLOCKED_ROW_HEADERS = new Set([
+    "archival treasures",
+    "observations on film art",
     "popular collections",
     "new collections",
     "featured collections",
     "recent collections",
-    "featured carousel"
+    "featured carousel",
+    "talking about movies"
   ]);
+  const BLOCKED_PROGRAM_TITLE_PATTERNS = [
+    "talking about movies",
+    "archival treasures"
+  ];
   const ALLOWED_TRACK_EVENTS = new Set([
     "site_movie",
     "site_video",
@@ -163,6 +170,11 @@
       clean === "featured collections" ||
       clean === "view all"
     );
+  }
+
+  function isBlockedProgramTitle(text) {
+    const clean = normalizeWhitespace(text).toLowerCase();
+    return BLOCKED_PROGRAM_TITLE_PATTERNS.some((pattern) => clean.includes(pattern));
   }
 
   function looksLikeExtraVideo(title, text) {
@@ -468,7 +480,7 @@
       return null;
     }
 
-    if (looksLikeSectionLabel(title)) {
+    if (looksLikeSectionLabel(title) || isBlockedProgramTitle(title)) {
       return null;
     }
 
@@ -478,6 +490,13 @@
     const containerText = normalizeWhitespace(container.innerText);
     const tooltipText = getTooltipText(container);
     const combinedText = normalizeWhitespace(`${containerText} ${tooltipText}`);
+    if (
+      isBlockedProgramTitle(title) ||
+      isBlockedProgramTitle(containerText) ||
+      isBlockedProgramTitle(tooltipText)
+    ) {
+      return null;
+    }
     if (!isSeriesCard && looksLikeCollectionText(containerText)) {
       return null;
     }
@@ -530,5 +549,10 @@
 
   globalScope.CriterionOverlayDom = {
     collectFilms
+  };
+  globalScope.__criterionOverlayDomTest = {
+    isLikelyFilmLink,
+    extractFilm,
+    getRowHeaderLabel
   };
 })(window);

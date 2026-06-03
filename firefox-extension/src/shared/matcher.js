@@ -244,29 +244,33 @@
   }
 
   async function searchCatalogForFilm(fetchImpl, film, apiKey) {
-    const url = `https://v3-cinemeta.strem.io/catalog/movie/top/search=${encodeURIComponent(film.title)}.json`;
-    const response = await fetchJson(fetchImpl, url);
-    const candidates = await Promise.all((response.metas || []).slice(0, 5).map(async (item) => {
-      if (!apiKey || !(item.imdb_id || item.id)) {
-        return item;
-      }
+    try {
+      const url = `https://v3-cinemeta.strem.io/catalog/movie/top/search=${encodeURIComponent(film.title)}.json`;
+      const response = await fetchJson(fetchImpl, url);
+      const candidates = await Promise.all((response.metas || []).slice(0, 5).map(async (item) => {
+        if (!apiKey || !(item.imdb_id || item.id)) {
+          return item;
+        }
 
-      try {
-        const omdb = await fetchOmdbById(fetchImpl, item.imdb_id || item.id, apiKey);
-        return {
-          ...item,
-          name: omdb.Title || item.name,
-          year: omdb.Year || item.year,
-          director: omdb.Director ? omdb.Director.split(",").map((part) => part.trim()) : item.director,
-          imdbRating: omdb.imdbRating,
-          genres: omdb.Genre ? omdb.Genre.split(",").map((part) => part.trim()) : item.genres
-        };
-      } catch (_error) {
-        return item;
-      }
-    }));
+        try {
+          const omdb = await fetchOmdbById(fetchImpl, item.imdb_id || item.id, apiKey);
+          return {
+            ...item,
+            name: omdb.Title || item.name,
+            year: omdb.Year || item.year,
+            director: omdb.Director ? omdb.Director.split(",").map((part) => part.trim()) : item.director,
+            imdbRating: omdb.imdbRating,
+            genres: omdb.Genre ? omdb.Genre.split(",").map((part) => part.trim()) : item.genres
+          };
+        } catch (_error) {
+          return item;
+        }
+      }));
 
-    return pickBestCatalogResult(film, candidates);
+      return pickBestCatalogResult(film, candidates);
+    } catch (_error) {
+      return null;
+    }
   }
 
   function isPlausibleResolvedMatch(film, movie, match) {
@@ -361,8 +365,14 @@
 
     const firstChar = normalizeText(film.title)[0] || "a";
     const url = `https://v2.sg.media-imdb.com/suggestion/${firstChar}/${encodeURIComponent(film.title)}.json`;
-    const suggestionResponse = await fetchJson(fetchImpl, url);
-    let match = pickBestSuggestion(film, suggestionResponse.d || []);
+    let match = null;
+
+    try {
+      const suggestionResponse = await fetchJson(fetchImpl, url);
+      match = pickBestSuggestion(film, suggestionResponse.d || []);
+    } catch (_error) {
+      match = null;
+    }
 
     if (!match) {
       match = await searchCatalogForFilm(fetchImpl, film, apiKey);

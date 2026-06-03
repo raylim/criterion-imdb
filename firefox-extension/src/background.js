@@ -30,6 +30,9 @@ const DEFAULT_SETTINGS = {
 };
 
 let activeIndexPromise = null;
+let inMemoryBundleCache = null;
+let inMemoryBundleCacheVersion = null;
+let inMemoryApiCache = null;
 
 function normalizeText(text) {
   return String(text || "")
@@ -229,6 +232,18 @@ function getCacheKey(film) {
   return `${normalizeText(film.title)}|${film.year || "unknown"}|${toCriterionPath(film.url)}`;
 }
 
+function getApiCacheBaseKey(film) {
+  if (matcherApi && typeof matcherApi.cacheKeyForFilm === "function") {
+    return matcherApi.cacheKeyForFilm(film);
+  }
+
+  return `${normalizeText(film.title)}|${film.year || "unknown"}`;
+}
+
+function getApiCacheKeys(film) {
+  return [...new Set([getCacheKey(film), getApiCacheBaseKey(film)])];
+}
+
 function parseOmdbApiKeys(rawValue) {
   if (Array.isArray(rawValue)) {
     return rawValue.map((part) => String(part || "").trim()).filter(Boolean);
@@ -322,16 +337,23 @@ async function getSettings() {
 }
 
 async function getApiCache() {
+  if (inMemoryApiCache) {
+    return inMemoryApiCache;
+  }
+
   const stored = await extensionApi.storage.local.get([API_CACHE_STORAGE_KEY, API_CACHE_META_STORAGE_KEY]);
   const meta = stored[API_CACHE_META_STORAGE_KEY] || {};
   if (meta.schemaVersion !== API_CACHE_SCHEMA_VERSION) {
+    inMemoryApiCache = {};
     return {};
   }
 
-  return stored[API_CACHE_STORAGE_KEY] || {};
+  inMemoryApiCache = stored[API_CACHE_STORAGE_KEY] || {};
+  return inMemoryApiCache;
 }
 
 async function saveApiCache(cache) {
+  inMemoryApiCache = cache;
   await extensionApi.storage.local.set({
     [API_CACHE_STORAGE_KEY]: cache,
     [API_CACHE_META_STORAGE_KEY]: {
@@ -341,10 +363,15 @@ async function saveApiCache(cache) {
 }
 
 function shouldReuseApiRecord(record, maxCacheAgeDays) {
-  return Boolean(record) && (
-    (record.matched && record.source === "omdb") ||
-    (matcherApi && typeof matcherApi.isFreshRecord === "function" && matcherApi.isFreshRecord(record, maxCacheAgeDays))
-  );
+  if (!record) {
+    return false;
+  }
+
+  if (matcherApi && typeof matcherApi.isFreshRecord === "function") {
+    return matcherApi.isFreshRecord(record, maxCacheAgeDays);
+  }
+
+  return Boolean(record.matched && record.source === "omdb");
 }
 
 async function lookupViaOmdb(film, apiKeys) {
@@ -395,18 +422,31 @@ async function lookupViaOmdb(film, apiKeys) {
 }
 
 async function getCache(bundleGeneratedAt) {
+  if (
+    inMemoryBundleCache &&
+    inMemoryBundleCacheVersion === bundleGeneratedAt
+  ) {
+    return inMemoryBundleCache;
+  }
+
   const stored = await extensionApi.storage.local.get([CACHE_STORAGE_KEY, CACHE_META_STORAGE_KEY]);
   const meta = stored[CACHE_META_STORAGE_KEY] || {};
   if (
     meta.schemaVersion !== CACHE_SCHEMA_VERSION ||
     meta.bundleGeneratedAt !== bundleGeneratedAt
   ) {
+    inMemoryBundleCache = {};
+    inMemoryBundleCacheVersion = bundleGeneratedAt;
     return {};
   }
-  return stored[CACHE_STORAGE_KEY] || {};
+  inMemoryBundleCache = stored[CACHE_STORAGE_KEY] || {};
+  inMemoryBundleCacheVersion = bundleGeneratedAt;
+  return inMemoryBundleCache;
 }
 
 async function saveCache(cache, bundleGeneratedAt) {
+  inMemoryBundleCache = cache;
+  inMemoryBundleCacheVersion = bundleGeneratedAt;
   await extensionApi.storage.local.set({
     [CACHE_STORAGE_KEY]: cache,
     [CACHE_META_STORAGE_KEY]: {
@@ -452,7 +492,11 @@ async function lookupFilms(films, options = {}) {
       continue;
     }
 
-    const cachedApiRecord = apiCache[cacheKey];
+    const apiCacheBaseKey = getApiCacheBaseKey(film);
+    const apiCacheKeys = getApiCacheKeys(film);
+    const cachedApiRecord = apiCacheKeys
+      .map((key) => apiCache[key])
+      .find(Boolean);
     if (shouldReuseApiRecord(cachedApiRecord, settings.maxCacheAgeDays)) {
       results[filmIndex] = {
         ...film,
@@ -472,14 +516,32 @@ async function lookupFilms(films, options = {}) {
       continue;
     }
 
-    omdbLookups.push({ film, filmIndex, cacheKey });
+    omdbLookups.push({ film, filmIndex, cacheKey, apiCacheBaseKey, apiCacheKeys });
   }
 
   if (omdbLookups.length > 0) {
+    const groupedLookups = new Map();
+    for (const lookup of omdbLookups) {
+      const groupKey = lookup.apiCacheBaseKey;
+      const existing = groupedLookups.get(groupKey);
+      if (existing) {
+        existing.targets.push(lookup);
+        for (const key of lookup.apiCacheKeys) {
+          existing.apiCacheKeys.add(key);
+        }
+      } else {
+        groupedLookups.set(groupKey, {
+          film: lookup.film,
+          targets: [lookup],
+          apiCacheKeys: new Set(lookup.apiCacheKeys)
+        });
+      }
+    }
+
     const omdbResults = await mapWithConcurrency(
-      omdbLookups,
+      Array.from(groupedLookups.values()),
       Math.min(OMDB_FALLBACK_CONCURRENCY, Math.max(1, settings.omdbApiKeys.length || 1)),
-      async ({ film, filmIndex, cacheKey }) => {
+      async ({ film, targets, apiCacheKeys }) => {
         const omdbRecord = await lookupViaOmdb(film, settings.omdbApiKeys);
         const record = omdbRecord.matched
           ? {
@@ -496,24 +558,29 @@ async function lookupFilms(films, options = {}) {
               source: "missing"
             };
 
-        return {
-          filmIndex,
-          cacheKey,
+        return targets.map((target) => ({
+          filmIndex: target.filmIndex,
+          cacheKey: target.cacheKey,
+          apiCacheKeys: Array.from(apiCacheKeys),
           attempted: omdbRecord.attempted,
           record
-        };
+        }));
       }
     );
 
-    for (const payload of omdbResults) {
-      if (!payload) {
+    for (const payloadGroup of omdbResults) {
+      if (!payloadGroup) {
         continue;
       }
 
-      results[payload.filmIndex] = payload.record;
-      if (payload.attempted) {
-        apiCache[payload.cacheKey] = payload.record;
-        apiCacheChanged = true;
+      for (const payload of payloadGroup) {
+        results[payload.filmIndex] = payload.record;
+        if (payload.attempted) {
+          for (const key of payload.apiCacheKeys || [payload.cacheKey]) {
+            apiCache[key] = payload.record;
+          }
+          apiCacheChanged = true;
+        }
       }
     }
   }
@@ -537,6 +604,9 @@ async function lookupFilms(films, options = {}) {
 
 async function refreshExtensionCache() {
   activeIndexPromise = null;
+  inMemoryBundleCache = null;
+  inMemoryBundleCacheVersion = null;
+  inMemoryApiCache = null;
   const index = await loadActiveIndex({ forceRemoteRefresh: true });
   await extensionApi.storage.local.remove([CACHE_STORAGE_KEY, CACHE_META_STORAGE_KEY, API_CACHE_STORAGE_KEY, API_CACHE_META_STORAGE_KEY]);
   return {
@@ -564,6 +634,9 @@ extensionApi.runtime.onMessage.addListener((message) => {
   }
 
   if (message.type === "criterion-imdb:clear-cache") {
+    inMemoryBundleCache = null;
+    inMemoryBundleCacheVersion = null;
+    inMemoryApiCache = null;
     return extensionApi.storage.local.remove([CACHE_STORAGE_KEY, CACHE_META_STORAGE_KEY, API_CACHE_STORAGE_KEY, API_CACHE_META_STORAGE_KEY]);
   }
 
@@ -573,3 +646,7 @@ extensionApi.runtime.onMessage.addListener((message) => {
 
   return undefined;
 });
+
+globalThis.__criterionImdbBackgroundTest = {
+  shouldReuseApiRecord
+};

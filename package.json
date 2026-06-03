@@ -4,6 +4,7 @@
   "description": "Criterion Channel IMDb cache builder and Firefox overlay tools",
   "main": "criterion-imdb-suggester.js",
   "scripts": {
+    "test": "node --test",
     "watch:quince": "node quince-reservation.js",
     "movies:criterion": "node criterion-imdb-suggester.js",
     "refresh:criterion": "./scripts/refresh-cache.sh",

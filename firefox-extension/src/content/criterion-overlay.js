@@ -5,10 +5,13 @@
   const ANCHOR_HOST_CLASS = "criterion-imdb-overlay-anchor-host";
   const STATUS_CLASS = "criterion-imdb-status";
   const PROCESSED_DATASET_KEY = "criterionImdbProcessedV6";
+  const VISIBLE_LOOKUP_PADDING_PX = 240;
   const pendingNodes = new WeakSet();
   let scanScheduled = false;
   let latestSettings = null;
   let debugMode = false;
+  let deferredBatchTimer = null;
+  let deferredBatchItems = new Map();
 
   function scheduleScan() {
     if (scanScheduled) {
@@ -46,25 +49,51 @@
     return details.join(" • ");
   }
 
-  function ensureOverlayHost(container) {
-    const needsSiblingHost =
+  function needsSiblingHost(container) {
+    return Boolean(
       container instanceof HTMLAnchorElement ||
       container.classList?.contains("browse-item-title") ||
-      container.classList?.contains("browse-item-description");
+      container.classList?.contains("browse-item-description")
+    );
+  }
 
-    if (needsSiblingHost) {
-      let host = container.nextElementSibling;
-      if (host && host.classList.contains(ANCHOR_HOST_CLASS)) {
-        return host;
-      }
+  function getExistingOverlayHost(container) {
+    if (!needsSiblingHost(container)) {
+      return container;
+    }
 
-      host = document.createElement("div");
-      host.className = ANCHOR_HOST_CLASS;
-      container.insertAdjacentElement("afterend", host);
+    const host = container.nextElementSibling;
+    if (host && host.classList.contains(ANCHOR_HOST_CLASS)) {
       return host;
     }
 
-    return container;
+    return null;
+  }
+
+  function ensureOverlayHost(container) {
+    const existingHost = getExistingOverlayHost(container);
+    if (existingHost) {
+      return existingHost;
+    }
+
+    if (!needsSiblingHost(container)) {
+      return container;
+    }
+
+    const host = document.createElement("div");
+    host.className = ANCHOR_HOST_CLASS;
+    container.insertAdjacentElement("afterend", host);
+    return host;
+  }
+
+  function cleanupEmptyOverlayHost(host) {
+    if (
+      host &&
+      host.classList?.contains(ANCHOR_HOST_CLASS) &&
+      host.childElementCount === 0
+    ) {
+      host.remove();
+    }
   }
 
   function ensureOverlayNode(container) {
@@ -114,6 +143,18 @@
     return statusNode;
   }
 
+  function removeOverlay(container) {
+    const host = getExistingOverlayHost(container);
+    if (!host) {
+      container.classList?.remove("criterion-imdb-overlay-dimmed");
+      return;
+    }
+
+    host.querySelectorAll(`:scope > .${ROOT_CLASS}`).forEach((node) => node.remove());
+    cleanupEmptyOverlayHost(host);
+    container.classList?.remove("criterion-imdb-overlay-dimmed");
+  }
+
   function syncDebugMode(settings) {
     debugMode = Boolean(settings?.debugMode);
     const statusNode = document.querySelector(`.${STATUS_CLASS}`);
@@ -136,22 +177,52 @@
     return result?.itemType === "series";
   }
 
+  function formatMissingReason(result) {
+    const reason = String(result?.reason || "").trim();
+
+    if (!reason) {
+      return "No confident match";
+    }
+
+    if (reason.startsWith("IMDb rating missing for ")) {
+      return "No IMDb rating available yet";
+    }
+
+    if (reason === "No cached IMDb score found") {
+      return "No IMDb score found";
+    }
+
+    if (reason === "No confident IMDb match found") {
+      return "No confident IMDb match";
+    }
+
+    if (reason === "OMDb API key required") {
+      return "Set an OMDb API key in extension settings";
+    }
+
+    if (reason === "Film title missing") {
+      return "Title metadata missing";
+    }
+
+    if (reason === "OMDb fallback unavailable" || reason === "OMDb lookup failed") {
+      return "Score lookup unavailable right now";
+    }
+
+    if (/NetworkError|Failed to fetch|timed out|ECONNRESET/i.test(reason)) {
+      return "Score lookup unavailable right now";
+    }
+
+    return reason;
+  }
+
   function renderResult(container, result, settings) {
     if (result.ignored) {
-      const existing = container.querySelector(`:scope > .${ROOT_CLASS}`);
-      if (existing) {
-        existing.remove();
-      }
-      container.classList.remove("criterion-imdb-overlay-dimmed");
+      removeOverlay(container);
       return;
     }
 
     if (isSeriesResult(result) && !result.matched) {
-      const existing = container.querySelector(`:scope > .${ROOT_CLASS}`);
-      if (existing) {
-        existing.remove();
-      }
-      container.classList.remove("criterion-imdb-overlay-dimmed");
+      removeOverlay(container);
       return;
     }
 
@@ -170,7 +241,7 @@
     if (!result.matched) {
       overlay.classList.add("is-missing");
       pill.textContent = "IMDb n/a";
-      details.textContent = result.reason || "No confident match";
+      details.textContent = formatMissingReason(result);
       container.classList.remove("criterion-imdb-overlay-dimmed");
       return;
     }
@@ -206,52 +277,90 @@
     details.textContent = "Checking OMDb…";
   }
 
-  async function enrichWithOmdb(pendingItems) {
-    if (pendingItems.length === 0) {
-      return;
+  function isLikelyVisible(node) {
+    if (!node?.isConnected || typeof node.getBoundingClientRect !== "function") {
+      return false;
     }
 
-    const response = await extensionApi.runtime.sendMessage({
-      type: "criterion-imdb:lookup-films",
-      films: pendingItems.map((item) => item.film),
-      options: {
-        allowOmdbFallback: true
+    const rect = node.getBoundingClientRect();
+    const viewportHeight = globalScope.innerHeight || document.documentElement.clientHeight || 0;
+
+    if (rect.width <= 0 || rect.height <= 0) {
+      return false;
+    }
+
+    return rect.bottom >= -VISIBLE_LOOKUP_PADDING_PX && rect.top <= viewportHeight + VISIBLE_LOOKUP_PADDING_PX;
+  }
+
+  function sortCandidatesByViewport(candidates) {
+    return candidates.slice().sort((left, right) => {
+      const leftRect = left.node.getBoundingClientRect();
+      const rightRect = right.node.getBoundingClientRect();
+
+      if (leftRect.top !== rightRect.top) {
+        return leftRect.top - rightRect.top;
       }
-    });
 
-    latestSettings = response.settings;
-    syncDebugMode(latestSettings);
-
-    response.results.forEach((result, index) => {
-      const candidate = pendingItems[index];
-      if (!candidate || !candidate.node.isConnected) {
-        return;
-      }
-
-      pendingNodes.delete(candidate.node);
-      candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
-      renderResult(candidate.node, result, response.settings);
+      return leftRect.left - rightRect.left;
     });
   }
 
-  async function scanAndOverlay() {
-    const candidates = domScraper.collectFilms();
-    setStatus(`Criterion IMDb: found ${candidates.length} candidate links`, candidates.length > 0 ? "neutral" : "warn");
-    const fresh = candidates.filter(({ node }) => {
-      if (!node.isConnected || node.dataset[PROCESSED_DATASET_KEY] === "true" || pendingNodes.has(node)) {
-        return false;
-      }
-      return true;
-    });
+  function splitVisibleCandidates(candidates) {
+    const sorted = sortCandidatesByViewport(candidates);
+    const immediate = [];
+    const deferred = [];
 
-    if (fresh.length === 0) {
-      if (candidates.length === 0) {
-        setStatus("Criterion IMDb: no film links detected on this page", "warn");
+    for (const candidate of sorted) {
+      if (isLikelyVisible(candidate.node)) {
+        immediate.push(candidate);
+      } else {
+        deferred.push(candidate);
       }
+    }
+
+    return {
+      immediate,
+      deferred
+    };
+  }
+
+  function mergeDeferredBatchItems(existing, batch) {
+    const merged = new Map(existing);
+    for (const item of batch) {
+      if (!item?.node) {
+        continue;
+      }
+      merged.set(item.node, item);
+    }
+    return merged;
+  }
+
+  function scheduleDeferredBatch(batch) {
+    if (batch.length === 0) {
       return;
     }
 
-    for (const item of fresh) {
+    deferredBatchItems = mergeDeferredBatchItems(deferredBatchItems, batch);
+    if (deferredBatchTimer) {
+      return;
+    }
+
+    deferredBatchTimer = globalScope.setTimeout(() => {
+      deferredBatchTimer = null;
+      const queuedBatch = Array.from(deferredBatchItems.values()).filter((item) => item?.node?.isConnected);
+      deferredBatchItems = new Map();
+      processCandidateBatch(queuedBatch).catch((error) => {
+        console.warn("Criterion IMDb deferred batch failed:", error);
+      });
+    }, 400);
+  }
+
+  async function processCandidateBatch(batch) {
+    if (batch.length === 0) {
+      return;
+    }
+
+    for (const item of batch) {
       pendingNodes.add(item.node);
       if (!isSeriesResult(item.film)) {
         markLoading(item.node);
@@ -260,7 +369,7 @@
 
     const response = await extensionApi.runtime.sendMessage({
       type: "criterion-imdb:lookup-films",
-      films: fresh.map((item) => item.film),
+      films: batch.map((item) => item.film),
       options: {
         allowOmdbFallback: false
       }
@@ -277,7 +386,7 @@
     );
 
     response.results.forEach((result, index) => {
-      const candidate = fresh[index];
+      const candidate = batch[index];
       if (!candidate || !candidate.node.isConnected) {
         return;
       }
@@ -311,6 +420,68 @@
         }, response.settings);
       });
     });
+  }
+
+  async function enrichWithOmdb(pendingItems) {
+    if (pendingItems.length === 0) {
+      return;
+    }
+
+    const response = await extensionApi.runtime.sendMessage({
+      type: "criterion-imdb:lookup-films",
+      films: pendingItems.map((item) => item.film),
+      options: {
+        allowOmdbFallback: true
+      }
+    });
+
+    latestSettings = response.settings;
+    syncDebugMode(latestSettings);
+
+    response.results.forEach((result, index) => {
+      const candidate = pendingItems[index];
+      if (!candidate || !candidate.node.isConnected) {
+        return;
+      }
+
+      pendingNodes.delete(candidate.node);
+      candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
+      renderResult(candidate.node, result, response.settings);
+    });
+  }
+
+  async function scanAndOverlay() {
+    const candidates = domScraper.collectFilms();
+    const validNodes = new WeakSet(candidates.map(({ node }) => node));
+    document.querySelectorAll(`.${ROOT_CLASS}`).forEach((overlay) => {
+      const host = overlay.parentElement;
+      const ownerNode = host?.classList?.contains(ANCHOR_HOST_CLASS)
+        ? host.previousElementSibling
+        : host;
+      if (ownerNode && !validNodes.has(ownerNode)) {
+        overlay.remove();
+        ownerNode.classList?.remove("criterion-imdb-overlay-dimmed");
+        cleanupEmptyOverlayHost(host);
+      }
+    });
+    setStatus(`Criterion IMDb: found ${candidates.length} candidate links`, candidates.length > 0 ? "neutral" : "warn");
+    const fresh = candidates.filter(({ node }) => {
+      if (!node.isConnected || node.dataset[PROCESSED_DATASET_KEY] === "true" || pendingNodes.has(node)) {
+        return false;
+      }
+      return true;
+    });
+
+    if (fresh.length === 0) {
+      if (candidates.length === 0) {
+        setStatus("Criterion IMDb: no film links detected on this page", "warn");
+      }
+      return;
+    }
+
+    const { immediate, deferred } = splitVisibleCandidates(fresh);
+    await processCandidateBatch(immediate.length > 0 ? immediate : fresh.slice(0, Math.min(12, fresh.length)));
+    scheduleDeferredBatch(immediate.length > 0 ? deferred : fresh.slice(Math.min(12, fresh.length)));
   }
 
   async function bootstrap() {
@@ -351,6 +522,13 @@
     }));
     console.table(summary);
     return summary;
+  };
+
+  globalScope.__criterionImdbOverlayTest = {
+    mergeDeferredBatchItems,
+    removeOverlay,
+    needsSiblingHost,
+    getExistingOverlayHost
   };
 
   if (document.readyState === "loading") {
