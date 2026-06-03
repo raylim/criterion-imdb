@@ -5,9 +5,10 @@ set -euo pipefail
 REPO_DIR="/Users/rlim/repos/criterion-imdb"
 ENV_FILE="/Users/rlim/.criterion-imdb.env"
 LOG_PREFIX="[criterion-imdb-refresh]"
-HOSTED_CACHE_FILE="$REPO_DIR/criterion-cache.json"
-HOSTED_REPORT_FILE="$REPO_DIR/criterion-movies.html"
-HOSTED_INDEX_FILE="$REPO_DIR/index.html"
+HOSTED_DIR="$REPO_DIR/docs"
+HOSTED_CACHE_FILE="$HOSTED_DIR/criterion-cache.json"
+HOSTED_REPORT_FILE="$HOSTED_DIR/criterion-movies.html"
+HOSTED_INDEX_FILE="$HOSTED_DIR/index.html"
 
 echo "$LOG_PREFIX starting at $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
@@ -27,6 +28,7 @@ cd "$REPO_DIR"
 
 /usr/bin/env node "$REPO_DIR/criterion-imdb-suggester.js" --limit all --html --concurrency 8
 
+mkdir -p "$HOSTED_DIR"
 cp "$REPO_DIR/firefox-extension/data/criterion-cache.json" "$HOSTED_CACHE_FILE"
 cp "$REPO_DIR/.cache/criterion-movies.html" "$HOSTED_REPORT_FILE"
 cat > "$HOSTED_INDEX_FILE" <<'EOF'

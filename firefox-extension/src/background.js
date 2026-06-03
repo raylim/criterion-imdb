@@ -9,7 +9,7 @@ const CACHE_SCHEMA_VERSION = 8;
 const BUNDLED_CACHE_URL = "data/criterion-cache.json";
 const REMOTE_CACHE_URLS = [
   "https://raylim.github.io/criterion-imdb/criterion-cache.json",
-  "https://raw.githubusercontent.com/raylim/criterion-imdb/main/criterion-cache.json"
+  "https://raw.githubusercontent.com/raylim/criterion-imdb/main/docs/criterion-cache.json"
 ];
 const DEFAULT_SETTINGS = {
   minRating: 7.5,

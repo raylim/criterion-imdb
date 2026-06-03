@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T15:20:34.789Z",
+  "generatedAt": "2026-06-03T15:24:54.807Z",
   "count": 2355,
   "entries": [
     {
@@ -3154,23 +3154,6 @@
       "runtimeMinutes": 110
     },
     {
-      "url": "https://www.criterionchannel.com/bergman-island",
-      "path": "/bergman-island",
-      "title": "Bergman Island",
-      "normalizedTitle": "bergman island",
-      "director": "marie nyreröd",
-      "genres": [
-        "documentary",
-        "biography"
-      ],
-      "languages": [
-        "swedish"
-      ],
-      "imdbRating": 7.7,
-      "year": 2006,
-      "runtimeMinutes": 85
-    },
-    {
       "url": "https://www.criterionchannel.com/bergman-island-1",
       "path": "/bergman-island-1",
       "title": "Bergman Island",
@@ -3189,6 +3172,23 @@
       "imdbRating": 6.6,
       "year": 2021,
       "runtimeMinutes": 112
+    },
+    {
+      "url": "https://www.criterionchannel.com/bergman-island",
+      "path": "/bergman-island",
+      "title": "Bergman Island",
+      "normalizedTitle": "bergman island",
+      "director": "marie nyreröd",
+      "genres": [
+        "documentary",
+        "biography"
+      ],
+      "languages": [
+        "swedish"
+      ],
+      "imdbRating": 7.7,
+      "year": 2006,
+      "runtimeMinutes": 85
     },
     {
       "url": "https://www.criterionchannel.com/berlin-express",
@@ -5790,24 +5790,6 @@
       "runtimeMinutes": 143
     },
     {
-      "url": "https://www.criterionchannel.com/cat-people-1",
-      "path": "/cat-people-1",
-      "title": "Cat People",
-      "normalizedTitle": "cat people",
-      "director": "paul schrader",
-      "genres": [
-        "fantasy",
-        "horror",
-        "thriller"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.2,
-      "year": 1982,
-      "runtimeMinutes": 118
-    },
-    {
       "url": "https://www.criterionchannel.com/cat-people",
       "path": "/cat-people",
       "title": "Cat People",
@@ -5826,6 +5808,24 @@
       "imdbRating": 7.2,
       "year": 1942,
       "runtimeMinutes": 73
+    },
+    {
+      "url": "https://www.criterionchannel.com/cat-people-1",
+      "path": "/cat-people-1",
+      "title": "Cat People",
+      "normalizedTitle": "cat people",
+      "director": "paul schrader",
+      "genres": [
+        "fantasy",
+        "horror",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.2,
+      "year": 1982,
+      "runtimeMinutes": 118
     },
     {
       "url": "https://www.criterionchannel.com/the-cat-s-paw",
@@ -21982,25 +21982,6 @@
       "runtimeMinutes": 94
     },
     {
-      "url": "https://www.criterionchannel.com/the-man-who-loved-women",
-      "path": "/the-man-who-loved-women",
-      "title": "The Man Who Loved Women",
-      "normalizedTitle": "the man who loved women",
-      "director": "françois truffaut",
-      "genres": [
-        "comedy",
-        "drama",
-        "romance"
-      ],
-      "languages": [
-        "french",
-        "english"
-      ],
-      "imdbRating": 7.4,
-      "year": 1977,
-      "runtimeMinutes": 120
-    },
-    {
       "url": "https://www.criterionchannel.com/the-man-who-loved-women-1",
       "path": "/the-man-who-loved-women-1",
       "title": "The Man Who Loved Women",
@@ -22018,6 +21999,25 @@
       "imdbRating": 5.3,
       "year": 1983,
       "runtimeMinutes": 110
+    },
+    {
+      "url": "https://www.criterionchannel.com/the-man-who-loved-women",
+      "path": "/the-man-who-loved-women",
+      "title": "The Man Who Loved Women",
+      "normalizedTitle": "the man who loved women",
+      "director": "françois truffaut",
+      "genres": [
+        "comedy",
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "french",
+        "english"
+      ],
+      "imdbRating": 7.4,
+      "year": 1977,
+      "runtimeMinutes": 120
     },
     {
       "url": "https://www.criterionchannel.com/the-many-miracles-of-household-saints",
@@ -27840,23 +27840,6 @@
       "runtimeMinutes": 97
     },
     {
-      "url": "https://www.criterionchannel.com/la-poison",
-      "path": "/la-poison",
-      "title": "La poison",
-      "normalizedTitle": "la poison",
-      "director": "sacha guitry",
-      "genres": [
-        "comedy",
-        "crime"
-      ],
-      "languages": [
-        "french"
-      ],
-      "imdbRating": 7.4,
-      "year": 1951,
-      "runtimeMinutes": 85
-    },
-    {
       "url": "https://www.criterionchannel.com/poison",
       "path": "/poison",
       "title": "Poison",
@@ -27872,6 +27855,23 @@
       ],
       "imdbRating": 6.3,
       "year": 1991,
+      "runtimeMinutes": 85
+    },
+    {
+      "url": "https://www.criterionchannel.com/la-poison",
+      "path": "/la-poison",
+      "title": "La poison",
+      "normalizedTitle": "la poison",
+      "director": "sacha guitry",
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.4,
+      "year": 1951,
       "runtimeMinutes": 85
     },
     {
@@ -30155,24 +30155,6 @@
       "runtimeMinutes": 11
     },
     {
-      "url": "https://www.criterionchannel.com/rupture",
-      "path": "/rupture",
-      "title": "Rupture",
-      "normalizedTitle": "rupture",
-      "director": "pierre etaix and jean-claude carrière",
-      "genres": [
-        "short",
-        "comedy",
-        "drama"
-      ],
-      "languages": [
-        "french"
-      ],
-      "imdbRating": 7,
-      "year": 1961,
-      "runtimeMinutes": 11
-    },
-    {
       "url": "https://www.criterionchannel.com/rupture-1",
       "path": "/rupture-1",
       "title": "Rupture",
@@ -30189,6 +30171,24 @@
       "imdbRating": 4.9,
       "year": 2017,
       "runtimeMinutes": 102
+    },
+    {
+      "url": "https://www.criterionchannel.com/rupture",
+      "path": "/rupture",
+      "title": "Rupture",
+      "normalizedTitle": "rupture",
+      "director": "pierre etaix and jean-claude carrière",
+      "genres": [
+        "short",
+        "comedy",
+        "drama"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7,
+      "year": 1961,
+      "runtimeMinutes": 11
     },
     {
       "url": "https://www.criterionchannel.com/rush-to-judgment",
@@ -39400,6 +39400,22 @@
       "runtimeMinutes": 115
     },
     {
+      "url": "https://www.criterionchannel.com/working-girls-1",
+      "path": "/working-girls-1",
+      "title": "Working Girls",
+      "normalizedTitle": "working girls",
+      "director": "lizzie borden",
+      "genres": [
+        "drama"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.7,
+      "year": 1986,
+      "runtimeMinutes": 93
+    },
+    {
       "url": "https://www.criterionchannel.com/working-girls",
       "path": "/working-girls",
       "title": "Working Girls",
@@ -39418,22 +39434,6 @@
       "imdbRating": 6.4,
       "year": 1931,
       "runtimeMinutes": 77
-    },
-    {
-      "url": "https://www.criterionchannel.com/working-girls-1",
-      "path": "/working-girls-1",
-      "title": "Working Girls",
-      "normalizedTitle": "working girls",
-      "director": "lizzie borden",
-      "genres": [
-        "drama"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.7,
-      "year": 1986,
-      "runtimeMinutes": 93
     },
     {
       "url": "https://www.criterionchannel.com/videos/workingman-s-death",
