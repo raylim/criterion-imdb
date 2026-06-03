@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criterion IMDb Overlay Settings</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111;
+      --panel: #1c1c1c;
+      --text: #f3f3f3;
+      --muted: #b7b7b7;
+      --line: rgba(255, 255, 255, 0.12);
+      --accent: #f5c518;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font: 16px/1.5 "Avenir Next", "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, rgba(245, 197, 24, 0.08), transparent 30%), var(--bg);
+      color: var(--text);
+    }
+
+    main {
+      width: min(760px, calc(100vw - 32px));
+      margin: 32px auto 48px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--panel);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    p {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      font-weight: 600;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #0d0d0d;
+      color: var(--text);
+      font: inherit;
+    }
+
+    .checks {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .checks label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+    }
+
+    button {
+      width: fit-content;
+      padding: 12px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #111;
+      font: 700 15px/1 "Avenir Next", "Segoe UI", sans-serif;
+      cursor: pointer;
+    }
+
+    .secondary-button {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    #status {
+      min-height: 1.5em;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Criterion IMDb Overlay</h1>
+    <p>Uses the Criterion IMDb cache hosted from this repo when available, then falls back to the bundled copy inside the extension.</p>
+
+    <form id="settings-form">
+      <label>
+        Highlight threshold
+        <input id="minRating" type="number" min="0" max="10" step="0.1">
+      </label>
+
+      <label>
+        Cache freshness in days
+        <input id="maxCacheAgeDays" type="number" min="1" max="365" step="1">
+      </label>
+
+      <section class="checks">
+        <label><input id="showRuntime" type="checkbox"> Show runtime</label>
+        <label><input id="showGenres" type="checkbox"> Show genres</label>
+        <label><input id="showLanguages" type="checkbox"> Show languages</label>
+        <label><input id="showDirector" type="checkbox"> Show director</label>
+        <label><input id="showCountry" type="checkbox"> Show country</label>
+        <label><input id="dimLowRated" type="checkbox"> Dim titles below the threshold</label>
+      </section>
+
+      <section class="checks">
+        <label><input id="debugMode" type="checkbox"> Show debug status chip and candidate-match diagnostics</label>
+      </section>
+
+      <div class="actions">
+        <button type="submit">Save settings</button>
+        <button id="refresh-cache" class="secondary-button" type="button">Fetch latest scores from GitHub</button>
+      </div>
+      <div id="status" aria-live="polite"></div>
+    </form>
+
+    <script src="./options.js"></script>
+  </main>
+</body>
+</html>

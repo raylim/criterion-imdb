@@ -1,11 +1,13 @@
 {
-  "name": "playground",
+  "name": "criterion-imdb",
   "version": "1.0.0",
-  "description": "Quince reservation watcher",
-  "main": "quince-reservation.js",
+  "description": "Criterion Channel IMDb cache builder and Firefox overlay tools",
+  "main": "criterion-imdb-suggester.js",
   "scripts": {
     "watch:quince": "node quince-reservation.js",
-    "movies:criterion": "node criterion-imdb-suggester.js"
+    "movies:criterion": "node criterion-imdb-suggester.js",
+    "refresh:criterion": "./scripts/refresh-cache.sh",
+    "refresh:criterion:open": "./scripts/refresh-cache.sh && open .cache/criterion-movies.html"
   },
   "keywords": [],
   "author": "",

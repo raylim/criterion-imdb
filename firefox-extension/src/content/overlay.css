@@ -1,0 +1,86 @@
+.criterion-imdb-overlay-host {
+  position: relative !important;
+}
+
+.criterion-imdb-overlay-anchor-host {
+  display: block;
+}
+
+.criterion-imdb-overlay {
+  margin-top: 0.5rem;
+  display: grid;
+  gap: 0.3rem;
+  max-width: 24rem;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  line-height: 1.25;
+}
+
+.criterion-imdb-overlay__pill {
+  width: fit-content;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: #f5c518;
+  color: #111;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.criterion-imdb-overlay__details {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.78rem;
+}
+
+.criterion-imdb-overlay.is-loading .criterion-imdb-overlay__pill {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.criterion-imdb-overlay.is-missing .criterion-imdb-overlay__pill {
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.criterion-imdb-overlay.is-error .criterion-imdb-overlay__pill {
+  background: #c53b2c;
+  color: #fff7f4;
+}
+
+.criterion-imdb-overlay.is-low-rated .criterion-imdb-overlay__pill {
+  background: #8f7e31;
+  color: #fff8d6;
+}
+
+.criterion-imdb-overlay-dimmed {
+  opacity: 0.58;
+  transition: opacity 120ms ease;
+}
+
+.criterion-imdb-status {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 2147483647;
+  max-width: min(360px, calc(100vw - 28px));
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(17, 17, 17, 0.92);
+  color: #f5f1e8;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 12px;
+  line-height: 1.2;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+
+.criterion-imdb-status[data-tone="success"] {
+  background: rgba(24, 82, 47, 0.94);
+}
+
+.criterion-imdb-status[data-tone="warn"] {
+  background: rgba(109, 78, 17, 0.94);
+}
+
+.criterion-imdb-status[data-tone="error"] {
+  background: rgba(148, 40, 31, 0.94);
+}

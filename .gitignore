@@ -1,3 +1,7 @@
 node_modules/
 .env
 .playwright-profile/
+.cache/criterion-browse.html
+.cache/criterion-refresh.log
+firefox-extension/dist/
+firefox-extension/*.zip
