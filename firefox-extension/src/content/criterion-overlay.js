@@ -132,8 +132,21 @@
     console.log("[criterion-imdb]", text);
   }
 
+  function isSeriesResult(result) {
+    return result?.itemType === "series";
+  }
+
   function renderResult(container, result, settings) {
     if (result.ignored) {
+      const existing = container.querySelector(`:scope > .${ROOT_CLASS}`);
+      if (existing) {
+        existing.remove();
+      }
+      container.classList.remove("criterion-imdb-overlay-dimmed");
+      return;
+    }
+
+    if (isSeriesResult(result) && !result.matched) {
       const existing = container.querySelector(`:scope > .${ROOT_CLASS}`);
       if (existing) {
         existing.remove();
@@ -240,7 +253,9 @@
 
     for (const item of fresh) {
       pendingNodes.add(item.node);
-      markLoading(item.node);
+      if (!isSeriesResult(item.film)) {
+        markLoading(item.node);
+      }
     }
 
     const response = await extensionApi.runtime.sendMessage({
@@ -269,7 +284,9 @@
 
       if (result.source === "pending") {
         pendingOmdb.push(candidate);
-        markPendingOmdb(candidate.node);
+        if (!isSeriesResult(candidate.film)) {
+          markPendingOmdb(candidate.node);
+        }
         return;
       }
 

@@ -473,10 +473,12 @@
     }
 
     const container = pickContainer(anchor);
+    const itemType = getCollectionItemType(anchor);
+    const isSeriesCard = itemType === "series";
     const containerText = normalizeWhitespace(container.innerText);
     const tooltipText = getTooltipText(container);
     const combinedText = normalizeWhitespace(`${containerText} ${tooltipText}`);
-    if (looksLikeCollectionText(containerText)) {
+    if (!isSeriesCard && looksLikeCollectionText(containerText)) {
       return null;
     }
     if (looksLikeExtraVideo(title, containerText)) {
@@ -498,6 +500,7 @@
         year,
         director,
         country,
+        itemType: isSeriesCard ? "series" : (itemType || "movie"),
         url: anchor.href
       }
     };

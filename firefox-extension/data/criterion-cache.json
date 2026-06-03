@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T16:27:04.138Z",
+  "generatedAt": "2026-06-03T16:37:12.213Z",
   "count": 2377,
   "entries": [
     {
@@ -4371,23 +4371,6 @@
       "runtimeMinutes": 83
     },
     {
-      "url": "https://www.criterionchannel.com/boyhood",
-      "path": "/boyhood",
-      "title": "Boyhood",
-      "normalizedTitle": "boyhood",
-      "director": "keisuke kinoshita",
-      "genres": [
-        "drama",
-        "war"
-      ],
-      "languages": [
-        "japanese"
-      ],
-      "imdbRating": 6.8,
-      "year": 1951,
-      "runtimeMinutes": 111
-    },
-    {
       "url": "https://www.criterionchannel.com/boyhood-1",
       "path": "/boyhood-1",
       "title": "Boyhood",
@@ -4405,6 +4388,23 @@
       "imdbRating": 7.9,
       "year": 2014,
       "runtimeMinutes": 165
+    },
+    {
+      "url": "https://www.criterionchannel.com/boyhood",
+      "path": "/boyhood",
+      "title": "Boyhood",
+      "normalizedTitle": "boyhood",
+      "director": "keisuke kinoshita",
+      "genres": [
+        "drama",
+        "war"
+      ],
+      "languages": [
+        "japanese"
+      ],
+      "imdbRating": 6.8,
+      "year": 1951,
+      "runtimeMinutes": 111
     },
     {
       "url": "https://www.criterionchannel.com/boy-meets-girl",
@@ -5790,6 +5790,24 @@
       "runtimeMinutes": 143
     },
     {
+      "url": "https://www.criterionchannel.com/cat-people-1",
+      "path": "/cat-people-1",
+      "title": "Cat People",
+      "normalizedTitle": "cat people",
+      "director": "paul schrader",
+      "genres": [
+        "fantasy",
+        "horror",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.2,
+      "year": 1982,
+      "runtimeMinutes": 118
+    },
+    {
       "url": "https://www.criterionchannel.com/cat-people",
       "path": "/cat-people",
       "title": "Cat People",
@@ -5808,24 +5826,6 @@
       "imdbRating": 7.2,
       "year": 1942,
       "runtimeMinutes": 73
-    },
-    {
-      "url": "https://www.criterionchannel.com/cat-people-1",
-      "path": "/cat-people-1",
-      "title": "Cat People",
-      "normalizedTitle": "cat people",
-      "director": "paul schrader",
-      "genres": [
-        "fantasy",
-        "horror",
-        "thriller"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.2,
-      "year": 1982,
-      "runtimeMinutes": 118
     },
     {
       "url": "https://www.criterionchannel.com/the-cat-s-paw",
@@ -29253,23 +29253,6 @@
       "runtimeMinutes": 73
     },
     {
-      "url": "https://www.criterionchannel.com/return-of-the-prodigal-son",
-      "path": "/return-of-the-prodigal-son",
-      "title": "Return of the Prodigal Son",
-      "normalizedTitle": "return of the prodigal son",
-      "director": "evald schorm",
-      "genres": [
-        "drama"
-      ],
-      "languages": [
-        "english",
-        "czech"
-      ],
-      "imdbRating": 6.5,
-      "year": 1967,
-      "runtimeMinutes": 103
-    },
-    {
       "url": "https://www.criterionchannel.com/return-of-the-prodigal-son-1",
       "path": "/return-of-the-prodigal-son-1",
       "title": "Return of the Prodigal Son",
@@ -29286,6 +29269,23 @@
       "imdbRating": 7.1,
       "year": 1976,
       "runtimeMinutes": 120
+    },
+    {
+      "url": "https://www.criterionchannel.com/return-of-the-prodigal-son",
+      "path": "/return-of-the-prodigal-son",
+      "title": "Return of the Prodigal Son",
+      "normalizedTitle": "return of the prodigal son",
+      "director": "evald schorm",
+      "genres": [
+        "drama"
+      ],
+      "languages": [
+        "english",
+        "czech"
+      ],
+      "imdbRating": 6.5,
+      "year": 1967,
+      "runtimeMinutes": 103
     },
     {
       "url": "https://www.criterionchannel.com/the-return-of-the-scarlet-pimpernel",
