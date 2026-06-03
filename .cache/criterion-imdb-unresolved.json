@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-03T15:20:34.778Z",
-  "count": 793,
+  "updatedAt": "2026-06-03T16:27:04.132Z",
+  "count": 805,
   "items": [
     {
       "title": "21 Days",
@@ -4858,7 +4858,7 @@
       "year": 2024,
       "director": "Leos Carax",
       "country": "France",
-      "url": "https://www.criterionchannel.com/videos/it-s-not-me-1",
+      "url": "https://www.criterionchannel.com/it-s-not-me",
       "reason": "IMDb rating missing for tt27989261",
       "imdbId": null,
       "matchedTitle": null,
@@ -8506,6 +8506,50 @@
       "matchedYear": null
     },
     {
+      "title": "Lumière, le cinéma!",
+      "year": 2025,
+      "director": "Thierry Frémaux",
+      "country": "France",
+      "url": "https://www.criterionchannel.com/lumiere-le-cinema",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Magellan",
+      "year": 2025,
+      "director": "Lav Diaz",
+      "country": "Philippines, Spain, Portugal",
+      "url": "https://www.criterionchannel.com/magellan",
+      "reason": "IMDb rating missing for tt36456563",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "The Ballad of Suzanne Césaire",
+      "year": 2024,
+      "director": "Madeleine Hunt-Ehrlich",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/the-ballad-of-suzanne-cesaire",
+      "reason": "IMDb rating missing for tt29893103",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Carol & Joy",
+      "year": 2025,
+      "director": "Nathan Silver",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/carol-joy",
+      "reason": "IMDb rating missing for tt37899809",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
       "title": "Rupert Remembers",
       "year": 2000,
       "director": "Xanthra Phillippa Mackay",
@@ -8561,6 +8605,17 @@
       "matchedYear": null
     },
     {
+      "title": "The World",
+      "year": 2004,
+      "director": "Jia Zhang-Ke",
+      "country": "China",
+      "url": "https://www.criterionchannel.com/new-york-film-festival-favorites/season:1/videos/the-world",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
       "title": "CONBODY VS EVERYBODY: Episode 1",
       "year": 0,
       "director": "",
@@ -8577,7 +8632,7 @@
       "director": "Debra Granik",
       "country": "United States",
       "url": "https://www.criterionchannel.com/videos/conbody-vs-everybody-episode-2",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8588,7 +8643,7 @@
       "director": "Debra Granik",
       "country": "United States",
       "url": "https://www.criterionchannel.com/videos/conbody-vs-everybody-episode-3",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8599,7 +8654,7 @@
       "director": "Debra Granik",
       "country": "United States",
       "url": "https://www.criterionchannel.com/videos/conbody-vs-everybody-episode-4",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8610,7 +8665,7 @@
       "director": "Debra Granik",
       "country": "",
       "url": "https://www.criterionchannel.com/videos/conbody-vs-everybody-episode-5",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8721,6 +8776,83 @@
       "country": "Haiti",
       "url": "https://www.criterionchannel.com/caribbean-activist-cinema/season:1/videos/haiti-the-way-to-freedom",
       "reason": "fetch failed",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Touki bouki",
+      "year": 1973,
+      "director": "Djibril Diop Mambéty",
+      "country": "Senegal",
+      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time/season:1/videos/touki-bouki",
+      "reason": "fetch failed",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "Crisis",
+      "year": 1963,
+      "director": "Robert Drew",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/crisis",
+      "reason": "fetch failed",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "CONBODY VS EVERYBODY: Episode 1",
+      "year": 2024,
+      "director": "Debra Granik",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/conbody-vs-everybody/season:1/videos/conbody-vs-everybody-episode-1",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "CONBODY VS EVERYBODY: Episode 2",
+      "year": 2024,
+      "director": "Debra Granik",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/conbody-vs-everybody/season:1/videos/conbody-vs-everybody-episode-2",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "CONBODY VS EVERYBODY: Episode 3",
+      "year": 2024,
+      "director": "Debra Granik",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/conbody-vs-everybody/season:1/videos/conbody-vs-everybody-episode-3",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "CONBODY VS EVERYBODY: Episode 4",
+      "year": 2024,
+      "director": "Debra Granik",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/conbody-vs-everybody/season:1/videos/conbody-vs-everybody-episode-4",
+      "reason": "No confident IMDb match found",
+      "imdbId": null,
+      "matchedTitle": null,
+      "matchedYear": null
+    },
+    {
+      "title": "CONBODY VS EVERYBODY: Episode 5",
+      "year": 2024,
+      "director": "Debra Granik",
+      "country": "United States",
+      "url": "https://www.criterionchannel.com/conbody-vs-everybody/season:1/videos/conbody-vs-everybody-episode-5",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null

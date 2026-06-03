@@ -3,6 +3,7 @@ const SETTINGS_STORAGE_KEY = "criterionImdbSettings";
 const DEFAULT_SETTINGS = {
   minRating: 7.5,
   maxCacheAgeDays: 30,
+  omdbApiKeys: [],
   showRuntime: true,
   showGenres: true,
   showLanguages: true,
@@ -23,6 +24,7 @@ function setStatus(message) {
 function setFormValues(settings) {
   document.getElementById("minRating").value = settings.minRating;
   document.getElementById("maxCacheAgeDays").value = settings.maxCacheAgeDays;
+  document.getElementById("omdbApiKeys").value = Array.isArray(settings.omdbApiKeys) ? settings.omdbApiKeys.join(", ") : "";
   document.getElementById("showRuntime").checked = settings.showRuntime;
   document.getElementById("showGenres").checked = settings.showGenres;
   document.getElementById("showLanguages").checked = settings.showLanguages;
@@ -30,6 +32,13 @@ function setFormValues(settings) {
   document.getElementById("showCountry").checked = settings.showCountry;
   document.getElementById("dimLowRated").checked = settings.dimLowRated;
   document.getElementById("debugMode").checked = settings.debugMode;
+}
+
+function parseOmdbApiKeys(rawValue) {
+  return String(rawValue || "")
+    .split(",")
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 async function loadSettings() {
@@ -46,6 +55,7 @@ form.addEventListener("submit", async (event) => {
   const settings = {
     minRating: Number.parseFloat(document.getElementById("minRating").value) || DEFAULT_SETTINGS.minRating,
     maxCacheAgeDays: Number.parseInt(document.getElementById("maxCacheAgeDays").value, 10) || DEFAULT_SETTINGS.maxCacheAgeDays,
+    omdbApiKeys: parseOmdbApiKeys(document.getElementById("omdbApiKeys").value),
     showRuntime: document.getElementById("showRuntime").checked,
     showGenres: document.getElementById("showGenres").checked,
     showLanguages: document.getElementById("showLanguages").checked,

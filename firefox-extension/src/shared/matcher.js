@@ -8,6 +8,11 @@
     "feature",
     "TV movie",
     "tvMovie",
+    "series",
+    "tvSeries",
+    "TV series",
+    "miniSeries",
+    "TV mini-series",
     "short",
     "tvShort",
     "tvSpecial"
@@ -131,6 +136,27 @@
     if (!payload || payload.Response === "False") {
       const message = payload && payload.Error ? payload.Error : "Unknown OMDb error";
       throw new Error(`OMDb error for ${imdbId}: ${message}`);
+    }
+
+    return payload;
+  }
+
+  async function fetchOmdbByTitle(fetchImpl, title, year, apiKey) {
+    const params = new URLSearchParams({
+      t: title,
+      apikey: apiKey
+    });
+
+    if (Number.isInteger(year)) {
+      params.set("y", String(year));
+    }
+
+    const url = `${OMDB_API_URL}?${params.toString()}`;
+    const payload = await fetchJson(fetchImpl, url);
+
+    if (!payload || payload.Response === "False") {
+      const message = payload && payload.Error ? payload.Error : "Unknown OMDb error";
+      throw new Error(`OMDb error for ${title}: ${message}`);
     }
 
     return payload;
@@ -289,6 +315,48 @@
         matched: false,
         reason: "Film title missing"
       };
+    }
+
+    for (const candidateYear of [film.year, null]) {
+      try {
+        const directMovie = await fetchOmdbByTitle(fetchImpl, film.title, candidateYear, apiKey);
+        const directMatch = {
+          imdbId: directMovie.imdbID,
+          suggestedTitle: directMovie.Title,
+          suggestedYear: Number.parseInt(directMovie.Year, 10) || film.year || null
+        };
+        const directRating = Number.parseFloat(directMovie.imdbRating);
+        const directRuntimeMatch = String(directMovie.Runtime || "").match(/(\d+)/);
+        const directRuntimeMinutes = directRuntimeMatch ? Number.parseInt(directRuntimeMatch[1], 10) : null;
+
+        if (!isPlausibleResolvedMatch(film, directMovie, directMatch)) {
+          continue;
+        }
+
+        if (!Number.isFinite(directRating)) {
+          return {
+            matched: false,
+            reason: `IMDb rating missing for ${directMovie.imdbID || film.title}`
+          };
+        }
+
+        return {
+          matched: true,
+          imdbId: directMovie.imdbID,
+          imdbRating: directRating,
+          matchedTitle: directMovie.Title || film.title,
+          matchedYear: Number.parseInt(directMovie.Year, 10) || film.year || null,
+          genres: directMovie.Genre ? directMovie.Genre.split(",").map((part) => part.trim()).filter(Boolean) : [],
+          languages: directMovie.Language ? directMovie.Language.split(",").map((part) => part.trim()).filter(Boolean) : [],
+          runtimeMinutes: Number.isInteger(directRuntimeMinutes) ? directRuntimeMinutes : null,
+          rated: directMovie.Rated || "",
+          plot: directMovie.Plot || "",
+          matcherVersion: MATCHER_VERSION,
+          checkedAt: new Date().toISOString()
+        };
+      } catch (_error) {
+        // Fall through to the IMDb/Stremio-backed matcher path.
+      }
     }
 
     const firstChar = normalizeText(film.title)[0] || "a";

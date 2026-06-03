@@ -12,10 +12,14 @@
     "https://www.criterionchannel.com/*",
     "https://films.criterionchannel.com/*",
     "https://raylim.github.io/*",
-    "https://raw.githubusercontent.com/*"
+    "https://raw.githubusercontent.com/*",
+    "https://www.omdbapi.com/*",
+    "https://v2.sg.media-imdb.com/*",
+    "https://v3-cinemeta.strem.io/*"
   ],
   "background": {
     "scripts": [
+      "src/shared/matcher.js",
       "src/background.js"
     ]
   },

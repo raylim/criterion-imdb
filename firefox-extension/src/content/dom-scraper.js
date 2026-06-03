@@ -31,7 +31,8 @@
   ]);
   const ALLOWED_TRACK_EVENTS = new Set([
     "site_movie",
-    "site_video"
+    "site_video",
+    "site_series"
   ]);
 
   function normalizeWhitespace(text) {
@@ -135,7 +136,6 @@
       /\bnew collections\b/.test(clean) ||
       /\bpopular collections\b/.test(clean) ||
       /\bfeatured collections\b/.test(clean) ||
-      /\bfresh from theaters\b/.test(clean) ||
       /\bpopular movies\b/.test(clean) ||
       /\bview all\b/.test(clean) ||
       /\bnow playing\b/.test(clean)
@@ -296,7 +296,7 @@
     }
 
     const itemType = getCollectionItemType(anchor);
-    if (itemType && itemType !== "movie" && itemType !== "video") {
+    if (itemType && itemType !== "movie" && itemType !== "video" && itemType !== "series") {
       return false;
     }
 

@@ -183,6 +183,44 @@
     overlay.classList.add("is-loading");
   }
 
+  function markPendingOmdb(container) {
+    const overlay = ensureOverlayNode(container);
+    const pill = overlay.querySelector(".criterion-imdb-overlay__pill");
+    const details = overlay.querySelector(".criterion-imdb-overlay__details");
+    overlay.classList.remove("is-missing", "is-low-rated", "is-error", "is-success");
+    overlay.classList.add("is-loading");
+    pill.textContent = "IMDb …";
+    details.textContent = "Checking OMDb…";
+  }
+
+  async function enrichWithOmdb(pendingItems) {
+    if (pendingItems.length === 0) {
+      return;
+    }
+
+    const response = await extensionApi.runtime.sendMessage({
+      type: "criterion-imdb:lookup-films",
+      films: pendingItems.map((item) => item.film),
+      options: {
+        allowOmdbFallback: true
+      }
+    });
+
+    latestSettings = response.settings;
+    syncDebugMode(latestSettings);
+
+    response.results.forEach((result, index) => {
+      const candidate = pendingItems[index];
+      if (!candidate || !candidate.node.isConnected) {
+        return;
+      }
+
+      pendingNodes.delete(candidate.node);
+      candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
+      renderResult(candidate.node, result, response.settings);
+    });
+  }
+
   async function scanAndOverlay() {
     const candidates = domScraper.collectFilms();
     setStatus(`Criterion IMDb: found ${candidates.length} candidate links`, candidates.length > 0 ? "neutral" : "warn");
@@ -207,13 +245,17 @@
 
     const response = await extensionApi.runtime.sendMessage({
       type: "criterion-imdb:lookup-films",
-      films: fresh.map((item) => item.film)
+      films: fresh.map((item) => item.film),
+      options: {
+        allowOmdbFallback: false
+      }
     });
 
     latestSettings = response.settings;
     syncDebugMode(latestSettings);
+    const pendingOmdb = [];
     const matchedCount = response.results.filter((result) => result && result.matched).length;
-    const missingCount = response.results.length - matchedCount;
+    const missingCount = response.results.filter((result) => result && !result.matched).length;
     setStatus(
       `Criterion IMDb: ${matchedCount} matched, ${missingCount} missing`,
       matchedCount > 0 ? "success" : "warn"
@@ -225,8 +267,32 @@
         return;
       }
 
+      if (result.source === "pending") {
+        pendingOmdb.push(candidate);
+        markPendingOmdb(candidate.node);
+        return;
+      }
+
+      pendingNodes.delete(candidate.node);
       candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
       renderResult(candidate.node, result, response.settings);
+    });
+
+    enrichWithOmdb(pendingOmdb).catch((error) => {
+      console.warn("Criterion IMDb OMDb enrichment failed:", error);
+      pendingOmdb.forEach((candidate) => {
+        if (!candidate?.node?.isConnected) {
+          return;
+        }
+
+        pendingNodes.delete(candidate.node);
+        candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
+        renderResult(candidate.node, {
+          ...candidate.film,
+          matched: false,
+          reason: error.message || "OMDb lookup failed"
+        }, response.settings);
+      });
     });
   }
 

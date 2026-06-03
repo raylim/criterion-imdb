@@ -6,6 +6,9 @@ const { execFileSync } = require("child_process");
 
 const CRITERION_FILMS_URL = "https://films.criterionchannel.com/";
 const CRITERION_BROWSE_URL = "https://www.criterionchannel.com/browse";
+const EXTRA_COLLECTION_SEED_URLS = [
+  "https://www.criterionchannel.com/exclusive-streaming-premieres",
+];
 const DEFAULT_CACHE_FILE = path.join(__dirname, ".cache", "criterion-imdb-cache.json");
 const DEFAULT_CONCURRENCY = 1;
 const DEFAULT_HTML_FILE = path.join(__dirname, ".cache", "criterion-movies.html");
@@ -16,7 +19,20 @@ const DEFAULT_MANUAL_BUNDLED_FILE = path.join(__dirname, "criterion-imdb-manual.
 const DEFAULT_SUPPLEMENTAL_URLS_FILE = path.join(__dirname, "criterion-imdb-supplemental-urls.json");
 const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
 const MATCHER_VERSION = 6;
-const ALLOWED_IMDB_KINDS = new Set(["movie", "feature", "TV movie", "tvMovie", "short", "tvShort", "tvSpecial"]);
+const ALLOWED_IMDB_KINDS = new Set([
+  "movie",
+  "feature",
+  "TV movie",
+  "tvMovie",
+  "series",
+  "tvSeries",
+  "TV series",
+  "miniSeries",
+  "TV mini-series",
+  "short",
+  "tvShort",
+  "tvSpecial"
+]);
 const REQUEST_TIMEOUT_MS = 15000;
 const OMDB_API_URL = "https://www.omdbapi.com/";
 
@@ -668,6 +684,32 @@ function extractCollectionVideoUrls(html, baseUrl) {
   )];
 }
 
+function extractCollectionPaginationUrls(html, baseUrl) {
+  return [...new Set(
+    [...html.matchAll(/href="([^"]*[\?&](?:amp;)?page=\d+[^"]*)"/gi)]
+      .map((match) => {
+        const rawHref = decodeHtml(match[1] || "");
+
+        try {
+          const parsed = new URL(rawHref, baseUrl);
+          if (parsed.hostname !== "www.criterionchannel.com") {
+            return "";
+          }
+
+          if (!parsed.searchParams.has("page")) {
+            return "";
+          }
+
+          parsed.hash = "";
+          return parsed.href.replace(/\/+$/, "");
+        } catch (_error) {
+          return "";
+        }
+      })
+      .filter(Boolean)
+  )];
+}
+
 function extractCollectionItemBlocks(html) {
   return html.match(/<li[\s\S]*?class="js-collection-item[\s\S]*?<\/li>/gi) || [];
 }
@@ -687,7 +729,7 @@ function extractCollectionItemHref(block, baseUrl) {
 
 function extractCollectionFilmFromBlock(block, baseUrl) {
   const itemType = (block.match(/data-item-type="([^"]+)"/i)?.[1] || "").toLowerCase();
-  if (!["movie", "video"].includes(itemType)) {
+  if (!["movie", "video", "series"].includes(itemType)) {
     return null;
   }
 
@@ -774,8 +816,12 @@ async function fetchCriterionChannelPages(urls, args) {
 }
 
 async function fetchBrowseSupplement(args) {
-  const seedCollectionUrls = await fetchBrowseCollectionUrls(args);
+  const seedCollectionUrls = [...new Set([
+    ...(await fetchBrowseCollectionUrls(args)),
+    ...EXTRA_COLLECTION_SEED_URLS,
+  ])];
   const seenCollectionUrls = new Set();
+  const seenCollectionPageUrls = new Set();
   const seenFilmUrls = new Set();
   const films = [];
   let pendingCollectionUrls = seedCollectionUrls.slice();
@@ -792,10 +838,25 @@ async function fetchBrowseSupplement(args) {
       seenCollectionUrls.add(url);
 
       try {
-        const html = await fetchText(url);
+        const firstHtml = await fetchText(url);
+        const pageUrls = [...new Set([url, ...extractCollectionPaginationUrls(firstHtml, url)])]
+          .filter((pageUrl) => !seenCollectionPageUrls.has(pageUrl));
+        const pagePayloads = await mapWithConcurrency(pageUrls, args.concurrency, async (pageUrl) => {
+          try {
+            const html = pageUrl === url ? firstHtml : await fetchText(pageUrl);
+            seenCollectionPageUrls.add(pageUrl);
+            return { pageUrl, html };
+          } catch (error) {
+            console.warn(`Could not fetch collection page ${pageUrl}: ${error.message}`);
+            return null;
+          }
+        });
+
         return {
           url,
-          parsed: parseCollectionPage(html, url),
+          parsedPages: pagePayloads
+            .filter(Boolean)
+            .map(({ pageUrl, html }) => parseCollectionPage(html, pageUrl || url)),
         };
       } catch (error) {
         console.warn(`Could not fetch collection page ${url}: ${error.message}`);
@@ -804,19 +865,21 @@ async function fetchBrowseSupplement(args) {
     });
 
     for (const payload of payloads.filter(Boolean)) {
-      for (const film of payload.parsed.films) {
-        const normalizedUrl = normalizeCriterionUrl(film.url);
-        if (seenFilmUrls.has(normalizedUrl)) {
-          continue;
+      for (const parsedPage of payload.parsedPages) {
+        for (const film of parsedPage.films) {
+          const normalizedUrl = normalizeCriterionUrl(film.url);
+          if (seenFilmUrls.has(normalizedUrl)) {
+            continue;
+          }
+
+          seenFilmUrls.add(normalizedUrl);
+          films.push(film);
         }
 
-        seenFilmUrls.add(normalizedUrl);
-        films.push(film);
-      }
-
-      for (const nestedUrl of payload.parsed.nestedCollectionUrls) {
-        if (!seenCollectionUrls.has(nestedUrl)) {
-          pendingCollectionUrls.push(nestedUrl);
+        for (const nestedUrl of parsedPage.nestedCollectionUrls) {
+          if (!seenCollectionUrls.has(nestedUrl)) {
+            pendingCollectionUrls.push(nestedUrl);
+          }
         }
       }
     }

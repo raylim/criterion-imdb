@@ -116,7 +116,7 @@
 <body>
   <main>
     <h1>Criterion IMDb Overlay</h1>
-    <p>Uses the Criterion IMDb cache hosted from this repo when available, then falls back to the bundled copy inside the extension.</p>
+    <p>Uses the Criterion IMDb cache hosted from this repo when available, then falls back to the bundled copy inside the extension. On cache misses, it can optionally query OMDb directly and store the result locally.</p>
 
     <form id="settings-form">
       <label>
@@ -127,6 +127,11 @@
       <label>
         Cache freshness in days
         <input id="maxCacheAgeDays" type="number" min="1" max="365" step="1">
+      </label>
+
+      <label>
+        OMDb API keys
+        <input id="omdbApiKeys" type="text" placeholder="Comma-separated keys for cache misses">
       </label>
 
       <section class="checks">

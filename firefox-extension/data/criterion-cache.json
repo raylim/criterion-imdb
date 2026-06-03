@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-03T15:20:34.789Z",
-  "count": 2355,
+  "generatedAt": "2026-06-03T16:27:04.138Z",
+  "count": 2377,
   "entries": [
     {
       "url": "https://www.criterionchannel.com/2-or-3-things-i-know-about-her",
@@ -204,7 +204,7 @@
         "english"
       ],
       "imdbRating": 7.5,
-      "year": 2023,
+      "year": 2022,
       "runtimeMinutes": 95
     },
     {
@@ -3154,23 +3154,6 @@
       "runtimeMinutes": 110
     },
     {
-      "url": "https://www.criterionchannel.com/bergman-island",
-      "path": "/bergman-island",
-      "title": "Bergman Island",
-      "normalizedTitle": "bergman island",
-      "director": "marie nyreröd",
-      "genres": [
-        "documentary",
-        "biography"
-      ],
-      "languages": [
-        "swedish"
-      ],
-      "imdbRating": 7.7,
-      "year": 2006,
-      "runtimeMinutes": 85
-    },
-    {
       "url": "https://www.criterionchannel.com/bergman-island-1",
       "path": "/bergman-island-1",
       "title": "Bergman Island",
@@ -3189,6 +3172,23 @@
       "imdbRating": 6.6,
       "year": 2021,
       "runtimeMinutes": 112
+    },
+    {
+      "url": "https://www.criterionchannel.com/bergman-island",
+      "path": "/bergman-island",
+      "title": "Bergman Island",
+      "normalizedTitle": "bergman island",
+      "director": "marie nyreröd",
+      "genres": [
+        "documentary",
+        "biography"
+      ],
+      "languages": [
+        "swedish"
+      ],
+      "imdbRating": 7.7,
+      "year": 2006,
+      "runtimeMinutes": 85
     },
     {
       "url": "https://www.criterionchannel.com/berlin-express",
@@ -4371,6 +4371,23 @@
       "runtimeMinutes": 83
     },
     {
+      "url": "https://www.criterionchannel.com/boyhood",
+      "path": "/boyhood",
+      "title": "Boyhood",
+      "normalizedTitle": "boyhood",
+      "director": "keisuke kinoshita",
+      "genres": [
+        "drama",
+        "war"
+      ],
+      "languages": [
+        "japanese"
+      ],
+      "imdbRating": 6.8,
+      "year": 1951,
+      "runtimeMinutes": 111
+    },
+    {
       "url": "https://www.criterionchannel.com/boyhood-1",
       "path": "/boyhood-1",
       "title": "Boyhood",
@@ -4388,23 +4405,6 @@
       "imdbRating": 7.9,
       "year": 2014,
       "runtimeMinutes": 165
-    },
-    {
-      "url": "https://www.criterionchannel.com/boyhood",
-      "path": "/boyhood",
-      "title": "Boyhood",
-      "normalizedTitle": "boyhood",
-      "director": "keisuke kinoshita",
-      "genres": [
-        "drama",
-        "war"
-      ],
-      "languages": [
-        "japanese"
-      ],
-      "imdbRating": 6.8,
-      "year": 1951,
-      "runtimeMinutes": 111
     },
     {
       "url": "https://www.criterionchannel.com/boy-meets-girl",
@@ -5790,24 +5790,6 @@
       "runtimeMinutes": 143
     },
     {
-      "url": "https://www.criterionchannel.com/cat-people-1",
-      "path": "/cat-people-1",
-      "title": "Cat People",
-      "normalizedTitle": "cat people",
-      "director": "paul schrader",
-      "genres": [
-        "fantasy",
-        "horror",
-        "thriller"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.2,
-      "year": 1982,
-      "runtimeMinutes": 118
-    },
-    {
       "url": "https://www.criterionchannel.com/cat-people",
       "path": "/cat-people",
       "title": "Cat People",
@@ -5826,6 +5808,24 @@
       "imdbRating": 7.2,
       "year": 1942,
       "runtimeMinutes": 73
+    },
+    {
+      "url": "https://www.criterionchannel.com/cat-people-1",
+      "path": "/cat-people-1",
+      "title": "Cat People",
+      "normalizedTitle": "cat people",
+      "director": "paul schrader",
+      "genres": [
+        "fantasy",
+        "horror",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.2,
+      "year": 1982,
+      "runtimeMinutes": 118
     },
     {
       "url": "https://www.criterionchannel.com/the-cat-s-paw",
@@ -6167,7 +6167,7 @@
       "path": "/chicken-for-linda",
       "title": "Chicken for Linda!",
       "normalizedTitle": "chicken for linda",
-      "director": "sébastien laudenbach and chiara malta",
+      "director": "chiara malta and sébastien laudenbach",
       "genres": [
         "animation",
         "comedy",
@@ -9340,6 +9340,23 @@
       "runtimeMinutes": 91
     },
     {
+      "url": "https://www.criterionchannel.com/d-o-a",
+      "path": "/d-o-a",
+      "title": "D.O.A.",
+      "normalizedTitle": "d o a",
+      "director": "annabel jankel and rocky morton",
+      "genres": [
+        "mystery",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.1,
+      "year": 1988,
+      "runtimeMinutes": 96
+    },
+    {
       "url": "https://www.criterionchannel.com/d-o-a-1",
       "path": "/d-o-a-1",
       "title": "D.O.A.",
@@ -9356,23 +9373,6 @@
       "imdbRating": 7.2,
       "year": 1949,
       "runtimeMinutes": 83
-    },
-    {
-      "url": "https://www.criterionchannel.com/d-o-a",
-      "path": "/d-o-a",
-      "title": "D.O.A.",
-      "normalizedTitle": "d o a",
-      "director": "annabel jankel and rocky morton",
-      "genres": [
-        "mystery",
-        "thriller"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.1,
-      "year": 1988,
-      "runtimeMinutes": 96
     },
     {
       "url": "https://www.criterionchannel.com/el-doctor",
@@ -14125,7 +14125,7 @@
       "path": "/goodbye-horses-the-many-lives-of-q-lazzarus",
       "title": "Goodbye Horses: The Many Lives of Q Lazzarus",
       "normalizedTitle": "goodbye horses the many lives of q lazzarus",
-      "director": "eva aridjis",
+      "director": "eva aridjis fuentes",
       "genres": [
         "documentary"
       ],
@@ -18022,8 +18022,8 @@
       "runtimeMinutes": 120
     },
     {
-      "url": "https://www.criterionchannel.com/jeanne-dielman-23-quai-du-commerce-1080-bruxelles",
-      "path": "/jeanne-dielman-23-quai-du-commerce-1080-bruxelles",
+      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time",
+      "path": "/sight-sound-s-greatest-films-of-all-time",
       "title": "Jeanne Dielman, 23, quai du Commerce, 1080 Bruxelles",
       "normalizedTitle": "jeanne dielman 23 quai du commerce 1080 bruxelles",
       "director": "chantal akerman",
@@ -21982,25 +21982,6 @@
       "runtimeMinutes": 94
     },
     {
-      "url": "https://www.criterionchannel.com/the-man-who-loved-women",
-      "path": "/the-man-who-loved-women",
-      "title": "The Man Who Loved Women",
-      "normalizedTitle": "the man who loved women",
-      "director": "françois truffaut",
-      "genres": [
-        "comedy",
-        "drama",
-        "romance"
-      ],
-      "languages": [
-        "french",
-        "english"
-      ],
-      "imdbRating": 7.4,
-      "year": 1977,
-      "runtimeMinutes": 120
-    },
-    {
       "url": "https://www.criterionchannel.com/the-man-who-loved-women-1",
       "path": "/the-man-who-loved-women-1",
       "title": "The Man Who Loved Women",
@@ -22018,6 +21999,25 @@
       "imdbRating": 5.3,
       "year": 1983,
       "runtimeMinutes": 110
+    },
+    {
+      "url": "https://www.criterionchannel.com/the-man-who-loved-women",
+      "path": "/the-man-who-loved-women",
+      "title": "The Man Who Loved Women",
+      "normalizedTitle": "the man who loved women",
+      "director": "françois truffaut",
+      "genres": [
+        "comedy",
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "french",
+        "english"
+      ],
+      "imdbRating": 7.4,
+      "year": 1977,
+      "runtimeMinutes": 120
     },
     {
       "url": "https://www.criterionchannel.com/the-many-miracles-of-household-saints",
@@ -27840,23 +27840,6 @@
       "runtimeMinutes": 97
     },
     {
-      "url": "https://www.criterionchannel.com/la-poison",
-      "path": "/la-poison",
-      "title": "La poison",
-      "normalizedTitle": "la poison",
-      "director": "sacha guitry",
-      "genres": [
-        "comedy",
-        "crime"
-      ],
-      "languages": [
-        "french"
-      ],
-      "imdbRating": 7.4,
-      "year": 1951,
-      "runtimeMinutes": 85
-    },
-    {
       "url": "https://www.criterionchannel.com/poison",
       "path": "/poison",
       "title": "Poison",
@@ -27872,6 +27855,23 @@
       ],
       "imdbRating": 6.3,
       "year": 1991,
+      "runtimeMinutes": 85
+    },
+    {
+      "url": "https://www.criterionchannel.com/la-poison",
+      "path": "/la-poison",
+      "title": "La poison",
+      "normalizedTitle": "la poison",
+      "director": "sacha guitry",
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.4,
+      "year": 1951,
       "runtimeMinutes": 85
     },
     {
@@ -29253,6 +29253,23 @@
       "runtimeMinutes": 73
     },
     {
+      "url": "https://www.criterionchannel.com/return-of-the-prodigal-son",
+      "path": "/return-of-the-prodigal-son",
+      "title": "Return of the Prodigal Son",
+      "normalizedTitle": "return of the prodigal son",
+      "director": "evald schorm",
+      "genres": [
+        "drama"
+      ],
+      "languages": [
+        "english",
+        "czech"
+      ],
+      "imdbRating": 6.5,
+      "year": 1967,
+      "runtimeMinutes": 103
+    },
+    {
       "url": "https://www.criterionchannel.com/return-of-the-prodigal-son-1",
       "path": "/return-of-the-prodigal-son-1",
       "title": "Return of the Prodigal Son",
@@ -29269,23 +29286,6 @@
       "imdbRating": 7.1,
       "year": 1976,
       "runtimeMinutes": 120
-    },
-    {
-      "url": "https://www.criterionchannel.com/return-of-the-prodigal-son",
-      "path": "/return-of-the-prodigal-son",
-      "title": "Return of the Prodigal Son",
-      "normalizedTitle": "return of the prodigal son",
-      "director": "evald schorm",
-      "genres": [
-        "drama"
-      ],
-      "languages": [
-        "english",
-        "czech"
-      ],
-      "imdbRating": 6.5,
-      "year": 1967,
-      "runtimeMinutes": 103
     },
     {
       "url": "https://www.criterionchannel.com/the-return-of-the-scarlet-pimpernel",
@@ -30155,24 +30155,6 @@
       "runtimeMinutes": 11
     },
     {
-      "url": "https://www.criterionchannel.com/rupture",
-      "path": "/rupture",
-      "title": "Rupture",
-      "normalizedTitle": "rupture",
-      "director": "pierre etaix and jean-claude carrière",
-      "genres": [
-        "short",
-        "comedy",
-        "drama"
-      ],
-      "languages": [
-        "french"
-      ],
-      "imdbRating": 7,
-      "year": 1961,
-      "runtimeMinutes": 11
-    },
-    {
       "url": "https://www.criterionchannel.com/rupture-1",
       "path": "/rupture-1",
       "title": "Rupture",
@@ -30189,6 +30171,24 @@
       "imdbRating": 4.9,
       "year": 2017,
       "runtimeMinutes": 102
+    },
+    {
+      "url": "https://www.criterionchannel.com/rupture",
+      "path": "/rupture",
+      "title": "Rupture",
+      "normalizedTitle": "rupture",
+      "director": "pierre etaix and jean-claude carrière",
+      "genres": [
+        "short",
+        "comedy",
+        "drama"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7,
+      "year": 1961,
+      "runtimeMinutes": 11
     },
     {
       "url": "https://www.criterionchannel.com/rush-to-judgment",
@@ -31619,9 +31619,9 @@
     {
       "url": "https://www.criterionchannel.com/the-shadowless-tower",
       "path": "/the-shadowless-tower",
-      "title": "Shadowless Tower",
-      "normalizedTitle": "shadowless tower",
-      "director": "zhang lu",
+      "title": "The Shadowless Tower",
+      "normalizedTitle": "the shadowless tower",
+      "director": "zhang lü",
       "genres": [
         "drama"
       ],
@@ -36972,7 +36972,7 @@
       "path": "/union",
       "title": "Union",
       "normalizedTitle": "union",
-      "director": "stephen t. maing and brett story",
+      "director": "brett story and stephen maing",
       "genres": [
         "documentary"
       ],
@@ -38895,15 +38895,15 @@
       "normalizedTitle": "wildcat",
       "director": "ethan hawke",
       "genres": [
-        "action",
-        "thriller"
+        "biography",
+        "drama"
       ],
       "languages": [
         "english"
       ],
-      "imdbRating": 3.9,
-      "year": 2024,
-      "runtimeMinutes": 99
+      "imdbRating": 5.7,
+      "year": 2023,
+      "runtimeMinutes": 103
     },
     {
       "url": "https://www.criterionchannel.com/videos/a-wild-patience-has-taken-me-here",
@@ -39529,23 +39529,6 @@
       "runtimeMinutes": 103
     },
     {
-      "url": "https://www.criterionchannel.com/wuthering-heights-1",
-      "path": "/wuthering-heights-1",
-      "title": "Wuthering Heights",
-      "normalizedTitle": "wuthering heights",
-      "director": "andrea arnold",
-      "genres": [
-        "drama",
-        "romance"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6,
-      "year": 2011,
-      "runtimeMinutes": 129
-    },
-    {
       "url": "https://www.criterionchannel.com/wuthering-heights",
       "path": "/wuthering-heights",
       "title": "Wuthering Heights",
@@ -39561,6 +39544,23 @@
       "imdbRating": 7.5,
       "year": 1939,
       "runtimeMinutes": 104
+    },
+    {
+      "url": "https://www.criterionchannel.com/wuthering-heights-1",
+      "path": "/wuthering-heights-1",
+      "title": "Wuthering Heights",
+      "normalizedTitle": "wuthering heights",
+      "director": "andrea arnold",
+      "genres": [
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6,
+      "year": 2011,
+      "runtimeMinutes": 129
     },
     {
       "url": "https://www.criterionchannel.com/xala",
@@ -40535,6 +40535,40 @@
       "runtimeMinutes": 138
     },
     {
+      "url": "https://www.criterionchannel.com/mistress-dispeller",
+      "path": "/mistress-dispeller",
+      "title": "Mistress Dispeller",
+      "normalizedTitle": "mistress dispeller",
+      "director": "elizabeth lo",
+      "genres": [
+        "documentary",
+        "family"
+      ],
+      "languages": [
+        "mandarin",
+        "chinese"
+      ],
+      "imdbRating": 6.9,
+      "year": 2024,
+      "runtimeMinutes": 94
+    },
+    {
+      "url": "https://www.criterionchannel.com/megadoc",
+      "path": "/megadoc",
+      "title": "Megadoc",
+      "normalizedTitle": "megadoc",
+      "director": "mike figgis",
+      "genres": [
+        "documentary"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7,
+      "year": 2025,
+      "runtimeMinutes": 107
+    },
+    {
       "url": "https://www.criterionchannel.com/odysseys/season:1/videos/o-brother-where-art-thou",
       "path": "/odysseys/season:1/videos/o-brother-where-art-thou",
       "title": "O Brother, Where Art Thou?",
@@ -41361,6 +41395,25 @@
       "runtimeMinutes": 101
     },
     {
+      "url": "https://www.criterionchannel.com/horror-1/season:1/videos/sisters",
+      "path": "/horror-1/season:1/videos/sisters",
+      "title": "Sisters",
+      "normalizedTitle": "sisters",
+      "director": "brian de palma",
+      "genres": [
+        "horror",
+        "mystery",
+        "thriller"
+      ],
+      "languages": [
+        "english",
+        "french"
+      ],
+      "imdbRating": 6.8,
+      "year": 1973,
+      "runtimeMinutes": 93
+    },
+    {
       "url": "https://www.criterionchannel.com/directed-by-bigas-luna/season:1/videos/jamon-jamon",
       "path": "/directed-by-bigas-luna/season:1/videos/jamon-jamon",
       "title": "Jamón jamón",
@@ -41446,6 +41499,344 @@
       "imdbRating": 4.3,
       "year": 1968,
       "runtimeMinutes": 12
+    },
+    {
+      "url": "https://www.criterionchannel.com/heisei-era-godzilla/season:1/videos/godzilla-vs-king-ghidorah",
+      "path": "/heisei-era-godzilla/season:1/videos/godzilla-vs-king-ghidorah",
+      "title": "Godzilla vs. King Ghidorah",
+      "normalizedTitle": "godzilla vs king ghidorah",
+      "director": "kazuki omori",
+      "genres": [
+        "action",
+        "adventure",
+        "drama"
+      ],
+      "languages": [
+        "japanese",
+        "english"
+      ],
+      "imdbRating": 6.5,
+      "year": 1991,
+      "runtimeMinutes": 100
+    },
+    {
+      "url": "https://www.criterionchannel.com/heisei-era-godzilla/season:1/videos/the-return-of-godzilla",
+      "path": "/heisei-era-godzilla/season:1/videos/the-return-of-godzilla",
+      "title": "The Return of Godzilla",
+      "normalizedTitle": "the return of godzilla",
+      "director": "koji hashimoto",
+      "genres": [
+        "action",
+        "drama",
+        "horror"
+      ],
+      "languages": [
+        "japanese",
+        "english"
+      ],
+      "imdbRating": 6.8,
+      "year": 1984,
+      "runtimeMinutes": 103
+    },
+    {
+      "url": "https://www.criterionchannel.com/directed-by-robert-bresson/season:1/videos/four-nights-of-a-dreamer",
+      "path": "/directed-by-robert-bresson/season:1/videos/four-nights-of-a-dreamer",
+      "title": "Four Nights of a Dreamer",
+      "normalizedTitle": "four nights of a dreamer",
+      "director": "robert bresson",
+      "genres": [
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.3,
+      "year": 1971,
+      "runtimeMinutes": 87
+    },
+    {
+      "url": "https://www.criterionchannel.com/new-york-film-festival-favorites/season:1/videos/one-sings-the-other-doesn-t",
+      "path": "/new-york-film-festival-favorites/season:1/videos/one-sings-the-other-doesn-t",
+      "title": "One Sings, the Other Doesn't",
+      "normalizedTitle": "one sings the other doesn t",
+      "director": "agnès varda",
+      "genres": [
+        "drama",
+        "history"
+      ],
+      "languages": [
+        "french",
+        "english",
+        "dutch",
+        "persian"
+      ],
+      "imdbRating": 7.4,
+      "year": 1977,
+      "runtimeMinutes": 120
+    },
+    {
+      "url": "https://www.criterionchannel.com/new-york-film-festival-favorites/season:1/videos/the-marriage-of-maria-braun",
+      "path": "/new-york-film-festival-favorites/season:1/videos/the-marriage-of-maria-braun",
+      "title": "The Marriage of Maria Braun",
+      "normalizedTitle": "the marriage of maria braun",
+      "director": "rainer werner fassbinder",
+      "genres": [
+        "drama"
+      ],
+      "languages": [
+        "german",
+        "english",
+        "french"
+      ],
+      "imdbRating": 7.7,
+      "year": 1978,
+      "runtimeMinutes": 120
+    },
+    {
+      "url": "https://www.criterionchannel.com/bill-hader-s-adventures-in-moviegoing-1/season:1/videos/blood-simple",
+      "path": "/bill-hader-s-adventures-in-moviegoing-1/season:1/videos/blood-simple",
+      "title": "Blood Simple",
+      "normalizedTitle": "blood simple",
+      "director": "joel coen and ethan coen",
+      "genres": [
+        "crime",
+        "drama",
+        "thriller"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "imdbRating": 7.5,
+      "year": 1984,
+      "runtimeMinutes": 99
+    },
+    {
+      "url": "https://www.criterionchannel.com/harold-lloyd-1/season:1/videos/dr-jack",
+      "path": "/harold-lloyd-1/season:1/videos/dr-jack",
+      "title": "Dr. Jack",
+      "normalizedTitle": "dr jack",
+      "director": "fred newmeyer",
+      "genres": [
+        "comedy",
+        "romance"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.1,
+      "year": 1922,
+      "runtimeMinutes": 60
+    },
+    {
+      "url": "https://www.criterionchannel.com/harold-lloyd-1/season:1/videos/harold-lloyd-s-funny-side-of-life",
+      "path": "/harold-lloyd-1/season:1/videos/harold-lloyd-s-funny-side-of-life",
+      "title": "Harold Lloyd’s Funny Side of Life",
+      "normalizedTitle": "harold lloyd s funny side of life",
+      "director": "harry kerwin",
+      "genres": [
+        "documentary",
+        "comedy",
+        "family"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.6,
+      "year": 1963,
+      "runtimeMinutes": 121
+    },
+    {
+      "url": "https://www.criterionchannel.com/harold-lloyd-1/season:1/videos/that-s-him",
+      "path": "/harold-lloyd-1/season:1/videos/that-s-him",
+      "title": "That’s Him",
+      "normalizedTitle": "that s him",
+      "director": "gilbert pratt",
+      "genres": [
+        "short",
+        "comedy"
+      ],
+      "languages": [
+        "none",
+        "english"
+      ],
+      "imdbRating": 6,
+      "year": 1918,
+      "runtimeMinutes": 11
+    },
+    {
+      "url": "https://www.criterionchannel.com/harold-lloyd-1/season:1/videos/never-weaken",
+      "path": "/harold-lloyd-1/season:1/videos/never-weaken",
+      "title": "Never Weaken",
+      "normalizedTitle": "never weaken",
+      "director": "fred newmeyer",
+      "genres": [
+        "short",
+        "comedy",
+        "thriller"
+      ],
+      "languages": [
+        "none"
+      ],
+      "imdbRating": 7.5,
+      "year": 1921,
+      "runtimeMinutes": 19
+    },
+    {
+      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time/season:1/videos/cleo-from-5-to-7",
+      "path": "/sight-sound-s-greatest-films-of-all-time/season:1/videos/cleo-from-5-to-7",
+      "title": "Cléo from 5 to 7",
+      "normalizedTitle": "cleo from 5 to 7",
+      "director": "agnès varda",
+      "genres": [
+        "comedy",
+        "drama",
+        "music"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.8,
+      "year": 1962,
+      "runtimeMinutes": 90
+    },
+    {
+      "url": "https://www.criterionchannel.com/tessa-thompson-s-adventures-in-moviegoing/season:1/videos/betty-blue",
+      "path": "/tessa-thompson-s-adventures-in-moviegoing/season:1/videos/betty-blue",
+      "title": "Betty Blue",
+      "normalizedTitle": "betty blue",
+      "director": "jean-jacques beineix",
+      "genres": [
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.3,
+      "year": 1986,
+      "runtimeMinutes": 119
+    },
+    {
+      "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/dont-look-back",
+      "path": "/cinema-verite/season:1/videos/dont-look-back",
+      "title": "Dont Look Back",
+      "normalizedTitle": "dont look back",
+      "director": "d. a. pennebaker",
+      "genres": [
+        "documentary",
+        "music"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.9,
+      "year": 1967,
+      "runtimeMinutes": 96
+    },
+    {
+      "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/monterey-pop",
+      "path": "/cinema-verite/season:1/videos/monterey-pop",
+      "title": "Monterey Pop",
+      "normalizedTitle": "monterey pop",
+      "director": "d. a. pennebaker",
+      "genres": [
+        "documentary",
+        "history",
+        "music"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.9,
+      "year": 1968,
+      "runtimeMinutes": 78
+    },
+    {
+      "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/gimme-shelter",
+      "path": "/cinema-verite/season:1/videos/gimme-shelter",
+      "title": "Gimme Shelter",
+      "normalizedTitle": "gimme shelter",
+      "director": "david maysles, albert maysles, and charlotte zwerin",
+      "genres": [
+        "documentary",
+        "music",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.8,
+      "year": 1970,
+      "runtimeMinutes": 91
+    },
+    {
+      "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/a-poem-is-a-naked-person",
+      "path": "/cinema-verite/season:1/videos/a-poem-is-a-naked-person",
+      "title": "A Poem Is a Naked Person",
+      "normalizedTitle": "a poem is a naked person",
+      "director": "les blank",
+      "genres": [
+        "documentary",
+        "music"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.1,
+      "year": 1974,
+      "runtimeMinutes": 90
+    },
+    {
+      "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/harlan-county-usa",
+      "path": "/cinema-verite/season:1/videos/harlan-county-usa",
+      "title": "Harlan County USA",
+      "normalizedTitle": "harlan county usa",
+      "director": "barbara kopple",
+      "genres": [
+        "documentary"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 8.2,
+      "year": 1976,
+      "runtimeMinutes": 103
+    },
+    {
+      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time/season:1/videos/the-mirror",
+      "path": "/sight-sound-s-greatest-films-of-all-time/season:1/videos/the-mirror",
+      "title": "Mirror",
+      "normalizedTitle": "mirror",
+      "director": "andrei tarkovsky",
+      "genres": [
+        "biography",
+        "drama"
+      ],
+      "languages": [
+        "russian",
+        "spanish"
+      ],
+      "imdbRating": 7.9,
+      "year": 1974,
+      "runtimeMinutes": 107
+    },
+    {
+      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time/season:1/videos/the-gleaners-and-i",
+      "path": "/sight-sound-s-greatest-films-of-all-time/season:1/videos/the-gleaners-and-i",
+      "title": "The Gleaners and I",
+      "normalizedTitle": "the gleaners and i",
+      "director": "agnès varda",
+      "genres": [
+        "documentary"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.7,
+      "year": 2000,
+      "runtimeMinutes": 82
     },
     {
       "url": "https://www.criterionchannel.com/the-thing",
