@@ -10,7 +10,9 @@ Tools for keeping a Criterion Channel title database mapped to IMDb metadata, ge
   Firefox add-on that overlays IMDb ratings and metadata on Criterion pages.
 - `scripts/refresh-cache.sh`
   End-to-end refresh script for rebuilding the local cache, report, extension dataset, and hosted JSON.
-- `docs/criterion-cache.json`
+- `criterion-cache.json`
+- `criterion-movies.html`
+- `index.html`
   Repo-hosted cache artifact that the extension can fetch remotely after installation.
 
 ## Setup
@@ -55,7 +57,8 @@ Tracked outputs:
 - `.cache/criterion-imdb-unresolved.json`
 - `.cache/criterion-movies.html`
 - `firefox-extension/data/criterion-cache.json`
-- `docs/criterion-cache.json`
+- `criterion-cache.json`
+- `criterion-movies.html`
 
 The refresh script now crawls:
 
@@ -84,7 +87,7 @@ After running:
 npm run refresh:criterion
 ```
 
-push the repo updates to GitHub so `docs/criterion-cache.json` is updated remotely. Then in Firefox, use the extension option:
+push the repo updates to GitHub so `criterion-cache.json` and `criterion-movies.html` are updated remotely on GitHub Pages. Then in Firefox, use the extension option:
 
 - `Fetch latest scores from GitHub`
 

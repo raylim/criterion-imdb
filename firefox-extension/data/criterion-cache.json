@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-03T14:46:35.421Z",
+  "generatedAt": "2026-06-03T15:20:34.789Z",
   "count": 2355,
   "entries": [
     {
@@ -3154,6 +3154,23 @@
       "runtimeMinutes": 110
     },
     {
+      "url": "https://www.criterionchannel.com/bergman-island",
+      "path": "/bergman-island",
+      "title": "Bergman Island",
+      "normalizedTitle": "bergman island",
+      "director": "marie nyreröd",
+      "genres": [
+        "documentary",
+        "biography"
+      ],
+      "languages": [
+        "swedish"
+      ],
+      "imdbRating": 7.7,
+      "year": 2006,
+      "runtimeMinutes": 85
+    },
+    {
       "url": "https://www.criterionchannel.com/bergman-island-1",
       "path": "/bergman-island-1",
       "title": "Bergman Island",
@@ -3172,23 +3189,6 @@
       "imdbRating": 6.6,
       "year": 2021,
       "runtimeMinutes": 112
-    },
-    {
-      "url": "https://www.criterionchannel.com/bergman-island",
-      "path": "/bergman-island",
-      "title": "Bergman Island",
-      "normalizedTitle": "bergman island",
-      "director": "marie nyreröd",
-      "genres": [
-        "documentary",
-        "biography"
-      ],
-      "languages": [
-        "swedish"
-      ],
-      "imdbRating": 7.7,
-      "year": 2006,
-      "runtimeMinutes": 85
     },
     {
       "url": "https://www.criterionchannel.com/berlin-express",
@@ -9340,23 +9340,6 @@
       "runtimeMinutes": 91
     },
     {
-      "url": "https://www.criterionchannel.com/d-o-a",
-      "path": "/d-o-a",
-      "title": "D.O.A.",
-      "normalizedTitle": "d o a",
-      "director": "annabel jankel and rocky morton",
-      "genres": [
-        "mystery",
-        "thriller"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.1,
-      "year": 1988,
-      "runtimeMinutes": 96
-    },
-    {
       "url": "https://www.criterionchannel.com/d-o-a-1",
       "path": "/d-o-a-1",
       "title": "D.O.A.",
@@ -9373,6 +9356,23 @@
       "imdbRating": 7.2,
       "year": 1949,
       "runtimeMinutes": 83
+    },
+    {
+      "url": "https://www.criterionchannel.com/d-o-a",
+      "path": "/d-o-a",
+      "title": "D.O.A.",
+      "normalizedTitle": "d o a",
+      "director": "annabel jankel and rocky morton",
+      "genres": [
+        "mystery",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.1,
+      "year": 1988,
+      "runtimeMinutes": 96
     },
     {
       "url": "https://www.criterionchannel.com/el-doctor",
@@ -29467,23 +29467,6 @@
       "runtimeMinutes": 91
     },
     {
-      "url": "https://www.criterionchannel.com/horror-1",
-      "path": "/horror-1",
-      "title": "Ring",
-      "normalizedTitle": "ring",
-      "director": "hideo nakata",
-      "genres": [
-        "horror",
-        "mystery"
-      ],
-      "languages": [
-        "japanese"
-      ],
-      "imdbRating": 7.2,
-      "year": 1998,
-      "runtimeMinutes": 96
-    },
-    {
       "url": "https://www.criterionchannel.com/videos/the-ring-1",
       "path": "/videos/the-ring-1",
       "title": "The Ring",
@@ -29499,6 +29482,23 @@
       "imdbRating": 7.1,
       "year": 2002,
       "runtimeMinutes": 115
+    },
+    {
+      "url": "https://www.criterionchannel.com/horror-1",
+      "path": "/horror-1",
+      "title": "Ring",
+      "normalizedTitle": "ring",
+      "director": "hideo nakata",
+      "genres": [
+        "horror",
+        "mystery"
+      ],
+      "languages": [
+        "japanese"
+      ],
+      "imdbRating": 7.2,
+      "year": 1998,
+      "runtimeMinutes": 96
     },
     {
       "url": "https://www.criterionchannel.com/the-rink",
@@ -39529,23 +39529,6 @@
       "runtimeMinutes": 103
     },
     {
-      "url": "https://www.criterionchannel.com/wuthering-heights",
-      "path": "/wuthering-heights",
-      "title": "Wuthering Heights",
-      "normalizedTitle": "wuthering heights",
-      "director": "william wyler",
-      "genres": [
-        "drama",
-        "romance"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 7.5,
-      "year": 1939,
-      "runtimeMinutes": 104
-    },
-    {
       "url": "https://www.criterionchannel.com/wuthering-heights-1",
       "path": "/wuthering-heights-1",
       "title": "Wuthering Heights",
@@ -39561,6 +39544,23 @@
       "imdbRating": 6,
       "year": 2011,
       "runtimeMinutes": 129
+    },
+    {
+      "url": "https://www.criterionchannel.com/wuthering-heights",
+      "path": "/wuthering-heights",
+      "title": "Wuthering Heights",
+      "normalizedTitle": "wuthering heights",
+      "director": "william wyler",
+      "genres": [
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.5,
+      "year": 1939,
+      "runtimeMinutes": 104
     },
     {
       "url": "https://www.criterionchannel.com/xala",
