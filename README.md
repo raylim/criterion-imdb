@@ -49,6 +49,12 @@ Refresh and open the HTML report:
 npm run refresh:criterion:open
 ```
 
+Package the Firefox extension:
+
+```bash
+npm run package:extension
+```
+
 ## Outputs
 
 Tracked outputs:
@@ -90,6 +96,20 @@ npm run refresh:criterion
 push the repo updates to GitHub so `docs/criterion-cache.json` and `docs/criterion-movies.html` are updated remotely on GitHub Pages. Then in Firefox, use the extension option:
 
 - `Fetch latest scores from GitHub`
+
+## Deployment
+
+This repo now has a GitHub Actions deployment workflow at `.github/workflows/deploy.yml`.
+
+On pushes to `main` that touch the hosted report, extension, workflow, or tests, it will:
+
+- run `npm test`
+- validate the Firefox extension scripts with `node --check`
+- package the Firefox extension into `firefox-extension/dist/*.xpi`
+- upload that `.xpi` as a workflow artifact
+- deploy the current `docs/` directory to GitHub Pages
+
+You can also trigger it manually from the GitHub Actions tab with `workflow_dispatch`.
 
 ## Notes
 
