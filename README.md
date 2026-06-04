@@ -115,3 +115,17 @@ You can also trigger it manually from the GitHub Actions tab with `workflow_disp
 
 - Some Criterion collection pages expose episode-style or collection-scoped video URLs; the crawler dedupes those against direct film pages where possible.
 - `criterion-imdb-aliases.json`, `criterion-imdb-manual.json`, and `criterion-imdb-supplemental-urls.json` are the override files for tricky titles and missing browse coverage.
+
+## Public Release
+
+Public release support files for Firefox AMO live in `firefox-extension/`:
+
+- `AMO-LISTING.md`
+- `RELEASE_NOTES.md`
+- `dist/criterion-imdb-overlay-0.1.2.xpi`
+
+Hosted public pages:
+
+- Report: [https://raylim.github.io/criterion-imdb/criterion-movies.html](https://raylim.github.io/criterion-imdb/criterion-movies.html)
+- Cache: [https://raylim.github.io/criterion-imdb/criterion-cache.json](https://raylim.github.io/criterion-imdb/criterion-cache.json)
+- Privacy policy: [https://raylim.github.io/criterion-imdb/privacy.html](https://raylim.github.io/criterion-imdb/privacy.html)

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Criterion IMDb Overlay Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f3ea;
+      --panel: #fffdf8;
+      --text: #231f1a;
+      --muted: #63594d;
+      --line: #dccfb8;
+      --accent: #8f2d1f;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #efe7d6 0%, var(--bg) 100%);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    article {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px 28px;
+      box-shadow: 0 12px 40px rgba(50, 35, 10, 0.08);
+    }
+
+    h1, h2 {
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      margin-top: 28px;
+    }
+
+    p, li {
+      font-size: 1rem;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .meta {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <article>
+      <h1>Criterion IMDb Overlay Privacy Policy</h1>
+      <p class="meta">Last updated: June 4, 2026</p>
+
+      <p>Criterion IMDb Overlay is a Firefox extension that shows IMDb ratings and related film metadata on Criterion pages.</p>
+
+      <h2>What data the extension stores</h2>
+      <ul>
+        <li>Your extension settings, such as display preferences and optional OMDb API keys.</li>
+        <li>Locally cached score lookup results used to speed up repeated page loads.</li>
+        <li>A locally cached copy of the hosted Criterion score index fetched from this project’s GitHub Pages site.</li>
+      </ul>
+
+      <h2>What data the extension sends</h2>
+      <p>The extension does not send your browsing history or account data to a private backend operated by this project.</p>
+      <p>When score data is missing from the bundled or hosted cache, the extension may request public film metadata from third-party services needed to resolve a title:</p>
+      <ul>
+        <li><code>https://raylim.github.io/criterion-imdb/</code> for the hosted cache file</li>
+        <li><code>https://raw.githubusercontent.com/</code> as a fallback hosted cache source</li>
+        <li><code>https://www.omdbapi.com/</code> if you enable OMDb fallback with your own API key</li>
+        <li><code>https://v2.sg.media-imdb.com/</code> and <code>https://v3-cinemeta.strem.io/</code> for public title matching fallback</li>
+      </ul>
+
+      <h2>What data is not collected</h2>
+      <ul>
+        <li>No user accounts are created for this extension.</li>
+        <li>No personal profile is built or sold.</li>
+        <li>No analytics, advertising IDs, or tracking pixels are included.</li>
+      </ul>
+
+      <h2>Control</h2>
+      <p>You can remove stored settings and local cache by clearing the extension’s stored data or uninstalling the extension.</p>
+
+      <h2>Contact</h2>
+      <p>Project home: <a href="https://github.com/raylim/criterion-imdb">github.com/raylim/criterion-imdb</a></p>
+    </article>
+  </main>
+</body>
+</html>

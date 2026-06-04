@@ -3,6 +3,7 @@
   "name": "Criterion IMDb Overlay",
   "version": "0.1.2",
   "description": "Overlay IMDb ratings and film metadata on Criterion pages.",
+  "homepage_url": "https://raylim.github.io/criterion-imdb/",
   "permissions": [
     "storage"
   ],
