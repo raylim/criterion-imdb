@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Criterion IMDb Overlay",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Overlay IMDb ratings and film metadata on Criterion pages.",
   "permissions": [
     "storage"
