@@ -3,6 +3,8 @@
   const MATCHER_VERSION = 1;
   const OMDB_API_URL = "https://www.omdbapi.com/";
   const REQUEST_TIMEOUT_MS = 15000;
+  const MIN_CONFIDENT_GUESS_SCORE = 12;
+  const MIN_LOW_CONFIDENCE_GUESS_SCORE = 6;
   const ALLOWED_IMDB_KINDS = new Set([
     "movie",
     "feature",
@@ -191,11 +193,14 @@
       })
       .sort((a, b) => b.score - a.score);
 
-    if (candidates.length === 0 || candidates[0].score < 12) {
+    if (candidates.length === 0 || candidates[0].score < MIN_LOW_CONFIDENCE_GUESS_SCORE) {
       return null;
     }
 
-    return candidates[0];
+    return {
+      ...candidates[0],
+      confident: candidates[0].score >= MIN_CONFIDENT_GUESS_SCORE
+    };
   }
 
   function pickBestCatalogResult(film, results) {
@@ -240,7 +245,14 @@
       (best.hasDirectorMatch && best.yearPenalty <= 1) ||
       (best.hasDirectorMatch && best.score >= 28);
 
-    return confident ? best : null;
+    if (best.score < MIN_LOW_CONFIDENCE_GUESS_SCORE) {
+      return null;
+    }
+
+    return {
+      ...best,
+      confident
+    };
   }
 
   async function searchCatalogForFilm(fetchImpl, film, apiKey) {
@@ -390,12 +402,8 @@
     const runtimeMatch = String(movie.Runtime || "").match(/(\d+)/);
     const runtimeMinutes = runtimeMatch ? Number.parseInt(runtimeMatch[1], 10) : null;
 
-    if (!isPlausibleResolvedMatch(film, movie, match)) {
-      return {
-        matched: false,
-        reason: "No confident IMDb match found"
-      };
-    }
+    const plausibleResolvedMatch = isPlausibleResolvedMatch(film, movie, match);
+    const lowConfidence = !match.confident || !plausibleResolvedMatch;
 
     if (!Number.isFinite(imdbRating)) {
       return {
@@ -408,6 +416,7 @@
       matched: true,
       imdbId: match.imdbId,
       imdbRating,
+      lowConfidence,
       matchedTitle: movie.Title || match.suggestedTitle,
       matchedYear: Number.parseInt(movie.Year || match.suggestedYear, 10) || match.suggestedYear || null,
       genres: movie.Genre ? movie.Genre.split(",").map((part) => part.trim()).filter(Boolean) : [],
@@ -415,6 +424,7 @@
       runtimeMinutes: Number.isInteger(runtimeMinutes) ? runtimeMinutes : null,
       rated: movie.Rated || "",
       plot: movie.Plot || "",
+      confidenceNote: lowConfidence ? "Best guess from public metadata" : "",
       matcherVersion: MATCHER_VERSION,
       checkedAt: new Date().toISOString()
     };

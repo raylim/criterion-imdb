@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-06-03T16:37:12.208Z",
-  "count": 805,
+  "updatedAt": "2026-06-05T14:56:09.757Z",
+  "count": 799,
   "items": [
     {
       "title": "21 Days",
@@ -8720,7 +8720,7 @@
       "director": "",
       "country": "",
       "url": "https://www.criterionchannel.com/videos/conbody-vs-everybody-episode-1",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8731,18 +8731,7 @@
       "director": "Luis Buñuel",
       "country": "Mexico",
       "url": "https://www.criterionchannel.com/el",
-      "reason": "fetch failed",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "K-ON! THE MOVIE: English-Dubbed Version",
-      "year": 2011,
-      "director": "Naoko Yamada",
-      "country": "Japan",
-      "url": "https://www.criterionchannel.com/k-on-the-movie-english-dubbed-version",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8753,18 +8742,7 @@
       "director": "Max Keegan",
       "country": "United States",
       "url": "https://www.criterionchannel.com/the-shepherd-and-the-bear",
-      "reason": "fetch failed",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "The Terror and the Time",
-      "year": 1978,
-      "director": "Rupert Roonaraine",
-      "country": "Guyana",
-      "url": "https://www.criterionchannel.com/the-terror-and-the-time",
-      "reason": "fetch failed",
+      "reason": "IMDb rating missing for tt27623454",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8775,29 +8753,7 @@
       "director": "Kimi Takesue",
       "country": "United States",
       "url": "https://www.criterionchannel.com/that-which-once-was",
-      "reason": "fetch failed",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "La vie de bohème",
-      "year": 1992,
-      "director": "Aki Kaurismäki",
-      "country": "Finland",
-      "url": "https://www.criterionchannel.com/la-vie-de-boheme",
-      "reason": "fetch failed",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "We&#039;re No Angels",
-      "year": 1989,
-      "director": "Neil Jordan",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/we-re-no-angels-1",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8808,18 +8764,7 @@
       "director": "Julian Schnabel",
       "country": "United States",
       "url": "https://www.criterionchannel.com/starring-courtney-love/season:1/videos/basquiat-black-and-white-version",
-      "reason": "fetch failed",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Walker",
-      "year": 1987,
-      "director": "Alex Cox",
-      "country": "United States",
-      "url": "https://www.criterionchannel.com/directed-by-alex-cox",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8830,18 +8775,7 @@
       "director": "Arnold Antonin",
       "country": "Haiti",
       "url": "https://www.criterionchannel.com/caribbean-activist-cinema/season:1/videos/haiti-the-way-to-freedom",
-      "reason": "fetch failed",
-      "imdbId": null,
-      "matchedTitle": null,
-      "matchedYear": null
-    },
-    {
-      "title": "Touki bouki",
-      "year": 1973,
-      "director": "Djibril Diop Mambéty",
-      "country": "Senegal",
-      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time/season:1/videos/touki-bouki",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null
@@ -8852,7 +8786,7 @@
       "director": "Robert Drew",
       "country": "United States",
       "url": "https://www.criterionchannel.com/cinema-verite/season:1/videos/crisis",
-      "reason": "fetch failed",
+      "reason": "No confident IMDb match found",
       "imdbId": null,
       "matchedTitle": null,
       "matchedYear": null

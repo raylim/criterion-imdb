@@ -7,6 +7,9 @@
   const PROCESSED_DATASET_KEY = "criterionImdbProcessedV6";
   const VISIBLE_LOOKUP_PADDING_PX = 240;
   const pendingNodes = new WeakSet();
+  const pendingNodeStartedAt = new WeakMap();
+  const pendingNodeTimers = new WeakMap();
+  const PENDING_NODE_TIMEOUT_MS = 30000;
   let scanScheduled = false;
   let latestSettings = null;
   let debugMode = false;
@@ -30,6 +33,9 @@
   function formatDetails(result, settings) {
     const details = [];
 
+    if (result.lowConfidence) {
+      details.push(result.confidenceNote || "Best guess");
+    }
     if (settings.showDirector && result.director) {
       details.push(result.director);
     }
@@ -94,6 +100,73 @@
     ) {
       host.remove();
     }
+  }
+
+  function clearProcessedState(container) {
+    if (!container?.dataset) {
+      return;
+    }
+
+    delete container.dataset[PROCESSED_DATASET_KEY];
+  }
+
+  function hasRenderedOverlay(container) {
+    if (!container) {
+      return false;
+    }
+
+    const host = getExistingOverlayHost(container) || (!needsSiblingHost(container) ? container : null);
+    if (!host) {
+      return false;
+    }
+
+    return host.querySelectorAll(`:scope > .${ROOT_CLASS}`).length > 0;
+  }
+
+  function markNodePending(container) {
+    clearNodePending(container);
+    pendingNodes.add(container);
+    pendingNodeStartedAt.set(container, Date.now());
+    const timerId = globalScope.setTimeout(() => {
+      if (!container?.isConnected) {
+        clearNodePending(container);
+        return;
+      }
+
+      clearNodePending(container);
+      removeOverlay(container);
+      clearProcessedState(container);
+      scheduleScan();
+    }, PENDING_NODE_TIMEOUT_MS);
+    pendingNodeTimers.set(container, timerId);
+  }
+
+  function clearNodePending(container) {
+    pendingNodes.delete(container);
+    pendingNodeStartedAt.delete(container);
+    const timerId = pendingNodeTimers.get(container);
+    if (timerId) {
+      globalScope.clearTimeout(timerId);
+    }
+    pendingNodeTimers.delete(container);
+  }
+
+  function isNodePending(container) {
+    if (!container || !pendingNodes.has(container)) {
+      return false;
+    }
+
+    const startedAt = pendingNodeStartedAt.get(container);
+    if (!Number.isFinite(startedAt)) {
+      return true;
+    }
+
+    if ((Date.now() - startedAt) > PENDING_NODE_TIMEOUT_MS) {
+      clearNodePending(container);
+      return false;
+    }
+
+    return true;
   }
 
   function ensureOverlayNode(container) {
@@ -233,6 +306,7 @@
     overlay.classList.remove(
       "is-loading",
       "is-missing",
+      "is-low-confidence",
       "is-low-rated",
       "is-error",
       "is-success"
@@ -247,6 +321,9 @@
     }
 
     overlay.classList.add("is-success");
+    if (result.lowConfidence) {
+      overlay.classList.add("is-low-confidence");
+    }
     if (result.imdbRating < settings.minRating) {
       overlay.classList.add("is-low-rated");
       if (settings.dimLowRated) {
@@ -258,7 +335,9 @@
       container.classList.remove("criterion-imdb-overlay-dimmed");
     }
 
-    pill.textContent = `IMDb ${result.imdbRating.toFixed(1)}`;
+    pill.textContent = result.lowConfidence
+      ? `? IMDb ${result.imdbRating.toFixed(1)}`
+      : `IMDb ${result.imdbRating.toFixed(1)}`;
     details.textContent = formatDetails(result, settings) || `Matched ${result.matchedTitle || result.title}`;
   }
 
@@ -361,7 +440,7 @@
     }
 
     for (const item of batch) {
-      pendingNodes.add(item.node);
+      markNodePending(item.node);
       if (!isSeriesResult(item.film)) {
         markLoading(item.node);
       }
@@ -399,7 +478,7 @@
         return;
       }
 
-      pendingNodes.delete(candidate.node);
+      clearNodePending(candidate.node);
       candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
       renderResult(candidate.node, result, response.settings);
     });
@@ -411,7 +490,7 @@
           return;
         }
 
-        pendingNodes.delete(candidate.node);
+        clearNodePending(candidate.node);
         candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
         renderResult(candidate.node, {
           ...candidate.film,
@@ -444,7 +523,7 @@
         return;
       }
 
-      pendingNodes.delete(candidate.node);
+      clearNodePending(candidate.node);
       candidate.node.dataset[PROCESSED_DATASET_KEY] = "true";
       renderResult(candidate.node, result, response.settings);
     });
@@ -459,14 +538,29 @@
         ? host.previousElementSibling
         : host;
       if (ownerNode && !validNodes.has(ownerNode)) {
+        const wasProcessed = ownerNode.dataset?.[PROCESSED_DATASET_KEY] === "true";
+        const isPending = isNodePending(ownerNode);
+        const keepDuringTransientMiss = ownerNode.isConnected && (wasProcessed || isPending);
+
+        if (keepDuringTransientMiss) {
+          return;
+        }
+
         overlay.remove();
         ownerNode.classList?.remove("criterion-imdb-overlay-dimmed");
+        clearNodePending(ownerNode);
+        clearProcessedState(ownerNode);
         cleanupEmptyOverlayHost(host);
       }
     });
     setStatus(`Criterion IMDb: found ${candidates.length} candidate links`, candidates.length > 0 ? "neutral" : "warn");
     const fresh = candidates.filter(({ node }) => {
-      if (!node.isConnected || node.dataset[PROCESSED_DATASET_KEY] === "true" || pendingNodes.has(node)) {
+      const alreadyProcessed = node.dataset[PROCESSED_DATASET_KEY] === "true";
+      const alreadyRendered = hasRenderedOverlay(node);
+      if (!node.isConnected || isNodePending(node)) {
+        return false;
+      }
+      if (alreadyProcessed && alreadyRendered) {
         return false;
       }
       return true;
@@ -525,6 +619,11 @@
   };
 
   globalScope.__criterionImdbOverlayTest = {
+    clearProcessedState,
+    clearNodePending,
+    hasRenderedOverlay,
+    isNodePending,
+    markNodePending,
     mergeDeferredBatchItems,
     removeOverlay,
     needsSiblingHost,

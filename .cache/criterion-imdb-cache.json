@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-03T16:37:12.200Z",
+  "updatedAt": "2026-06-05T14:56:09.751Z",
   "items": {
     "les 3 boutons|2015": {
       "matched": true,
@@ -54702,6 +54702,172 @@
       "reason": "No confident IMDb match found",
       "matcherVersion": 6,
       "checkedAt": "2026-06-03T16:26:59.090Z"
+    },
+    "the shepherd and the bear|2024": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt27623454",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:01.830Z"
+    },
+    "basquiat|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:03.345Z"
+    },
+    "el|1953": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:03.753Z"
+    },
+    "we and 039 re no angels|1989": {
+      "matched": true,
+      "imdbId": "tt0098625",
+      "imdbRating": 6.1,
+      "matchedTitle": "We're No Angels",
+      "matchedYear": 1989,
+      "genres": [
+        "Comedy",
+        "Crime"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "Latin",
+        "Croatian"
+      ],
+      "runtimeMinutes": 106,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:03.895Z"
+    },
+    "k on the movie english dubbed version|2011": {
+      "matched": true,
+      "imdbId": "tt1909796",
+      "imdbRating": 7.7,
+      "matchedTitle": "K-On! The Movie",
+      "matchedYear": 2011,
+      "genres": [
+        "Animation",
+        "Adventure",
+        "Comedy"
+      ],
+      "languages": [
+        "Japanese",
+        "English"
+      ],
+      "runtimeMinutes": 110,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:04.005Z"
+    },
+    "la vie de boheme|1992": {
+      "matched": true,
+      "imdbId": "tt0105750",
+      "imdbRating": 7.6,
+      "matchedTitle": "The Bohemian Life",
+      "matchedYear": 1992,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French",
+        "English"
+      ],
+      "runtimeMinutes": 103,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:04.219Z"
+    },
+    "walker|1987": {
+      "matched": true,
+      "imdbId": "tt0096409",
+      "imdbRating": 6.6,
+      "matchedTitle": "Walker",
+      "matchedYear": 1987,
+      "genres": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "languages": [
+        "English",
+        "Spanish",
+        "American Sign"
+      ],
+      "runtimeMinutes": 94,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:04.640Z"
+    },
+    "touki bouki|1973": {
+      "matched": true,
+      "imdbId": "tt0070820",
+      "imdbRating": 7,
+      "matchedTitle": "Touki Bouki",
+      "matchedYear": 1973,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "Wolof",
+        "Arabic",
+        "French"
+      ],
+      "runtimeMinutes": 85,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:05.226Z"
+    },
+    "crisis|1963": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:05.379Z"
+    },
+    "the terror and the time|1978": {
+      "matched": true,
+      "imdbId": "tt0295723",
+      "imdbRating": 6.3,
+      "matchedTitle": "The Terror and the Time",
+      "matchedYear": 1979,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 70,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:05.667Z"
+    },
+    "that which once was|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:08.082Z"
+    },
+    "conbody vs everybody episode 1|0": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:08.137Z"
+    },
+    "haiti the way to freedom|1973": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T14:56:09.750Z"
     }
   }
 }

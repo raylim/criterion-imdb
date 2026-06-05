@@ -11,6 +11,8 @@ const SETTINGS_STORAGE_KEY = "criterionImdbSettings";
 const CACHE_SCHEMA_VERSION = 9;
 const API_CACHE_SCHEMA_VERSION = 1;
 const BUNDLED_CACHE_URL = "data/criterion-cache.json";
+const MAX_REMOTE_CACHE_ENTRIES = 10000;
+const MAX_TEXT_FIELD_LENGTH = 240;
 const REMOTE_CACHE_URLS = [
   "https://raylim.github.io/criterion-imdb/criterion-cache.json",
   "https://raw.githubusercontent.com/raylim/criterion-imdb/main/docs/criterion-cache.json"
@@ -120,8 +122,98 @@ function buildIndexFromPayload(payload, source) {
   };
 }
 
-function isValidCachePayload(payload) {
-  return Boolean(payload) && Array.isArray(payload.entries);
+function sanitizeTextField(value, maxLength = MAX_TEXT_FIELD_LENGTH) {
+  if (typeof value !== "string") {
+    return "";
+  }
+
+  const normalized = value.trim();
+  if (!normalized || normalized.length > maxLength) {
+    return "";
+  }
+
+  return normalized;
+}
+
+function sanitizeListField(value, maxItems = 12) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => sanitizeTextField(item, 80))
+    .filter(Boolean)
+    .slice(0, maxItems);
+}
+
+function sanitizeCacheEntry(entry) {
+  if (!entry || typeof entry !== "object") {
+    return null;
+  }
+
+  const path = sanitizeTextField(entry.path, 320);
+  const title = sanitizeTextField(entry.title, 160);
+  const normalizedTitle = sanitizeTextField(entry.normalizedTitle, 160) || normalizeText(title);
+  const imdbId = sanitizeTextField(entry.imdbId, 32);
+  const director = sanitizeTextField(entry.director, 120);
+  const country = sanitizeTextField(entry.country, 120);
+  const imdbRating = Number(entry.imdbRating);
+  const year = Number.isInteger(entry.year) ? entry.year : Number.parseInt(entry.year, 10);
+  const runtimeMinutes = Number.isInteger(entry.runtimeMinutes)
+    ? entry.runtimeMinutes
+    : Number.parseInt(entry.runtimeMinutes, 10);
+
+  if (!path || !title || !normalizedTitle || !Number.isFinite(imdbRating)) {
+    return null;
+  }
+
+  if (!Number.isInteger(year) || year < 1870 || year > 2100) {
+    return null;
+  }
+
+  if (imdbRating < 0 || imdbRating > 10) {
+    return null;
+  }
+
+  return {
+    path,
+    title,
+    normalizedTitle,
+    year,
+    director,
+    country,
+    imdbId: imdbId || "",
+    imdbRating,
+    genres: sanitizeListField(entry.genres),
+    languages: sanitizeListField(entry.languages),
+    runtimeMinutes: Number.isInteger(runtimeMinutes) && runtimeMinutes > 0 && runtimeMinutes < 1000
+      ? runtimeMinutes
+      : null
+  };
+}
+
+function sanitizeCachePayload(payload) {
+  if (!payload || typeof payload !== "object" || !Array.isArray(payload.entries)) {
+    throw new Error("Cache payload is invalid");
+  }
+
+  if (payload.entries.length > MAX_REMOTE_CACHE_ENTRIES) {
+    throw new Error(`Cache payload exceeds ${MAX_REMOTE_CACHE_ENTRIES} entries`);
+  }
+
+  const entries = payload.entries
+    .map(sanitizeCacheEntry)
+    .filter(Boolean);
+
+  if (entries.length === 0) {
+    throw new Error("Cache payload has no usable entries");
+  }
+
+  return {
+    generatedAt: sanitizeTextField(payload.generatedAt, 64),
+    count: entries.length,
+    entries
+  };
 }
 
 async function loadBundledPayload() {
@@ -130,7 +222,7 @@ async function loadBundledPayload() {
     throw new Error(`Bundled cache request failed (${response.status})`);
   }
 
-  return response.json();
+  return sanitizeCachePayload(await response.json());
 }
 
 async function getStoredRemotePayload(maxCacheAgeDays) {
@@ -138,7 +230,7 @@ async function getStoredRemotePayload(maxCacheAgeDays) {
   const payload = stored[REMOTE_INDEX_STORAGE_KEY];
   const meta = stored[REMOTE_INDEX_META_STORAGE_KEY] || {};
 
-  if (!isValidCachePayload(payload) || !meta.fetchedAt) {
+  if (!payload || !meta.fetchedAt) {
     return null;
   }
 
@@ -148,20 +240,25 @@ async function getStoredRemotePayload(maxCacheAgeDays) {
     return null;
   }
 
-  return {
-    payload,
-    url: meta.url || "remote cache",
-    fetchedAt: meta.fetchedAt
-  };
+  try {
+    return {
+      payload: sanitizeCachePayload(payload),
+      url: meta.url || "remote cache",
+      fetchedAt: meta.fetchedAt
+    };
+  } catch (_error) {
+    return null;
+  }
 }
 
 async function saveRemotePayload(payload, url) {
+  const sanitized = sanitizeCachePayload(payload);
   await extensionApi.storage.local.set({
-    [REMOTE_INDEX_STORAGE_KEY]: payload,
+    [REMOTE_INDEX_STORAGE_KEY]: sanitized,
     [REMOTE_INDEX_META_STORAGE_KEY]: {
       url,
       fetchedAt: new Date().toISOString(),
-      generatedAt: typeof payload.generatedAt === "string" ? payload.generatedAt : ""
+      generatedAt: typeof sanitized.generatedAt === "string" ? sanitized.generatedAt : ""
     }
   });
 }
@@ -182,10 +279,7 @@ async function fetchRemotePayload() {
         throw new Error(`Remote cache request failed (${response.status})`);
       }
 
-      const payload = await response.json();
-      if (!isValidCachePayload(payload)) {
-        throw new Error("Remote cache payload is invalid");
-      }
+      const payload = sanitizeCachePayload(await response.json());
 
       await saveRemotePayload(payload, url);
       return {
@@ -374,6 +468,27 @@ function shouldReuseApiRecord(record, maxCacheAgeDays) {
   return Boolean(record.matched && record.source === "omdb");
 }
 
+function normalizeMatchResult(film, result, source) {
+  if (!result || !result.matched) {
+    return {
+      ...film,
+      matched: false,
+      reason: result?.reason || "No cached IMDb score found",
+      checkedAt: new Date().toISOString(),
+      source: source || "missing"
+    };
+  }
+
+  return {
+    ...film,
+    ...result,
+    lowConfidence: Boolean(result.lowConfidence),
+    confidenceNote: result.confidenceNote || "",
+    checkedAt: result.checkedAt || new Date().toISOString(),
+    source: source || "omdb"
+  };
+}
+
 async function lookupViaOmdb(film, apiKeys) {
   if (!matcherApi || typeof matcherApi.lookupFilm !== "function") {
     return {
@@ -543,20 +658,11 @@ async function lookupFilms(films, options = {}) {
       Math.min(OMDB_FALLBACK_CONCURRENCY, Math.max(1, settings.omdbApiKeys.length || 1)),
       async ({ film, targets, apiCacheKeys }) => {
         const omdbRecord = await lookupViaOmdb(film, settings.omdbApiKeys);
-        const record = omdbRecord.matched
-          ? {
-              ...film,
-              ...omdbRecord,
-              checkedAt: omdbRecord.checkedAt || new Date().toISOString(),
-              source: "omdb"
-            }
-          : {
-              ...film,
-              matched: false,
-              reason: omdbRecord.reason || "No cached IMDb score found",
-              checkedAt: new Date().toISOString(),
-              source: "missing"
-            };
+        const record = normalizeMatchResult(
+          film,
+          omdbRecord,
+          omdbRecord.matched ? "omdb" : "missing"
+        );
 
         return targets.map((target) => ({
           filmIndex: target.filmIndex,
@@ -648,5 +754,7 @@ extensionApi.runtime.onMessage.addListener((message) => {
 });
 
 globalThis.__criterionImdbBackgroundTest = {
+  normalizeMatchResult,
+  sanitizeCachePayload,
   shouldReuseApiRecord
 };

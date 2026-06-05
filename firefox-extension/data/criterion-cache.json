@@ -1,7 +1,119 @@
 {
-  "generatedAt": "2026-06-03T16:37:12.213Z",
-  "count": 2377,
+  "generatedAt": "2026-06-05T14:56:09.763Z",
+  "count": 2382,
   "entries": [
+    {
+      "url": "https://www.criterionchannel.com/k-on-the-movie-english-dubbed-version",
+      "path": "/k-on-the-movie-english-dubbed-version",
+      "title": "K-ON! THE MOVIE: English-Dubbed Version",
+      "normalizedTitle": "k on the movie english dubbed version",
+      "director": "naoko yamada",
+      "genres": [
+        "animation",
+        "adventure",
+        "comedy"
+      ],
+      "languages": [
+        "japanese",
+        "english"
+      ],
+      "imdbRating": 7.7,
+      "year": 2011,
+      "runtimeMinutes": 110
+    },
+    {
+      "url": "https://www.criterionchannel.com/the-terror-and-the-time",
+      "path": "/the-terror-and-the-time",
+      "title": "The Terror and the Time",
+      "normalizedTitle": "the terror and the time",
+      "director": "rupert roonaraine",
+      "genres": [
+        "documentary"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.3,
+      "year": 1978,
+      "runtimeMinutes": 70
+    },
+    {
+      "url": "https://www.criterionchannel.com/la-vie-de-boheme",
+      "path": "/la-vie-de-boheme",
+      "title": "La vie de bohème",
+      "normalizedTitle": "la vie de boheme",
+      "director": "aki kaurismäki",
+      "genres": [
+        "comedy",
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "french",
+        "english"
+      ],
+      "imdbRating": 7.6,
+      "year": 1992,
+      "runtimeMinutes": 103
+    },
+    {
+      "url": "https://www.criterionchannel.com/we-re-no-angels-1",
+      "path": "/we-re-no-angels-1",
+      "title": "We&#039;re No Angels",
+      "normalizedTitle": "we and 039 re no angels",
+      "director": "neil jordan",
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "languages": [
+        "english",
+        "french",
+        "latin",
+        "croatian"
+      ],
+      "imdbRating": 6.1,
+      "year": 1989,
+      "runtimeMinutes": 106
+    },
+    {
+      "url": "https://www.criterionchannel.com/directed-by-alex-cox",
+      "path": "/directed-by-alex-cox",
+      "title": "Walker",
+      "normalizedTitle": "walker",
+      "director": "alex cox",
+      "genres": [
+        "biography",
+        "drama",
+        "history"
+      ],
+      "languages": [
+        "english",
+        "spanish",
+        "american sign"
+      ],
+      "imdbRating": 6.6,
+      "year": 1987,
+      "runtimeMinutes": 94
+    },
+    {
+      "url": "https://www.criterionchannel.com/sight-sound-s-greatest-films-of-all-time/season:1/videos/touki-bouki",
+      "path": "/sight-sound-s-greatest-films-of-all-time/season:1/videos/touki-bouki",
+      "title": "Touki bouki",
+      "normalizedTitle": "touki bouki",
+      "director": "djibril diop mambéty",
+      "genres": [
+        "drama"
+      ],
+      "languages": [
+        "wolof",
+        "arabic",
+        "french"
+      ],
+      "imdbRating": 7,
+      "year": 1973,
+      "runtimeMinutes": 85
+    },
     {
       "url": "https://www.criterionchannel.com/2-or-3-things-i-know-about-her",
       "path": "/2-or-3-things-i-know-about-her",
@@ -5790,24 +5902,6 @@
       "runtimeMinutes": 143
     },
     {
-      "url": "https://www.criterionchannel.com/cat-people-1",
-      "path": "/cat-people-1",
-      "title": "Cat People",
-      "normalizedTitle": "cat people",
-      "director": "paul schrader",
-      "genres": [
-        "fantasy",
-        "horror",
-        "thriller"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 6.2,
-      "year": 1982,
-      "runtimeMinutes": 118
-    },
-    {
       "url": "https://www.criterionchannel.com/cat-people",
       "path": "/cat-people",
       "title": "Cat People",
@@ -5826,6 +5920,24 @@
       "imdbRating": 7.2,
       "year": 1942,
       "runtimeMinutes": 73
+    },
+    {
+      "url": "https://www.criterionchannel.com/cat-people-1",
+      "path": "/cat-people-1",
+      "title": "Cat People",
+      "normalizedTitle": "cat people",
+      "director": "paul schrader",
+      "genres": [
+        "fantasy",
+        "horror",
+        "thriller"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 6.2,
+      "year": 1982,
+      "runtimeMinutes": 118
     },
     {
       "url": "https://www.criterionchannel.com/the-cat-s-paw",
@@ -21982,25 +22094,6 @@
       "runtimeMinutes": 94
     },
     {
-      "url": "https://www.criterionchannel.com/the-man-who-loved-women-1",
-      "path": "/the-man-who-loved-women-1",
-      "title": "The Man Who Loved Women",
-      "normalizedTitle": "the man who loved women",
-      "director": "blake edwards",
-      "genres": [
-        "comedy",
-        "drama",
-        "romance"
-      ],
-      "languages": [
-        "english",
-        "spanish"
-      ],
-      "imdbRating": 5.3,
-      "year": 1983,
-      "runtimeMinutes": 110
-    },
-    {
       "url": "https://www.criterionchannel.com/the-man-who-loved-women",
       "path": "/the-man-who-loved-women",
       "title": "The Man Who Loved Women",
@@ -22018,6 +22111,25 @@
       "imdbRating": 7.4,
       "year": 1977,
       "runtimeMinutes": 120
+    },
+    {
+      "url": "https://www.criterionchannel.com/the-man-who-loved-women-1",
+      "path": "/the-man-who-loved-women-1",
+      "title": "The Man Who Loved Women",
+      "normalizedTitle": "the man who loved women",
+      "director": "blake edwards",
+      "genres": [
+        "comedy",
+        "drama",
+        "romance"
+      ],
+      "languages": [
+        "english",
+        "spanish"
+      ],
+      "imdbRating": 5.3,
+      "year": 1983,
+      "runtimeMinutes": 110
     },
     {
       "url": "https://www.criterionchannel.com/the-many-miracles-of-household-saints",
@@ -27840,6 +27952,23 @@
       "runtimeMinutes": 97
     },
     {
+      "url": "https://www.criterionchannel.com/la-poison",
+      "path": "/la-poison",
+      "title": "La poison",
+      "normalizedTitle": "la poison",
+      "director": "sacha guitry",
+      "genres": [
+        "comedy",
+        "crime"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 7.4,
+      "year": 1951,
+      "runtimeMinutes": 85
+    },
+    {
       "url": "https://www.criterionchannel.com/poison",
       "path": "/poison",
       "title": "Poison",
@@ -27855,23 +27984,6 @@
       ],
       "imdbRating": 6.3,
       "year": 1991,
-      "runtimeMinutes": 85
-    },
-    {
-      "url": "https://www.criterionchannel.com/la-poison",
-      "path": "/la-poison",
-      "title": "La poison",
-      "normalizedTitle": "la poison",
-      "director": "sacha guitry",
-      "genres": [
-        "comedy",
-        "crime"
-      ],
-      "languages": [
-        "french"
-      ],
-      "imdbRating": 7.4,
-      "year": 1951,
       "runtimeMinutes": 85
     },
     {
@@ -29467,23 +29579,6 @@
       "runtimeMinutes": 91
     },
     {
-      "url": "https://www.criterionchannel.com/videos/the-ring-1",
-      "path": "/videos/the-ring-1",
-      "title": "The Ring",
-      "normalizedTitle": "the ring",
-      "director": "gore verbinski",
-      "genres": [
-        "horror",
-        "mystery"
-      ],
-      "languages": [
-        "english"
-      ],
-      "imdbRating": 7.1,
-      "year": 2002,
-      "runtimeMinutes": 115
-    },
-    {
       "url": "https://www.criterionchannel.com/horror-1",
       "path": "/horror-1",
       "title": "Ring",
@@ -29499,6 +29594,23 @@
       "imdbRating": 7.2,
       "year": 1998,
       "runtimeMinutes": 96
+    },
+    {
+      "url": "https://www.criterionchannel.com/videos/the-ring-1",
+      "path": "/videos/the-ring-1",
+      "title": "The Ring",
+      "normalizedTitle": "the ring",
+      "director": "gore verbinski",
+      "genres": [
+        "horror",
+        "mystery"
+      ],
+      "languages": [
+        "english"
+      ],
+      "imdbRating": 7.1,
+      "year": 2002,
+      "runtimeMinutes": 115
     },
     {
       "url": "https://www.criterionchannel.com/the-rink",
@@ -31321,23 +31433,6 @@
       "runtimeMinutes": 94
     },
     {
-      "url": "https://www.criterionchannel.com/sea-urchins",
-      "path": "/sea-urchins",
-      "title": "Sea Urchins",
-      "normalizedTitle": "sea urchins",
-      "director": "jean painlevé",
-      "genres": [
-        "documentary",
-        "short"
-      ],
-      "languages": [
-        "french"
-      ],
-      "imdbRating": 6.9,
-      "year": 1954,
-      "runtimeMinutes": 11
-    },
-    {
       "url": "https://www.criterionchannel.com/sea-urchins-1",
       "path": "/sea-urchins-1",
       "title": "Sea Urchins",
@@ -31353,6 +31448,23 @@
       "imdbRating": 6.4,
       "year": 1928,
       "runtimeMinutes": 10
+    },
+    {
+      "url": "https://www.criterionchannel.com/sea-urchins",
+      "path": "/sea-urchins",
+      "title": "Sea Urchins",
+      "normalizedTitle": "sea urchins",
+      "director": "jean painlevé",
+      "genres": [
+        "documentary",
+        "short"
+      ],
+      "languages": [
+        "french"
+      ],
+      "imdbRating": 6.9,
+      "year": 1954,
+      "runtimeMinutes": 11
     },
     {
       "url": "https://www.criterionchannel.com/secret-honor",
@@ -39511,22 +39623,6 @@
       "imdbRating": 6.7,
       "year": 1971,
       "runtimeMinutes": 84
-    },
-    {
-      "url": "https://www.criterionchannel.com/wrong-move",
-      "path": "/wrong-move",
-      "title": "Wrong Move",
-      "normalizedTitle": "wrong move",
-      "director": "wim wenders",
-      "genres": [
-        "drama"
-      ],
-      "languages": [
-        "german"
-      ],
-      "imdbRating": 6.9,
-      "year": 1975,
-      "runtimeMinutes": 103
     },
     {
       "url": "https://www.criterionchannel.com/wuthering-heights",

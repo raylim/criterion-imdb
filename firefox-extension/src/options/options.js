@@ -16,6 +16,9 @@ const DEFAULT_SETTINGS = {
 const form = document.getElementById("settings-form");
 const statusNode = document.getElementById("status");
 const refreshButton = document.getElementById("refresh-cache");
+const omdbApiKeysInput = document.getElementById("omdbApiKeys");
+const omdbApiKeysHint = document.getElementById("omdbApiKeysHint");
+let savedOmdbApiKeys = [];
 
 function setStatus(message) {
   statusNode.textContent = message;
@@ -24,7 +27,11 @@ function setStatus(message) {
 function setFormValues(settings) {
   document.getElementById("minRating").value = settings.minRating;
   document.getElementById("maxCacheAgeDays").value = settings.maxCacheAgeDays;
-  document.getElementById("omdbApiKeys").value = Array.isArray(settings.omdbApiKeys) ? settings.omdbApiKeys.join(", ") : "";
+  savedOmdbApiKeys = Array.isArray(settings.omdbApiKeys) ? settings.omdbApiKeys.slice() : [];
+  omdbApiKeysInput.value = "";
+  omdbApiKeysHint.textContent = savedOmdbApiKeys.length > 0
+    ? `${savedOmdbApiKeys.length} OMDb key${savedOmdbApiKeys.length === 1 ? "" : "s"} saved locally. Leave blank to keep them unchanged.`
+    : "No OMDb keys saved yet. Add comma-separated keys for cache misses.";
   document.getElementById("showRuntime").checked = settings.showRuntime;
   document.getElementById("showGenres").checked = settings.showGenres;
   document.getElementById("showLanguages").checked = settings.showLanguages;
@@ -55,7 +62,9 @@ form.addEventListener("submit", async (event) => {
   const settings = {
     minRating: Number.parseFloat(document.getElementById("minRating").value) || DEFAULT_SETTINGS.minRating,
     maxCacheAgeDays: Number.parseInt(document.getElementById("maxCacheAgeDays").value, 10) || DEFAULT_SETTINGS.maxCacheAgeDays,
-    omdbApiKeys: parseOmdbApiKeys(document.getElementById("omdbApiKeys").value),
+    omdbApiKeys: omdbApiKeysInput.value.trim()
+      ? parseOmdbApiKeys(omdbApiKeysInput.value)
+      : savedOmdbApiKeys.slice(),
     showRuntime: document.getElementById("showRuntime").checked,
     showGenres: document.getElementById("showGenres").checked,
     showLanguages: document.getElementById("showLanguages").checked,
@@ -69,6 +78,11 @@ form.addEventListener("submit", async (event) => {
     [SETTINGS_STORAGE_KEY]: settings
   });
 
+  savedOmdbApiKeys = settings.omdbApiKeys.slice();
+  omdbApiKeysInput.value = "";
+  omdbApiKeysHint.textContent = savedOmdbApiKeys.length > 0
+    ? `${savedOmdbApiKeys.length} OMDb key${savedOmdbApiKeys.length === 1 ? "" : "s"} saved locally. Leave blank to keep them unchanged.`
+    : "No OMDb keys saved yet. Add comma-separated keys for cache misses.";
   setStatus("Saved.");
   globalThis.setTimeout(() => {
     if (statusNode.textContent === "Saved.") {

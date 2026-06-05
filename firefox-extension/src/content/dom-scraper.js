@@ -24,6 +24,7 @@
   ]);
   const BLOCKED_ROW_HEADERS = new Set([
     "archival treasures",
+    "criterion originals",
     "observations on film art",
     "popular collections",
     "new collections",

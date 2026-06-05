@@ -131,8 +131,9 @@
 
       <label>
         OMDb API keys
-        <input id="omdbApiKeys" type="text" placeholder="Comma-separated keys for cache misses">
+        <input id="omdbApiKeys" type="password" placeholder="Leave blank to keep saved keys" autocomplete="off" spellcheck="false">
       </label>
+      <p id="omdbApiKeysHint">Saved keys stay local in Firefox extension storage. Leave this blank to keep existing keys unchanged.</p>
 
       <section class="checks">
         <label><input id="showRuntime" type="checkbox"> Show runtime</label>

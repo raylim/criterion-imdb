@@ -234,6 +234,7 @@ function matchesSimpleSelector(node, selector) {
 }
 
 function createOverlayContext() {
+  const fakeTimers = [];
   const document = {
     readyState: "loading",
     body: new FakeElement("body"),
@@ -252,8 +253,17 @@ function createOverlayContext() {
 
   const context = {
     console,
-    setTimeout,
-    clearTimeout,
+    setTimeout(callback, delay) {
+      const timer = { callback, delay };
+      fakeTimers.push(timer);
+      return timer;
+    },
+    clearTimeout(timer) {
+      const index = fakeTimers.indexOf(timer);
+      if (index >= 0) {
+        fakeTimers.splice(index, 1);
+      }
+    },
     MutationObserver: class {
       observe() {}
     },
@@ -274,6 +284,7 @@ function createOverlayContext() {
   context.window = context;
   context.globalThis = context;
   runScript("firefox-extension/src/content/criterion-overlay.js", context);
+  context.__fakeTimers = fakeTimers;
   return context;
 }
 
@@ -315,6 +326,162 @@ test("background does not reuse stale OMDb fallback records forever", () => {
   assert.equal(shouldReuseApiRecord(freshRecord, 30), true);
 });
 
+test("background preserves low-confidence match metadata for UI rendering", () => {
+  const context = createBackgroundContext();
+  const { normalizeMatchResult } = context.__criterionImdbBackgroundTest;
+
+  const normalized = normalizeMatchResult(
+    { title: "Pauline at the Beach", year: 1983 },
+    {
+      matched: true,
+      imdbRating: 7.2,
+      matchedTitle: "Pauline at the Beach",
+      lowConfidence: true,
+      confidenceNote: "Best guess from public metadata"
+    },
+    "omdb"
+  );
+
+  assert.equal(normalized.matched, true);
+  assert.equal(normalized.lowConfidence, true);
+  assert.match(normalized.confidenceNote, /Best guess/);
+  assert.equal(normalized.source, "omdb");
+});
+
+test("matcher returns a low-confidence best guess when public metadata resolves but confidence is weak", async () => {
+  const context = createBackgroundContext();
+  const matcher = context.CriterionImdbMatcher;
+
+  const result = await matcher.lookupFilm(async (url) => {
+    if (String(url).includes("omdbapi.com/?t=")) {
+      throw new Error("title lookup miss");
+    }
+
+    if (String(url).includes("v2.sg.media-imdb.com/suggestion/")) {
+      return {
+        ok: true,
+        async json() {
+          return {
+            d: [
+              {
+                id: "tt1234567",
+                l: "Pauline Story",
+                qid: "movie",
+                y: 1983
+              }
+            ]
+          };
+        }
+      };
+    }
+
+    if (String(url).includes("omdbapi.com/?i=tt1234567")) {
+      return {
+        ok: true,
+        async json() {
+          return {
+            Response: "True",
+            imdbID: "tt1234567",
+            Title: "Pauline at the Beach",
+            Year: "1983",
+            Director: "Eric Rohmer",
+            Genre: "Comedy, Drama, Romance",
+            Language: "French",
+            Runtime: "94 min",
+            imdbRating: "7.2"
+          };
+        }
+      };
+    }
+
+    throw new Error(`unexpected url ${url}`);
+  }, {
+    title: "Pauline at the Beach",
+    year: 1983,
+    director: "Wrong Director"
+  }, "demo-key");
+
+  assert.equal(result.matched, true);
+  assert.equal(result.lowConfidence, true);
+  assert.equal(result.imdbRating, 7.2);
+  assert.match(result.confidenceNote, /Best guess/);
+});
+
+test("background sanitizes remote cache payloads and strips malformed entries", () => {
+  const context = createBackgroundContext();
+  const { sanitizeCachePayload } = context.__criterionImdbBackgroundTest;
+
+  const payload = sanitizeCachePayload({
+    generatedAt: "2026-06-05T00:00:00.000Z",
+    entries: [
+      {
+        path: "/films/the-third-man",
+        title: "The Third Man",
+        normalizedTitle: "the third man",
+        year: 1949,
+        director: "Carol Reed",
+        country: "United Kingdom",
+        imdbRating: 8.1,
+        genres: ["Film-Noir", "Mystery"],
+        languages: ["English"],
+        runtimeMinutes: 104
+      },
+      {
+        path: "",
+        title: "Bad Entry",
+        normalizedTitle: "",
+        year: 1949,
+        imdbId: "",
+        imdbRating: 100
+      }
+    ]
+  });
+
+  assert.equal(payload.count, 1);
+  assert.equal(payload.entries.length, 1);
+  assert.equal(payload.entries[0].title, "The Third Man");
+  assert.equal(payload.entries[0].imdbId, "");
+});
+
+test("background accepts real bundled cache entries that do not include imdbId", () => {
+  const context = createBackgroundContext();
+  const { sanitizeCachePayload } = context.__criterionImdbBackgroundTest;
+  const bundledPayload = JSON.parse(
+    fs.readFileSync(path.join(repoRoot, "firefox-extension/data/criterion-cache.json"), "utf8")
+  );
+  const realEntryWithoutImdbId = bundledPayload.entries.find((entry) => !entry.imdbId);
+
+  assert.ok(realEntryWithoutImdbId, "expected a real cache entry without imdbId");
+
+  const payload = sanitizeCachePayload({
+    generatedAt: bundledPayload.generatedAt,
+    entries: [realEntryWithoutImdbId]
+  });
+
+  assert.equal(payload.count, 1);
+  assert.equal(payload.entries[0].path, realEntryWithoutImdbId.path);
+  assert.equal(payload.entries[0].title, realEntryWithoutImdbId.title);
+  assert.equal(payload.entries[0].imdbId, "");
+});
+
+test("background rejects oversized remote cache payloads", () => {
+  const context = createBackgroundContext();
+  const { sanitizeCachePayload } = context.__criterionImdbBackgroundTest;
+
+  assert.throws(() => {
+    sanitizeCachePayload({
+      entries: Array.from({ length: 10001 }, (_, index) => ({
+        path: `/films/title-${index}`,
+        title: `Title ${index}`,
+        normalizedTitle: `title ${index}`,
+        year: 2000,
+        imdbId: `tt${String(index).padStart(7, "0")}`,
+        imdbRating: 7.1
+      }))
+    });
+  }, /exceeds 10000 entries/);
+});
+
 test("overlay cleanup does not create a sibling host just to remove a badge", () => {
   const context = createOverlayContext();
   const { removeOverlay } = context.__criterionImdbOverlayTest;
@@ -344,6 +511,41 @@ test("overlay cleanup removes an empty existing anchor host", () => {
   removeOverlay(anchor);
 
   assert.deepEqual(parent.children, [anchor]);
+});
+
+test("processed nodes without a remaining overlay are eligible to render again", () => {
+  const context = createOverlayContext();
+  const { clearProcessedState, hasRenderedOverlay } = context.__criterionImdbOverlayTest;
+
+  const parent = new FakeElement("div");
+  const anchor = new FakeAnchorElement();
+  parent.appendChild(anchor);
+  anchor.dataset.criterionImdbProcessedV6 = "true";
+
+  assert.equal(hasRenderedOverlay(anchor), false);
+  clearProcessedState(anchor);
+  assert.equal(anchor.dataset.criterionImdbProcessedV6, undefined);
+});
+
+test("pending nodes expire and stop blocking rerender attempts", () => {
+  const context = createOverlayContext();
+  const { isNodePending, markNodePending } = context.__criterionImdbOverlayTest;
+
+  const originalDate = context.Date;
+  let fakeNow = 1_000;
+  context.Date = class extends Date {
+    static now() {
+      return fakeNow;
+    }
+  };
+
+  const node = new FakeElement("div");
+  markNodePending(node);
+  assert.equal(isNodePending(node), true);
+
+  fakeNow += 31_000;
+  assert.equal(isNodePending(node), false);
+  context.Date = originalDate;
 });
 
 test("deferred candidate merges preserve previously queued below-the-fold work", () => {

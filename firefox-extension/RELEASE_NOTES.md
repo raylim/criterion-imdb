@@ -1,5 +1,24 @@
 # Criterion IMDb Overlay Release Notes
 
+## 0.1.4
+
+Release date: 2026-06-04
+
+### Highlights
+
+- Version bump for AMO listed-channel submission retry
+- No code changes from 0.1.3
+
+## 0.1.3
+
+Release date: 2026-06-04
+
+### Highlights
+
+- Public-release preparation update for the AMO-listed channel
+- Added public listing support files, homepage metadata, and hosted privacy policy
+- Keeps the remote-cache refresh flow, OMDb fallback, and regression-tested overlay behavior from 0.1.2
+
 ## 0.1.2
 
 Release date: 2026-06-04
