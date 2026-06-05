@@ -314,16 +314,19 @@ test("background does not reuse stale OMDb fallback records forever", () => {
   const staleRecord = {
     matched: true,
     source: "omdb",
+    matcherVersion: 2,
     checkedAt: new Date(Date.now() - (31 * 24 * 60 * 60 * 1000)).toISOString()
   };
   const freshRecord = {
     matched: true,
     source: "omdb",
+    matcherVersion: 2,
     checkedAt: new Date().toISOString()
   };
 
   assert.equal(shouldReuseApiRecord(staleRecord, 30), false);
   assert.equal(shouldReuseApiRecord(freshRecord, 30), true);
+  assert.equal(shouldReuseApiRecord({ ...freshRecord, matcherVersion: 1 }, 30), false);
 });
 
 test("background preserves low-confidence match metadata for UI rendering", () => {
@@ -407,6 +410,44 @@ test("matcher returns a low-confidence best guess when public metadata resolves 
   assert.match(result.confidenceNote, /Best guess/);
 });
 
+test("matcher keeps an exact direct OMDb title hit as low confidence when metadata is off", async () => {
+  const context = createBackgroundContext();
+  const matcher = context.CriterionImdbMatcher;
+
+  const result = await matcher.lookupFilm(async (url) => {
+    if (String(url).includes("omdbapi.com/?t=")) {
+      return {
+        ok: true,
+        async json() {
+          return {
+            Response: "True",
+            imdbID: "tt0089960",
+            Title: "Vagabond",
+            Year: "1985",
+            Director: "Agnès Varda",
+            Genre: "Drama",
+            Language: "French",
+            Runtime: "105 min",
+            imdbRating: "7.6"
+          };
+        }
+      };
+    }
+
+    throw new Error(`unexpected url ${url}`);
+  }, {
+    title: "Vagabond",
+    year: 1995,
+    director: ""
+  }, "demo-key");
+
+  assert.equal(result.matched, true);
+  assert.equal(result.imdbId, "tt0089960");
+  assert.equal(result.imdbRating, 7.6);
+  assert.equal(result.lowConfidence, true);
+  assert.match(result.confidenceNote, /Best guess/);
+});
+
 test("background sanitizes remote cache payloads and strips malformed entries", () => {
   const context = createBackgroundContext();
   const { sanitizeCachePayload } = context.__criterionImdbBackgroundTest;
@@ -422,6 +463,8 @@ test("background sanitizes remote cache payloads and strips malformed entries", 
         director: "Carol Reed",
         country: "United Kingdom",
         imdbRating: 8.1,
+        lowConfidence: true,
+        confidenceNote: "Best guess from public metadata",
         genres: ["Film-Noir", "Mystery"],
         languages: ["English"],
         runtimeMinutes: 104
@@ -441,6 +484,8 @@ test("background sanitizes remote cache payloads and strips malformed entries", 
   assert.equal(payload.entries.length, 1);
   assert.equal(payload.entries[0].title, "The Third Man");
   assert.equal(payload.entries[0].imdbId, "");
+  assert.equal(payload.entries[0].lowConfidence, true);
+  assert.match(payload.entries[0].confidenceNote, /Best guess/);
 });
 
 test("background accepts real bundled cache entries that do not include imdbId", () => {
@@ -546,6 +591,50 @@ test("pending nodes expire and stop blocking rerender attempts", () => {
   fakeNow += 31_000;
   assert.equal(isNodePending(node), false);
   context.Date = originalDate;
+});
+
+test("low-confidence overlay details show matched year only when it differs", () => {
+  const context = createOverlayContext();
+  const { formatDetails } = context.__criterionImdbOverlayTest;
+
+  const withDifferentYear = formatDetails({
+    lowConfidence: true,
+    confidenceNote: "Best guess from public metadata",
+    year: 1983,
+    matchedYear: 1985,
+    director: "",
+    country: "",
+    runtimeMinutes: null,
+    languages: [],
+    genres: []
+  }, {
+    showDirector: true,
+    showCountry: true,
+    showRuntime: true,
+    showLanguages: true,
+    showGenres: true
+  });
+
+  const withSameYear = formatDetails({
+    lowConfidence: true,
+    confidenceNote: "Best guess from public metadata",
+    year: 1985,
+    matchedYear: 1985,
+    director: "",
+    country: "",
+    runtimeMinutes: null,
+    languages: [],
+    genres: []
+  }, {
+    showDirector: true,
+    showCountry: true,
+    showRuntime: true,
+    showLanguages: true,
+    showGenres: true
+  });
+
+  assert.match(withDifferentYear, /Best guess from public metadata \(1985\)/);
+  assert.equal(withSameYear, "Best guess from public metadata");
 });
 
 test("deferred candidate merges preserve previously queued below-the-fold work", () => {

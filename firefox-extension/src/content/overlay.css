@@ -51,6 +51,11 @@
   color: #fff8d6;
 }
 
+.criterion-imdb-overlay.is-low-confidence .criterion-imdb-overlay__pill {
+  background: #5c4b8a;
+  color: #f7f0ff;
+}
+
 .criterion-imdb-overlay-dimmed {
   opacity: 0.58;
   transition: opacity 120ms ease;

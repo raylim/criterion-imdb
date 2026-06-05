@@ -35,6 +35,8 @@ const ALLOWED_IMDB_KINDS = new Set([
 ]);
 const REQUEST_TIMEOUT_MS = 15000;
 const OMDB_API_URL = "https://www.omdbapi.com/";
+const MIN_CONFIDENT_GUESS_SCORE = 12;
+const MIN_LOW_CONFIDENCE_GUESS_SCORE = 6;
 
 function parseArgs(argv) {
   const args = {
@@ -1005,6 +1007,23 @@ function isPlausibleResolvedMatch(film, movie, match) {
   return titleSimilarity >= 0.8 && directorSimilarity >= 0.5 && yearDelta <= 2;
 }
 
+function isAcceptableLowConfidenceResolvedMatch(film, movie, match) {
+  const filmTitle = normalizeText(film.title);
+  const movieTitle = normalizeText(movie.Title || match.suggestedTitle || "");
+  const titleSimilarity = computeTitleSimilarity(movieTitle, filmTitle);
+  const movieYear = Number.parseInt(movie.Year || match.suggestedYear, 10);
+  const yearDelta = Number.isInteger(movieYear) && Number.isInteger(film.year)
+    ? Math.abs(movieYear - film.year)
+    : 0;
+  const exactTitle = movieTitle === filmTitle;
+
+  if (exactTitle) {
+    return true;
+  }
+
+  return titleSimilarity >= 0.9 && yearDelta <= 3;
+}
+
 function pickBestSuggestion(film, suggestions) {
   const targetTitle = normalizeText(film.title);
   const targetDirector = normalizeText(film.director);
@@ -1039,11 +1058,14 @@ function pickBestSuggestion(film, suggestions) {
   }
 
   const best = candidates[0];
-  if (best.score < 12) {
+  if (best.score < MIN_LOW_CONFIDENCE_GUESS_SCORE) {
     return null;
   }
 
-  return best;
+  return {
+    ...best,
+    confident: best.score >= MIN_CONFIDENT_GUESS_SCORE,
+  };
 }
 
 function pickBestCatalogResult(film, results) {
@@ -1089,11 +1111,14 @@ function pickBestCatalogResult(film, results) {
     (best.hasDirectorMatch && best.yearPenalty <= 1) ||
     (best.hasDirectorMatch && best.score >= 28);
 
-  if (!confident) {
+  if (best.score < MIN_LOW_CONFIDENCE_GUESS_SCORE) {
     return null;
   }
 
-  return best;
+  return {
+    ...best,
+    confident,
+  };
 }
 
 async function searchCatalogForFilm(film, omdbApiKeys) {
@@ -1149,6 +1174,8 @@ async function lookupImdbForFilm(film, omdbApiKeys, aliasRecord = null) {
       matched: true,
       imdbId: aliasRecord.imdbId,
       imdbRating: aliasedRating,
+      lowConfidence: false,
+      confidenceNote: "",
       matchedTitle: aliasedMovie.Title || effectiveFilm.title,
       matchedYear: Number.parseInt(aliasedMovie.Year || effectiveFilm.year, 10) || effectiveFilm.year || null,
       genres: aliasedMovie.Genre ? aliasedMovie.Genre.split(",").map((part) => part.trim()) : [],
@@ -1187,8 +1214,11 @@ async function lookupImdbForFilm(film, omdbApiKeys, aliasRecord = null) {
   const imdbRating = Number.parseFloat(movie.imdbRating);
   const runtimeMatch = String(movie.Runtime || "").match(/(\d+)/);
   const runtimeMinutes = runtimeMatch ? Number.parseInt(runtimeMatch[1], 10) : null;
+  const plausibleResolvedMatch = isPlausibleResolvedMatch(effectiveFilm, movie, match);
+  const acceptableLowConfidenceMatch = isAcceptableLowConfidenceResolvedMatch(effectiveFilm, movie, match);
+  const lowConfidence = !match.confident || !plausibleResolvedMatch;
 
-  if (!isPlausibleResolvedMatch(effectiveFilm, movie, match)) {
+  if (!plausibleResolvedMatch && !acceptableLowConfidenceMatch) {
     return {
       matched: false,
       reason: "No confident IMDb match found",
@@ -1206,6 +1236,8 @@ async function lookupImdbForFilm(film, omdbApiKeys, aliasRecord = null) {
     matched: true,
     imdbId: match.imdbId,
     imdbRating,
+    lowConfidence,
+    confidenceNote: lowConfidence ? "Best guess from public metadata" : "",
     matchedTitle: movie.Title || match.suggestedTitle,
     matchedYear: Number.parseInt(movie.Year || match.suggestedYear, 10) || match.suggestedYear || null,
     genres: movie.Genre ? movie.Genre.split(",").map((part) => part.trim()) : [],
@@ -1269,7 +1301,37 @@ function loadManualBundledEntries(manualFile) {
   }
 }
 
-function writeBundledCache(bundledFile, films, manualFile) {
+function buildFallbackBundledEntryFromCache(cacheKey, record) {
+  if (!record || !record.matched || !Number.isFinite(record.imdbRating)) {
+    return null;
+  }
+
+  const [normalizedKeyTitle = "", cacheYear = ""] = String(cacheKey || "").split("|");
+  const title = record.matchedTitle || normalizedKeyTitle;
+  const normalizedTitle = normalizeText(title);
+  const year = Number.parseInt(record.matchedYear || cacheYear, 10);
+
+  if (!title || !normalizedTitle || !Number.isInteger(year)) {
+    return null;
+  }
+
+  return {
+    url: "",
+    path: `/__title__/${normalizedTitle.replace(/\s+/g, "-")}/${year}`,
+    title,
+    normalizedTitle,
+    director: "",
+    genres: Array.isArray(record.genres) ? record.genres : [],
+    languages: Array.isArray(record.languages) ? record.languages : [],
+    imdbRating: record.imdbRating,
+    lowConfidence: Boolean(record.lowConfidence),
+    confidenceNote: record.confidenceNote || "",
+    year,
+    runtimeMinutes: Number.isInteger(record.runtimeMinutes) ? record.runtimeMinutes : null,
+  };
+}
+
+function writeBundledCache(bundledFile, films, manualFile, cache) {
   function toEntry(source) {
     let pathname = source.path || "";
     if (!pathname && source.url) {
@@ -1288,12 +1350,15 @@ function writeBundledCache(bundledFile, films, manualFile) {
       genres: Array.isArray(source.genres) ? source.genres.map((g) => String(g).toLowerCase()) : [],
       languages: Array.isArray(source.languages) ? source.languages.map((l) => String(l).toLowerCase()) : [],
       imdbRating: source.imdbRating,
+      lowConfidence: Boolean(source.lowConfidence),
+      confidenceNote: source.confidenceNote || "",
       year: Number.isInteger(source.year) ? source.year : null,
       runtimeMinutes: Number.isInteger(source.runtimeMinutes) ? source.runtimeMinutes : null,
     };
   }
 
   const entriesByPath = new Map();
+  const entriesByTitleYear = new Map();
 
   for (const film of films) {
     if (!film.matched || !Number.isFinite(film.imdbRating)) {
@@ -1304,12 +1369,33 @@ function writeBundledCache(bundledFile, films, manualFile) {
     if (entry.path) {
       entriesByPath.set(entry.path, entry);
     }
+    if (entry.title && Number.isInteger(entry.year)) {
+      entriesByTitleYear.set(`${normalizeText(entry.title)}|${entry.year}`, entry);
+    }
+  }
+
+  for (const [cacheKey, record] of Object.entries(cache?.items || {})) {
+    const entry = buildFallbackBundledEntryFromCache(cacheKey, record);
+    if (!entry) {
+      continue;
+    }
+
+    const titleYearKey = `${normalizeText(entry.title)}|${entry.year}`;
+    if (entriesByTitleYear.has(titleYearKey)) {
+      continue;
+    }
+
+    entriesByPath.set(entry.path, entry);
+    entriesByTitleYear.set(titleYearKey, entry);
   }
 
   for (const manualEntry of loadManualBundledEntries(manualFile)) {
     const entry = toEntry(manualEntry);
     if (entry.path) {
       entriesByPath.set(entry.path, entry);
+    }
+    if (entry.title && Number.isInteger(entry.year)) {
+      entriesByTitleYear.set(`${normalizeText(entry.title)}|${entry.year}`, entry);
     }
   }
 
@@ -1347,10 +1433,11 @@ async function mapWithConcurrency(items, concurrency, worker) {
 
 function formatSuggestion(suggestion, index) {
   const rating = suggestion.imdbRating.toFixed(1);
+  const confidence = suggestion.lowConfidence ? " ?best guess" : "";
   const runtime = Number.isInteger(suggestion.runtimeMinutes) ? ` | ${suggestion.runtimeMinutes} min` : "";
   const director = suggestion.director ? ` | dir. ${suggestion.director}` : "";
   const country = suggestion.country ? ` | ${suggestion.country}` : "";
-  return `${String(index + 1).padStart(2, " ")}. ${suggestion.title} (${suggestion.year}) | IMDb ${rating}${runtime}${director}${country}\n    ${suggestion.url}`;
+  return `${String(index + 1).padStart(2, " ")}. ${suggestion.title} (${suggestion.year}) | IMDb ${rating}${confidence}${runtime}${director}${country}\n    ${suggestion.url}`;
 }
 
 function groupSuggestionsByGenre(suggestions) {
@@ -1415,18 +1502,20 @@ function buildHtmlPage({ films, groups, summary }) {
       const genreAttr = genres.map((genre) => slugifyGenre(genre)).join(" ");
       const languageAttr = languages.map((language) => slugifyGenre(language)).join(" ");
       const languageText = languages.join(", ");
+      const confidenceBadge = film.lowConfidence ? '<span class="tag tag--confidence">? Best guess</span>' : "";
+      const ratingText = film.lowConfidence ? `? ${escapeHtml(film.imdbRating.toFixed(1))}` : escapeHtml(film.imdbRating.toFixed(1));
       return `
-        <article class="film-card" data-title="${escapeHtml(normalizeText(film.title))}" data-director="${escapeHtml(normalizeText(film.director))}" data-genre="${escapeHtml(genreAttr)}" data-language="${escapeHtml(languageAttr)}" data-rating="${escapeHtml(String(film.imdbRating))}" data-year="${escapeHtml(String(film.year || 0))}" data-runtime="${escapeHtml(String(film.runtimeMinutes || 0))}">
+        <article class="film-card${film.lowConfidence ? " film-card--low-confidence" : ""}" data-title="${escapeHtml(normalizeText(film.title))}" data-director="${escapeHtml(normalizeText(film.director))}" data-genre="${escapeHtml(genreAttr)}" data-language="${escapeHtml(languageAttr)}" data-rating="${escapeHtml(String(film.imdbRating))}" data-year="${escapeHtml(String(film.year || 0))}" data-runtime="${escapeHtml(String(film.runtimeMinutes || 0))}">
           <div class="film-card__top">
             <div>
               <h3><a href="${escapeHtml(film.url)}" target="_blank" rel="noreferrer">${escapeHtml(film.title)}</a></h3>
-              <p class="meta">${escapeHtml(String(film.year))} | IMDb ${escapeHtml(film.imdbRating.toFixed(1))}${Number.isInteger(film.runtimeMinutes) ? ` | ${escapeHtml(String(film.runtimeMinutes))} min` : ""}</p>
+              <p class="meta">${escapeHtml(String(film.year))} | IMDb ${ratingText}${Number.isInteger(film.runtimeMinutes) ? ` | ${escapeHtml(String(film.runtimeMinutes))} min` : ""}</p>
             </div>
-            <div class="rating-pill">${escapeHtml(film.imdbRating.toFixed(1))}</div>
+            <div class="rating-pill">${ratingText}</div>
           </div>
-          <p class="details">${escapeHtml(film.director || "Unknown director")}${film.country ? ` | ${escapeHtml(film.country)}` : ""}</p>
+          <p class="details">${film.lowConfidence ? `${escapeHtml(film.confidenceNote || "Best guess from public metadata")} | ` : ""}${escapeHtml(film.director || "Unknown director")}${film.country ? ` | ${escapeHtml(film.country)}` : ""}</p>
           <p class="details">Language: ${escapeHtml(languageText)}</p>
-          <div class="tags">${genreBadges}</div>
+          <div class="tags">${confidenceBadge}${genreBadges}</div>
         </article>
       `;
     })
@@ -1440,7 +1529,7 @@ function buildHtmlPage({ films, groups, summary }) {
         .map((film) => {
           const languages = Array.isArray(film.languages) && film.languages.length > 0 ? film.languages : ["Unknown"];
           const languageAttr = languages.map((language) => slugifyGenre(language)).join(" ");
-          return `<li data-rating="${escapeHtml(String(film.imdbRating))}" data-year="${escapeHtml(String(film.year || 0))}" data-runtime="${escapeHtml(String(film.runtimeMinutes || 0))}" data-language="${escapeHtml(languageAttr)}" data-title="${escapeHtml(normalizeText(film.title))}" data-director="${escapeHtml(normalizeText(film.director))}"><a href="${escapeHtml(film.url)}" target="_blank" rel="noreferrer">${escapeHtml(film.title)}</a> <span>${escapeHtml(String(film.year))}${Number.isInteger(film.runtimeMinutes) ? `, ${escapeHtml(String(film.runtimeMinutes))} min` : ""}${languages.length > 0 ? `, ${escapeHtml(languages.join(", "))}` : ""}</span> <strong>${escapeHtml(film.imdbRating.toFixed(1))}</strong></li>`;
+          return `<li data-rating="${escapeHtml(String(film.imdbRating))}" data-year="${escapeHtml(String(film.year || 0))}" data-runtime="${escapeHtml(String(film.runtimeMinutes || 0))}" data-language="${escapeHtml(languageAttr)}" data-title="${escapeHtml(normalizeText(film.title))}" data-director="${escapeHtml(normalizeText(film.director))}"><a href="${escapeHtml(film.url)}" target="_blank" rel="noreferrer">${escapeHtml(film.title)}</a> <span>${escapeHtml(String(film.year))}${Number.isInteger(film.runtimeMinutes) ? `, ${escapeHtml(String(film.runtimeMinutes))} min` : ""}${languages.length > 0 ? `, ${escapeHtml(languages.join(", "))}` : ""}${film.lowConfidence ? `, best guess` : ""}</span> <strong>${film.lowConfidence ? "?" : ""}${escapeHtml(film.imdbRating.toFixed(1))}</strong></li>`;
         })
         .join("");
 
@@ -1627,6 +1716,10 @@ function buildHtmlPage({ films, groups, summary }) {
       color: #fff7f2;
       font: 700 14px/1 "Montserrat", "Avenir Next", sans-serif;
     }
+    .film-card--low-confidence .rating-pill {
+      background: #5c4b8a;
+      color: #f7f0ff;
+    }
     .tags {
       display: flex;
       gap: 8px;
@@ -1639,6 +1732,10 @@ function buildHtmlPage({ films, groups, summary }) {
       background: var(--accent-soft);
       color: #6f2416;
       font: 600 12px/1 "Montserrat", "Avenir Next", sans-serif;
+    }
+    .tag--confidence {
+      background: #e0d7ff;
+      color: #4f3d8b;
     }
     .genre-grid {
       display: grid;
@@ -1929,7 +2026,7 @@ async function main() {
 
   saveCache(args.cacheFile, cache);
   writeUnresolvedReport(args.unresolvedFile, enriched.filter((film) => !film.matched));
-  writeBundledCache(args.bundledCacheFile, enriched, args.manualBundledFile);
+  writeBundledCache(args.bundledCacheFile, enriched, args.manualBundledFile, cache);
 
   const suggestions = enriched
     .filter((film) => film.matched && Number.isFinite(film.imdbRating) && film.imdbRating >= args.minRating)

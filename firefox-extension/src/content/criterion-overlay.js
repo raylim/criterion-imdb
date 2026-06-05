@@ -34,7 +34,14 @@
     const details = [];
 
     if (result.lowConfidence) {
-      details.push(result.confidenceNote || "Best guess");
+      const sourceYear = Number.isInteger(result.year) ? result.year : null;
+      const matchedYear = Number.isInteger(result.matchedYear) ? result.matchedYear : null;
+      const showMatchedYear = matchedYear !== null && sourceYear !== matchedYear;
+      details.push(
+        showMatchedYear
+          ? `${result.confidenceNote || "Best guess"} (${matchedYear})`
+          : (result.confidenceNote || "Best guess")
+      );
     }
     if (settings.showDirector && result.director) {
       details.push(result.director);
@@ -621,6 +628,7 @@
   globalScope.__criterionImdbOverlayTest = {
     clearProcessedState,
     clearNodePending,
+    formatDetails,
     hasRenderedOverlay,
     isNodePending,
     markNodePending,

@@ -1,6 +1,6 @@
 (function initMatcher(globalScope) {
   const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
-  const MATCHER_VERSION = 1;
+  const MATCHER_VERSION = 2;
   const OMDB_API_URL = "https://www.omdbapi.com/";
   const REQUEST_TIMEOUT_MS = 15000;
   const MIN_CONFIDENT_GUESS_SCORE = 12;
@@ -66,6 +66,10 @@
 
   function isFreshRecord(record, maxAgeDays) {
     if (!record || !record.checkedAt) {
+      return false;
+    }
+
+    if (record.matcherVersion !== MATCHER_VERSION) {
       return false;
     }
 
@@ -318,6 +322,23 @@
     return titleSimilarity >= 0.8 && directorSimilarity >= 0.5 && yearDelta <= 2;
   }
 
+  function isAcceptableLowConfidenceResolvedMatch(film, movie, match) {
+    const filmTitle = normalizeText(film.title);
+    const movieTitle = normalizeText(movie.Title || match.suggestedTitle || "");
+    const titleSimilarity = computeTitleSimilarity(movieTitle, filmTitle);
+    const movieYear = Number.parseInt(movie.Year || match.suggestedYear, 10);
+    const yearDelta = Number.isInteger(movieYear) && Number.isInteger(film.year)
+      ? Math.abs(movieYear - film.year)
+      : 0;
+    const exactTitle = movieTitle === filmTitle;
+
+    if (exactTitle) {
+      return true;
+    }
+
+    return titleSimilarity >= 0.9 && yearDelta <= 3;
+  }
+
   async function lookupFilm(fetchImpl, film, apiKey) {
     if (!apiKey) {
       return {
@@ -344,8 +365,10 @@
         const directRating = Number.parseFloat(directMovie.imdbRating);
         const directRuntimeMatch = String(directMovie.Runtime || "").match(/(\d+)/);
         const directRuntimeMinutes = directRuntimeMatch ? Number.parseInt(directRuntimeMatch[1], 10) : null;
+        const plausibleResolvedMatch = isPlausibleResolvedMatch(film, directMovie, directMatch);
+        const acceptableLowConfidenceMatch = isAcceptableLowConfidenceResolvedMatch(film, directMovie, directMatch);
 
-        if (!isPlausibleResolvedMatch(film, directMovie, directMatch)) {
+        if (!plausibleResolvedMatch && !acceptableLowConfidenceMatch) {
           continue;
         }
 
@@ -360,6 +383,7 @@
           matched: true,
           imdbId: directMovie.imdbID,
           imdbRating: directRating,
+          lowConfidence: !plausibleResolvedMatch,
           matchedTitle: directMovie.Title || film.title,
           matchedYear: Number.parseInt(directMovie.Year, 10) || film.year || null,
           genres: directMovie.Genre ? directMovie.Genre.split(",").map((part) => part.trim()).filter(Boolean) : [],
@@ -367,6 +391,7 @@
           runtimeMinutes: Number.isInteger(directRuntimeMinutes) ? directRuntimeMinutes : null,
           rated: directMovie.Rated || "",
           plot: directMovie.Plot || "",
+          confidenceNote: !plausibleResolvedMatch ? "Best guess from public metadata" : "",
           matcherVersion: MATCHER_VERSION,
           checkedAt: new Date().toISOString()
         };

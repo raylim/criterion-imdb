@@ -157,6 +157,7 @@ function sanitizeCacheEntry(entry) {
   const imdbId = sanitizeTextField(entry.imdbId, 32);
   const director = sanitizeTextField(entry.director, 120);
   const country = sanitizeTextField(entry.country, 120);
+  const confidenceNote = sanitizeTextField(entry.confidenceNote, 160);
   const imdbRating = Number(entry.imdbRating);
   const year = Number.isInteger(entry.year) ? entry.year : Number.parseInt(entry.year, 10);
   const runtimeMinutes = Number.isInteger(entry.runtimeMinutes)
@@ -184,6 +185,8 @@ function sanitizeCacheEntry(entry) {
     country,
     imdbId: imdbId || "",
     imdbRating,
+    lowConfidence: entry.lowConfidence === true,
+    confidenceNote,
     genres: sanitizeListField(entry.genres),
     languages: sanitizeListField(entry.languages),
     runtimeMinutes: Number.isInteger(runtimeMinutes) && runtimeMinutes > 0 && runtimeMinutes < 1000
@@ -405,6 +408,9 @@ function toLookupResult(film, bundled) {
     imdbRating: bundled.imdbRating,
     matchedTitle: bundled.title,
     matchedYear: bundled.year || null,
+    imdbId: bundled.imdbId || "",
+    lowConfidence: bundled.lowConfidence === true,
+    confidenceNote: bundled.confidenceNote || "",
     genres: Array.isArray(bundled.genres) ? bundled.genres : [],
     languages: Array.isArray(bundled.languages) ? bundled.languages : [],
     runtimeMinutes: Number.isInteger(bundled.runtimeMinutes) ? bundled.runtimeMinutes : null,
