@@ -6,8 +6,11 @@ Release date: 2026-06-06
 
 ### Highlights
 
-- Version bump for the latest Firefox upload package
-- Includes the current CI-safe packaging and deployment fixes
+- Improved overlay matching and refreshed the bundled and hosted Criterion score cache.
+- Added low-confidence "best guess" handling for titles with ambiguous public metadata matches.
+- Improved refresh infrastructure with incremental browse caching and safer bounded lookup behavior.
+- Fixed CI packaging and deployment so extension artifacts and GitHub Pages updates build reliably across environments.
+- Includes public release metadata and hosted support/privacy assets.
 
 ## 0.1.4
 
