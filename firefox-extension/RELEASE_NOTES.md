@@ -1,5 +1,14 @@
 # Criterion IMDb Overlay Release Notes
 
+## 0.1.5
+
+Release date: 2026-06-06
+
+### Highlights
+
+- Version bump for the latest Firefox upload package
+- Includes the current CI-safe packaging and deployment fixes
+
 ## 0.1.4
 
 Release date: 2026-06-04
