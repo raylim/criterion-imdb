@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
 
-const repoRoot = "/Users/rlim/repos/criterion-imdb";
+const repoRoot = path.resolve(__dirname, "..");
 
 function runScript(relativePath, context) {
   const source = fs.readFileSync(path.join(repoRoot, relativePath), "utf8");
