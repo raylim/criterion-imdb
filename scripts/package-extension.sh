@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-REPO_DIR="/Users/rlim/repos/criterion-imdb"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 EXT_DIR="$REPO_DIR/firefox-extension"
 DIST_DIR="$EXT_DIR/dist"
 
