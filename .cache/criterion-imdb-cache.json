@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-05T17:29:39.306Z",
+  "updatedAt": "2026-06-07T00:05:10.425Z",
   "items": {
     "les 3 boutons|2015": {
       "matched": true,
@@ -54868,6 +54868,3271 @@
       "reason": "No confident IMDb match found",
       "matcherVersion": 6,
       "checkedAt": "2026-06-05T14:56:09.750Z"
+    },
+    "room 666 and room 999|1982": {
+      "matched": false,
+      "reason": "OMDb error for tt34748516: Error getting data.",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T17:51:41.631Z"
+    },
+    "pauline at the beach newly added|1983": {
+      "matched": true,
+      "imdbId": "tt0086087",
+      "imdbRating": 7.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Pauline at the Beach",
+      "matchedYear": 1983,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French",
+        "Spanish"
+      ],
+      "runtimeMinutes": 95,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:07.136Z"
+    },
+    "pauline at the beach|1983": {
+      "matched": true,
+      "imdbId": "tt0086087",
+      "imdbRating": 7.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Pauline at the Beach",
+      "matchedYear": 1983,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French",
+        "Spanish"
+      ],
+      "runtimeMinutes": 95,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:07.303Z"
+    },
+    "pauline at the beach pauline at the beach|1983": {
+      "matched": true,
+      "imdbId": "tt0086087",
+      "imdbRating": 7.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Pauline at the Beach",
+      "matchedYear": 1983,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French",
+        "Spanish"
+      ],
+      "runtimeMinutes": 95,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:07.813Z"
+    },
+    "after hours|1985": {
+      "matched": true,
+      "imdbId": "tt0088680",
+      "imdbRating": 7.6,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "After Hours",
+      "matchedYear": 1985,
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 97,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:03.850Z"
+    },
+    "videoheaven|2024": {
+      "matched": true,
+      "imdbId": "tt35649428",
+      "imdbRating": 7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Videoheaven",
+      "matchedYear": 2025,
+      "genres": [
+        "Documentary",
+        "History"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 173,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:03.879Z"
+    },
+    "return to reason|2024": {
+      "matched": true,
+      "imdbId": "tt27656132",
+      "imdbRating": 7.1,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Return to Reason: Four Films by Man Ray",
+      "matchedYear": 2023,
+      "genres": [
+        "Music",
+        "Romance"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 70,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:03.986Z"
+    },
+    "grey gardens|1976": {
+      "matched": true,
+      "imdbId": "tt0073076",
+      "imdbRating": 7.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Grey Gardens",
+      "matchedYear": 1975,
+      "genres": [
+        "Documentary",
+        "Comedy",
+        "Drama"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "runtimeMinutes": 95,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.020Z"
+    },
+    "the long good friday|1979": {
+      "matched": true,
+      "imdbId": "tt0081070",
+      "imdbRating": 7.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "The Long Good Friday",
+      "matchedYear": 1980,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Mystery"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "runtimeMinutes": 114,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.142Z"
+    },
+    "salesman|1968": {
+      "matched": true,
+      "imdbId": "tt0064921",
+      "imdbRating": 7.7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Salesman",
+      "matchedYear": 1969,
+      "genres": [
+        "Documentary",
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 91,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.279Z"
+    },
+    "pacific heights|1990": {
+      "matched": true,
+      "imdbId": "tt0100318",
+      "imdbRating": 6.4,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Pacific Heights",
+      "matchedYear": 1990,
+      "genres": [
+        "Drama",
+        "Mystery",
+        "Thriller"
+      ],
+      "languages": [
+        "English",
+        "Japanese"
+      ],
+      "runtimeMinutes": 102,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.417Z"
+    },
+    "out of the blue|1980": {
+      "matched": true,
+      "imdbRating": 7.2,
+      "matchedTitle": "Out of the Blue",
+      "matchedYear": 1980,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 94,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "symbiopsychotaxiplasm two takes by william greaves|1968": {
+      "matched": true,
+      "imdbId": "tt0296881",
+      "imdbRating": 7.2,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Symbiopsychotaxiplasm: Take One",
+      "matchedYear": 1968,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "Italian"
+      ],
+      "runtimeMinutes": 75,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.426Z"
+    },
+    "motel destino|2024": {
+      "matched": true,
+      "imdbId": "tt28608358",
+      "imdbRating": 6.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Motel Destino",
+      "matchedYear": 2024,
+      "genres": [
+        "Drama",
+        "Thriller"
+      ],
+      "languages": [
+        "Portuguese"
+      ],
+      "runtimeMinutes": 115,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.554Z"
+    },
+    "seduction the cruel woman|1985": {
+      "matched": true,
+      "imdbRating": 5.1,
+      "matchedTitle": "Seduction: The Cruel Woman",
+      "matchedYear": 1985,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "German",
+        "English"
+      ],
+      "runtimeMinutes": 88,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "newbies|2025": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt35539439",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.570Z"
+    },
+    "the garden of words|2013": {
+      "matched": true,
+      "imdbId": "tt2591814",
+      "imdbRating": 7.4,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "The Garden of Words",
+      "matchedYear": 2013,
+      "genres": [
+        "Animation",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "Japanese",
+        "English"
+      ],
+      "runtimeMinutes": 46,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.691Z"
+    },
+    "cheryl dunye interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.730Z"
+    },
+    "spotlight on within our gates with racquel gates|1920": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.831Z"
+    },
+    "the stuntman of stagecoach|2010": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:04.865Z"
+    },
+    "atom egoyan interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.155Z"
+    },
+    "spotlight on youssef chahine|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.185Z"
+    },
+    "grady hendrix on riki oh the story of ricky|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.350Z"
+    },
+    "bill hader on the brood|1979": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.354Z"
+    },
+    "sammo hung interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.543Z"
+    },
+    "30 years of the film foundation martin scorsese and ari aster in conversation|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.685Z"
+    },
+    "bette gordon interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.715Z"
+    },
+    "queersighted coming of age|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.822Z"
+    },
+    "payal kapadia interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:05.991Z"
+    },
+    "spotlight on french poetic realism|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.100Z"
+    },
+    "spotlight on kinuyo tanaka|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.280Z"
+    },
+    "spotlight on japanese noir|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.402Z"
+    },
+    "the lost okoroshi|2019": {
+      "matched": true,
+      "imdbId": "tt10888456",
+      "imdbRating": 5.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "The Lost Okoroshi",
+      "matchedYear": 2019,
+      "genres": [
+        "Action",
+        "Adventure",
+        "Drama"
+      ],
+      "languages": [
+        "English",
+        "Ibo"
+      ],
+      "runtimeMinutes": 94,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.423Z"
+    },
+    "wassupkaylee|2025": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt35002995",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.542Z"
+    },
+    "kedi|2016": {
+      "matched": true,
+      "imdbId": "tt4420704",
+      "imdbRating": 7.6,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Kedi",
+      "matchedYear": 2016,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "Turkish"
+      ],
+      "runtimeMinutes": 79,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.571Z"
+    },
+    "the aggressives|2005": {
+      "matched": true,
+      "imdbId": "tt0462757",
+      "imdbRating": 6.8,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "The Aggressives",
+      "matchedYear": 2005,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 75,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.681Z"
+    },
+    "hotel chevalier|2007": {
+      "matched": true,
+      "imdbId": "tt1094249",
+      "imdbRating": 7.2,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Hotel Chevalier",
+      "matchedYear": 2007,
+      "genres": [
+        "Short",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "runtimeMinutes": 13,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.712Z"
+    },
+    "the harder they come|1972": {
+      "matched": true,
+      "imdbId": "tt0070155",
+      "imdbRating": 6.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "The Harder They Come",
+      "matchedYear": 1972,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Music"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 120,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.820Z"
+    },
+    "nomad|1982": {
+      "matched": true,
+      "imdbId": "tt0084248",
+      "imdbRating": 6.8,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Nomad",
+      "matchedYear": 1982,
+      "genres": [
+        "Drama",
+        "Romance",
+        "Thriller"
+      ],
+      "languages": [
+        "Cantonese",
+        "Japanese",
+        "Mandarin",
+        "English"
+      ],
+      "runtimeMinutes": 96,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.850Z"
+    },
+    "a good marriage|1982": {
+      "matched": true,
+      "imdbId": "tt0082053",
+      "imdbRating": 7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "A Good Marriage",
+      "matchedYear": 1982,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 97,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.958Z"
+    },
+    "full moon in paris|1984": {
+      "matched": true,
+      "imdbId": "tt0087821",
+      "imdbRating": 7.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Full Moon in Paris",
+      "matchedYear": 1984,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 101,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:06.996Z"
+    },
+    "typhoon club|1985": {
+      "matched": true,
+      "imdbId": "tt0088222",
+      "imdbRating": 6.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Typhoon Club",
+      "matchedYear": 1985,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "Japanese"
+      ],
+      "runtimeMinutes": 115,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.105Z"
+    },
+    "meditation on violence|1948": {
+      "matched": true,
+      "imdbId": "tt0040578",
+      "imdbRating": 5.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Meditation on Violence",
+      "matchedYear": 1949,
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "languages": [
+        "N/A"
+      ],
+      "runtimeMinutes": 12,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.143Z"
+    },
+    "repo man commentary|2000": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.275Z"
+    },
+    "the darjeeling limited commentary|2010": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.410Z"
+    },
+    "the game commentary|1997": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.437Z"
+    },
+    "the man who fell to earth commentary|1992": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.583Z"
+    },
+    "robocop commentary|1995": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.695Z"
+    },
+    "killer of sheep commentary|2007": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.744Z"
+    },
+    "compensation commentary|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:07.910Z"
+    },
+    "hard boiled commentary|1993": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.000Z"
+    },
+    "safety last commentary|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.074Z"
+    },
+    "a woman under the influence commentary|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.225Z"
+    },
+    "81 2 commentary|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.298Z"
+    },
+    "burden of dreams commentary|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.512Z"
+    },
+    "the killer commentary|1992": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.586Z"
+    },
+    "prince of broadway commentary|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.722Z"
+    },
+    "grey gardens commentary|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.787Z"
+    },
+    "eastern condors commentary|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:08.943Z"
+    },
+    "thirty two short films about glenn gould commentary|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.015Z"
+    },
+    "monterey pop commentary|2002": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.100Z"
+    },
+    "gimme shelter commentary|2000": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.174Z"
+    },
+    "basquiat commentary|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.280Z"
+    },
+    "the american friend commentary|2002": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.468Z"
+    },
+    "nowhere commentary|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.586Z"
+    },
+    "the last emperor commentary|2003": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.610Z"
+    },
+    "sweet sweetback s baadasssss song commentary|1997": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.762Z"
+    },
+    "celine and julie go boating commentary|2017": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.808Z"
+    },
+    "hearts and minds commentary|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:09.906Z"
+    },
+    "zero de conduite commentary|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.085Z"
+    },
+    "black panthers|1968": {
+      "matched": true,
+      "imdbRating": 7.4,
+      "matchedTitle": "Black Panthers",
+      "matchedYear": 1968,
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 28,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "riotsville u s a|2022": {
+      "matched": true,
+      "imdbRating": 6.7,
+      "matchedTitle": "Riotsville, U.S.A.",
+      "matchedYear": 2022,
+      "genres": [
+        "Documentary",
+        "History"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 91,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "the taste of mango|2023": {
+      "matched": true,
+      "imdbRating": 7.8,
+      "matchedTitle": "The Taste of Mango",
+      "matchedYear": 2023,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 75,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "the celebration commentary|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.111Z"
+    },
+    "regret to inform|1998": {
+      "matched": true,
+      "imdbRating": 7.3,
+      "matchedTitle": "Regret to Inform",
+      "matchedYear": 1998,
+      "genres": [
+        "Documentary",
+        "War"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 72,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "the universe is out there josh and benny safdie|2017": {
+      "matched": true,
+      "imdbId": "tt11164150",
+      "imdbRating": 7.7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Meet the Filmmakers: Josh and Benny Safdie",
+      "matchedYear": 2017,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 55,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.252Z"
+    },
+    "europe endless 1 the spectre of eurocommunism|2019": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.390Z"
+    },
+    "robert downey moment to moment|2021": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt14947488",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.390Z"
+    },
+    "jia zhang ke interview|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.638Z"
+    },
+    "hlynur palmason interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.674Z"
+    },
+    "leos carax interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.824Z"
+    },
+    "lubna playoust interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.841Z"
+    },
+    "catherine breillat interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:10.988Z"
+    },
+    "isabella rossellini interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:11.008Z"
+    },
+    "ryusuke hamaguchi interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:11.332Z"
+    },
+    "jerzy skolimowski interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:11.337Z"
+    },
+    "bertrand bonello interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:11.617Z"
+    },
+    "neo sora and bill kirstein interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:11.629Z"
+    },
+    "nuri bilge ceylan interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:11.903Z"
+    },
+    "lila aviles interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:13.106Z"
+    },
+    "isabel sandoval interview|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:13.416Z"
+    },
+    "christian petzold interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:14.587Z"
+    },
+    "lina rodriguez interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:15.138Z"
+    },
+    "alexandre o philippe interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:16.416Z"
+    },
+    "terence davies interview|2022": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:17.445Z"
+    },
+    "diana peralta interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:18.357Z"
+    },
+    "hal hartley interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:20.026Z"
+    },
+    "felix van groeningen and charlotte vandermeersch interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:20.825Z"
+    },
+    "dustin guy defa interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:21.586Z"
+    },
+    "jean pierre and luc dardenne interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:26.320Z"
+    },
+    "louis garrel interview|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:28.849Z"
+    },
+    "ngozi onwurah interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:30.377Z"
+    },
+    "ruben ostlund interview|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:33.206Z"
+    },
+    "gregg araki interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:34.011Z"
+    },
+    "mike leigh interview|2022": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:35.022Z"
+    },
+    "guy maddin interview|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:36.587Z"
+    },
+    "joyce chopra interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:36.729Z"
+    },
+    "sky hopinka interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:38.548Z"
+    },
+    "leslie harris interview|2019": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:39.060Z"
+    },
+    "ashley mckenzie interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:40.233Z"
+    },
+    "rick alverson interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:40.882Z"
+    },
+    "haley elizabeth anderson interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:42.291Z"
+    },
+    "raven jackson interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:42.894Z"
+    },
+    "janicza bravo interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:44.102Z"
+    },
+    "nadav lapid interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:44.768Z"
+    },
+    "amy seimetz interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:45.862Z"
+    },
+    "martin bell interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:46.655Z"
+    },
+    "jan oxenberg interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:46.838Z"
+    },
+    "lynne sachs interview|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:48.456Z"
+    },
+    "zeinabu irene davis interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:48.639Z"
+    },
+    "pablo trapero interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:50.489Z"
+    },
+    "mia hansen l ve interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:50.647Z"
+    },
+    "jenni olson interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:52.364Z"
+    },
+    "stephen cone interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:52.615Z"
+    },
+    "mahamat saleh haroun interview|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:53.916Z"
+    },
+    "ron mann interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:54.462Z"
+    },
+    "alice rohrwacher interview|2019": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:56.202Z"
+    },
+    "allison anders interview|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:57.268Z"
+    },
+    "joanna hogg interview|2019": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:58.161Z"
+    },
+    "tokyo melody a film about ryuichi sakamoto|1985": {
+      "matched": true,
+      "imdbId": "tt0451234",
+      "imdbRating": 7.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Tokyo melody: un film sur Ryuichi Sakamoto",
+      "matchedYear": 1985,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "Japanese"
+      ],
+      "runtimeMinutes": 62,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:58.684Z"
+    },
+    "arthur dong interview|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:59.193Z"
+    },
+    "one hand don t clap|1988": {
+      "matched": true,
+      "imdbId": "tt0102594",
+      "imdbRating": 6.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "One Hand Don't Clap",
+      "matchedYear": 1991,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 92,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:59.282Z"
+    },
+    "it couldn t happen here|1987": {
+      "matched": true,
+      "imdbRating": 6.4,
+      "matchedTitle": "It Couldn't Happen Here",
+      "matchedYear": 1987,
+      "genres": [
+        "Adventure",
+        "Drama",
+        "Musical"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 86,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "the tokyo trial|1983": {
+      "matched": true,
+      "imdbId": "tt0124169",
+      "imdbRating": 7.8,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Tokyo Trial",
+      "matchedYear": 1983,
+      "genres": [
+        "Documentary",
+        "War"
+      ],
+      "languages": [
+        "Japanese",
+        "English",
+        "Chinese",
+        "French"
+      ],
+      "runtimeMinutes": 277,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:59.826Z"
+    },
+    "female perversions|1996": {
+      "matched": true,
+      "imdbRating": 5.4,
+      "matchedTitle": "Female Perversions",
+      "matchedYear": 1996,
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Thriller"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 120,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "pressure|1976": {
+      "matched": true,
+      "imdbRating": 7.2,
+      "matchedTitle": "Pressure",
+      "matchedYear": 1976,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 126,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "perfumed nightmare|1977": {
+      "matched": true,
+      "imdbRating": 6.9,
+      "matchedTitle": "Perfumed Nightmare",
+      "matchedYear": 1977,
+      "genres": [
+        "Comedy",
+        "Drama"
+      ],
+      "languages": [
+        "English",
+        "Tagalog",
+        "French",
+        "German"
+      ],
+      "runtimeMinutes": 93,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "look back in anger|1959": {
+      "matched": true,
+      "imdbRating": 7,
+      "matchedTitle": "Look Back in Anger",
+      "matchedYear": 1959,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 98,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "queens of the stone age alive in the catacombs|2025": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt37256920",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:01:59.873Z"
+    },
+    "pixote|1981": {
+      "matched": true,
+      "imdbId": "tt0082912",
+      "imdbRating": 7.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Pixote",
+      "matchedYear": 1980,
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "Portuguese",
+        "English"
+      ],
+      "runtimeMinutes": 128,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:00.145Z"
+    },
+    "uncle yanco|1967": {
+      "matched": true,
+      "imdbRating": 7.4,
+      "matchedTitle": "Uncle Yanco",
+      "matchedYear": 1967,
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "languages": [
+        "French",
+        "English"
+      ],
+      "runtimeMinutes": 18,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "double happiness|1995": {
+      "matched": true,
+      "imdbId": "tt0109655",
+      "imdbRating": 7.1,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Double Happiness",
+      "matchedYear": 1994,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "English",
+        "Cantonese"
+      ],
+      "runtimeMinutes": 87,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:00.487Z"
+    },
+    "all that money can buy|1941": {
+      "matched": true,
+      "imdbId": "tt0033532",
+      "imdbRating": 7.6,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "The Devil and Daniel Webster",
+      "matchedYear": 1941,
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Romance"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 107,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:00.966Z"
+    },
+    "peter bogdanovich on la bete humaine|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:04.287Z"
+    },
+    "terry gilliam on children of paradise|1999": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:04.842Z"
+    },
+    "lee chang dong on secret sunshine|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:05.944Z"
+    },
+    "cauleen smith and michael b gillespie on drylongso|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:06.374Z"
+    },
+    "introducing marlon riggs|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:07.462Z"
+    },
+    "marianne jean baptiste on secrets and lies|2020": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:09.277Z"
+    },
+    "our paul remembering paul robeson|2006": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:10.675Z"
+    },
+    "eraserhead reunion|1997": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:12.561Z"
+    },
+    "david lynch and jack nance on eraserhead|1988": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:18.819Z"
+    },
+    "eraserhead stories|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:19.175Z"
+    },
+    "david lynch and frederick elmes on eraserhead|1979": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:20.705Z"
+    },
+    "cast and crew on take out|2022": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:20.922Z"
+    },
+    "ryuichi sakamoto on merry christmas mr lawrence|2010": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:22.542Z"
+    },
+    "toni servillo on the great beauty|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:22.752Z"
+    },
+    "twin peaks fire walk with me actors roundtable|2014": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:23.304Z"
+    },
+    "hirokazu kore eda on still walking|2010": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:24.137Z"
+    },
+    "jean pierre gorin on la jetee|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:24.653Z"
+    },
+    "steve mcqueen on hunger|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:25.773Z"
+    },
+    "shooting blood simple|2016": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt5943642",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:26.523Z"
+    },
+    "constance towers on the naked kiss|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:27.024Z"
+    },
+    "mario sesti lando buzzanca and stefania sandrelli on divorce italian style|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:28.802Z"
+    },
+    "catherine breillat on fat girl 2004|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:29.191Z"
+    },
+    "jacques audiard on dheepan|2017": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:30.787Z"
+    },
+    "an appreciation of les blank by werner herzog|2013": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt5915024",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:31.307Z"
+    },
+    "gena rowlands and peter falk on a woman under the influence|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:32.146Z"
+    },
+    "roberto rossellini on rome open city|1963": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:35.423Z"
+    },
+    "marpessa dawn on black orpheus|1963": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:36.087Z"
+    },
+    "jacques rivette the night watchman|1994": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:37.192Z"
+    },
+    "oliver reed on the merv griffin show|1980": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:37.328Z"
+    },
+    "julien duvivier on pepe le moko|1962": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:37.828Z"
+    },
+    "remembering jean gabin|1978": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt1221936",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:37.969Z"
+    },
+    "split screen s5 e4 lars von trier is dogmatic|1998": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:39.562Z"
+    },
+    "making hotel du nord|1972": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:39.732Z"
+    },
+    "jean renoir le patron la regle et l exception|1966": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:41.195Z"
+    },
+    "chantal akerman on filmmaking|1997": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:41.571Z"
+    },
+    "the oshima gang|1983": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:42.817Z"
+    },
+    "chris marker on vertigo|1983": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:43.685Z"
+    },
+    "francesco rosi on gian maria volonte|2014": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:44.270Z"
+    },
+    "barbara loden on the dick cavett show 1971|1971": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:44.839Z"
+    },
+    "ingmar bergman on wild strawberries|2003": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:45.758Z"
+    },
+    "david cronenberg 1981|1981": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:45.814Z"
+    },
+    "cinepanorama alain delon 1962|1962": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:47.771Z"
+    },
+    "melvin van peebles 1971|1971": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:48.709Z"
+    },
+    "sophia loren and marcello mastroianni on the dick cavett show 1977|1977": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:49.605Z"
+    },
+    "split screen s8 e2 godzilla revealed|1999": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:50.122Z"
+    },
+    "mistress dispeller trailer|2024": {
+      "matched": true,
+      "imdbId": "tt22060498",
+      "imdbRating": 6.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Mistress Dispeller",
+      "matchedYear": 2024,
+      "genres": [
+        "Documentary",
+        "Family"
+      ],
+      "languages": [
+        "Mandarin",
+        "Chinese"
+      ],
+      "runtimeMinutes": 94,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:50.674Z"
+    },
+    "peter hujar s day trailer|2025": {
+      "matched": true,
+      "imdbId": "tt34250044",
+      "imdbRating": 6.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Peter Hujar's Day",
+      "matchedYear": 2025,
+      "genres": [
+        "Biography",
+        "Drama",
+        "History"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 76,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:51.141Z"
+    },
+    "carol and joy trailer|2025": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt37899809",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:51.823Z"
+    },
+    "magellan trailer|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:52.953Z"
+    },
+    "cloud trailer|2024": {
+      "matched": true,
+      "imdbId": "tt32828123",
+      "imdbRating": 6.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Cloud",
+      "matchedYear": 2024,
+      "genres": [
+        "Action",
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "Japanese"
+      ],
+      "runtimeMinutes": 124,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:53.935Z"
+    },
+    "all we imagine as light trailer|2024": {
+      "matched": true,
+      "imdbId": "tt32086077",
+      "imdbRating": 7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "All We Imagine as Light",
+      "matchedYear": 2024,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "Malayalam",
+        "Hindi",
+        "Marathi",
+        "English",
+        "German"
+      ],
+      "runtimeMinutes": 118,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:54.491Z"
+    },
+    "vermiglio trailer|2024": {
+      "matched": true,
+      "imdbId": "tt28618488",
+      "imdbRating": 6.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Vermiglio",
+      "matchedYear": 2025,
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "languages": [
+        "Italian",
+        "Latin",
+        "Ladino"
+      ],
+      "runtimeMinutes": 119,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:54.875Z"
+    },
+    "evil does not exist trailer|2023": {
+      "matched": true,
+      "imdbId": "tt28490044",
+      "imdbRating": 7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Evil Does Not Exist",
+      "matchedYear": 2023,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "Japanese"
+      ],
+      "runtimeMinutes": 106,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:55.474Z"
+    },
+    "the beast trailer|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:56.186Z"
+    },
+    "wildcat trailer|2023": {
+      "matched": true,
+      "imdbId": "tt26442871",
+      "imdbRating": 5.7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Wildcat",
+      "matchedYear": 2023,
+      "genres": [
+        "Biography",
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 103,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:56.479Z"
+    },
+    "ryuichi sakamoto opus trailer|2023": {
+      "matched": true,
+      "imdbId": "tt28490873",
+      "imdbRating": 8,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Ryuichi Sakamoto: Opus",
+      "matchedYear": 2023,
+      "genres": [
+        "Documentary",
+        "Music"
+      ],
+      "languages": [
+        "Japanese"
+      ],
+      "runtimeMinutes": 103,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:56.770Z"
+    },
+    "floyd norman an animated life trailer|2016": {
+      "matched": true,
+      "imdbId": "tt5507860",
+      "imdbRating": 7.4,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Floyd Norman: An Animated Life",
+      "matchedYear": 2016,
+      "genres": [
+        "Documentary",
+        "Biography"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 94,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:57.305Z"
+    },
+    "faya dayi trailer|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:58.710Z"
+    },
+    "you will die at twenty trailer|2019": {
+      "matched": true,
+      "imdbId": "tt9686154",
+      "imdbRating": 7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "You Will Die at 20",
+      "matchedYear": 2019,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "Arabic"
+      ],
+      "runtimeMinutes": 103,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:02:59.243Z"
+    },
+    "topsy turvy trailer|1999": {
+      "matched": true,
+      "imdbId": "tt0151568",
+      "imdbRating": 7.3,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Topsy-Turvy",
+      "matchedYear": 1999,
+      "genres": [
+        "Biography",
+        "Comedy",
+        "Drama"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "German",
+        "Italian",
+        "Japanese"
+      ],
+      "runtimeMinutes": 160,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:01.240Z"
+    },
+    "smooth talk trailer|1985": {
+      "matched": true,
+      "imdbId": "tt0090037",
+      "imdbRating": 6.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Smooth Talk",
+      "matchedYear": 1985,
+      "genres": [
+        "Drama",
+        "Romance",
+        "Thriller"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 92,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:03.092Z"
+    },
+    "let the sunshine in trailer|2017": {
+      "matched": true,
+      "imdbId": "tt6423776",
+      "imdbRating": 6,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Let the Sunshine In",
+      "matchedYear": 2017,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 94,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:03.765Z"
+    },
+    "opening night trailer|1977": {
+      "matched": true,
+      "imdbId": "tt0079672",
+      "imdbRating": 7.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Opening Night",
+      "matchedYear": 1977,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 144,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:06.276Z"
+    },
+    "ghost dog the way of the samurai trailer|1999": {
+      "matched": true,
+      "imdbId": "tt0165798",
+      "imdbRating": 7.5,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Ghost Dog: The Way of the Samurai",
+      "matchedYear": 1999,
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "English",
+        "French"
+      ],
+      "runtimeMinutes": 116,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:06.871Z"
+    },
+    "pierrot le fou trailer|1965": {
+      "matched": true,
+      "imdbId": "tt0059592",
+      "imdbRating": 7.4,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Pierrot le fou",
+      "matchedYear": 1965,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French",
+        "English",
+        "Italian"
+      ],
+      "runtimeMinutes": 110,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:07.721Z"
+    },
+    "buzzard trailer|2014": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:08.476Z"
+    },
+    "paris is burning trailer|1990": {
+      "matched": true,
+      "imdbId": "tt0100332",
+      "imdbRating": 8.2,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Paris Is Burning",
+      "matchedYear": 1990,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 78,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:08.577Z"
+    },
+    "the love that remains trailer|2025": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt33381401",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:09.248Z"
+    },
+    "happyend trailer|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:10.435Z"
+    },
+    "misericordia trailer|2024": {
+      "matched": true,
+      "imdbId": "tt32085997",
+      "imdbRating": 7.1,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Misericordia",
+      "matchedYear": 2024,
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 104,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:11.405Z"
+    },
+    "ramin bahrani on no bears|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:12.109Z"
+    },
+    "panahi speaks from prison|2022": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:13.000Z"
+    },
+    "harold and maude commentary|2011": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt28742384",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:13.538Z"
+    },
+    "hal ashby on harold and maude|1972": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:17.009Z"
+    },
+    "paul b preciado interview|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:17.138Z"
+    },
+    "yusuf cat stevens on harold and maude|2011": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt15507744",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:17.864Z"
+    },
+    "paul meyersberg on the man who fell to earth|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:18.475Z"
+    },
+    "colin higgins on harold and maude|1979": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:18.621Z"
+    },
+    "walter tevis on the man who fell to earth|1984": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:19.083Z"
+    },
+    "brian eatwell on the man who fell to earth|1983": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:19.593Z"
+    },
+    "may routh on the man who fell to earth|1983": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:20.224Z"
+    },
+    "candy clark and rip torn on the man who fell to earth|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:20.894Z"
+    },
+    "robocop original theatrical trailer|1987": {
+      "matched": true,
+      "imdbId": "tt0093870",
+      "imdbRating": 7.6,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "RoboCop",
+      "matchedYear": 1987,
+      "genres": [
+        "Action",
+        "Crime",
+        "Sci-Fi"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 102,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:21.738Z"
+    },
+    "the young american|2018": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:22.969Z"
+    },
+    "john hurt on the elephant man 2009|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:23.670Z"
+    },
+    "frank connor on the elephant man|2019": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:24.966Z"
+    },
+    "david lynch on the elephant man|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:25.498Z"
+    },
+    "jonathan sanger on the elephant man|2018": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:25.940Z"
+    },
+    "the terrible elephant man revealed|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:26.525Z"
+    },
+    "joseph merrick the real elephant man|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:27.071Z"
+    },
+    "david lynch at the afi|1981": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:27.468Z"
+    },
+    "mike figgis and david lynch on the elephant man|2006": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:29.363Z"
+    },
+    "john hurt on the elephant man 1980|1980": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:29.517Z"
+    },
+    "christopher tucker and john hurt on the elephant man|1988": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:31.408Z"
+    },
+    "plate o shrimp|2012": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:35.068Z"
+    },
+    "repossessed repo man roundtable|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:35.282Z"
+    },
+    "harry zen stanton|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:37.236Z"
+    },
+    "repo man the missing scenes|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:37.264Z"
+    },
+    "shu lea cheang on fresh kill|2026": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:38.928Z"
+    },
+    "guggenheim artist portrait of shu lea cheang|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:38.993Z"
+    },
+    "after hours commentary|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:40.755Z"
+    },
+    "sarita choudhury on fresh kill|2026": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:40.863Z"
+    },
+    "martin scorsese and fran lebowitz on after hours|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:51.162Z"
+    },
+    "filming for your life the making of after hours|2004": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:52.075Z"
+    },
+    "the look of after hours|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:53.315Z"
+    },
+    "sullivan s travels commentary|2001": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:53.777Z"
+    },
+    "sandy sturges on preston sturges|1951": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:55.679Z"
+    },
+    "ants in your plants of 1941|2014": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:55.962Z"
+    },
+    "preston sturges talks to hedda hopper|1951": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:57.392Z"
+    },
+    "preston sturges recites if i were king|1938": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:57.749Z"
+    },
+    "preston sturges sings for my love|1938": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:59.129Z"
+    },
+    "preston sturges the rise and fall of an american dreamer|1990": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:03:59.781Z"
+    },
+    "martin scorsese on touki bouki|2013": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:01.063Z"
+    },
+    "abderrahmane sissako on touki bouki|2013": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:01.195Z"
+    },
+    "contras city|1969": {
+      "matched": true,
+      "imdbId": "tt0201536",
+      "imdbRating": 6.9,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "City of Contrasts",
+      "matchedYear": 1969,
+      "genres": [
+        "Short"
+      ],
+      "languages": [
+        "Wolof"
+      ],
+      "runtimeMinutes": 22,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:01.968Z"
+    },
+    "wasis diop and mati diop on touki bouki|2012": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:02.837Z"
+    },
+    "guillermo del toro on el|2024": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:02.837Z"
+    },
+    "bunuel from e to l|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:03.753Z"
+    },
+    "film in black and white|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:04.738Z"
+    },
+    "a small filmed confession by luis bunuel|1981": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:05.684Z"
+    },
+    "george stevens jr on woman of the year|2017": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:07.144Z"
+    },
+    "marilyn ann moss on woman of the year|2016": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:08.074Z"
+    },
+    "val lewton the man in the shadows|2008": {
+      "matched": true,
+      "imdbId": "tt1151833",
+      "imdbRating": 7.4,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Val Lewton: The Man in the Shadows",
+      "matchedYear": 2007,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "Japanese"
+      ],
+      "runtimeMinutes": 77,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:08.751Z"
+    },
+    "katharine hepburn woman of the century|2016": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:09.102Z"
+    },
+    "cat people commentary|2005": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:11.040Z"
+    },
+    "cine regards jacques tourneur 1977|1977": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:11.056Z"
+    },
+    "howard hawks on his girl friday|2016": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:11.662Z"
+    },
+    "david bordwell on his girl friday|2016": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt6443712",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:12.247Z"
+    },
+    "john bailey on cat people|2016": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:13.244Z"
+    },
+    "david thomson and molly haskell on his girl friday|2006": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:14.283Z"
+    },
+    "todd mccarthy on his girl friday|1999": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:15.695Z"
+    },
+    "the creation of his girl friday|1999": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:17.242Z"
+    },
+    "rosalind russell and his girl friday|1999": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:17.498Z"
+    },
+    "his girl friday on lux radio theatre|1940": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:18.826Z"
+    },
+    "jim jarmusch and carter logan on return to reason|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:19.362Z"
+    },
+    "squrl man ray s backing band|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:20.292Z"
+    },
+    "paul schrader on lena dunham|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:22.417Z"
+    },
+    "nora ephron and lena dunham on tiny furniture|2011": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:22.550Z"
+    },
+    "ryusuke hamaguchi on drive my car|2022": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:23.096Z"
+    },
+    "drive my car behind the scenes|2022": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:23.732Z"
+    },
+    "lena dunham on creative nonfiction|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:24.210Z"
+    },
+    "drive my car cannes press conference|2021": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:29.704Z"
+    },
+    "desert hearts commentary|2007": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:29.846Z"
+    },
+    "women in love patricia charbonneau and helen shaver on desert hearts|2017": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:31.736Z"
+    },
+    "donna deitch and jane lynch on desert hearts|1985": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:31.841Z"
+    },
+    "remembering reno|2017": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:32.666Z"
+    },
+    "fiction and other truths a film about jane rule 1|1964": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:34.516Z"
+    },
+    "fiction and other truths a film about jane rule 2|1964": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:34.660Z"
+    },
+    "queersighted the ache of desire|2019": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:35.165Z"
+    },
+    "cristian mungiu on 4 months 3 weeks and 2 days|2016": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt9640508",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:35.216Z"
+    },
+    "jay weissberg on 4 months 3 weeks and 2 days|2016": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:35.692Z"
+    },
+    "cannes press conference for 4 months 3 weeks and 2 days|2007": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:35.778Z"
+    },
+    "matteo garrone on gomorrah|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:37.645Z"
+    },
+    "the romanian tour|2007": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:37.922Z"
+    },
+    "toni servillo on gomorrah|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:39.125Z"
+    },
+    "gomorrah actors|2009": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:39.995Z"
+    },
+    "roberto saviano on gomorrah|2006": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:40.748Z"
+    },
+    "suzanne jill levine on kiss of the spider woman|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:42.244Z"
+    },
+    "tangled web making kiss of the spider woman|2008": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:43.116Z"
+    },
+    "manuel puig on kiss of the spider woman|2008": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:44.230Z"
+    },
+    "suzanne lloyd on safety last|2013": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:44.626Z"
+    },
+    "harold lloyd the third genius episode 2|1989": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:46.493Z"
+    },
+    "harold lloyd s locations and effects|2013": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:48.355Z"
+    },
+    "carl davis scoring for harold|2013": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:50.558Z"
+    },
+    "bela tarr on werckmeister harmonies|2023": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:52.293Z"
+    },
+    "sciuscia 70|2016": {
+      "matched": false,
+      "reason": "IMDb rating missing for tt6085170",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:53.016Z"
+    },
+    "shoeshine neorealism in focus|2025": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:04:54.753Z"
+    },
+    "vittorio de sica radio interview|1946": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:05:05.919Z"
+    },
+    "harold lloyd the third genius episode 1|1989": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:05:07.268Z"
+    },
+    "nicolas roeg and jeremy thomas on insignificance|2010": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:05:08.450Z"
+    },
+    "tony lawson on insignificance|2010": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:05:08.844Z"
+    },
+    "the running jumping and standing still film|1959": {
+      "matched": true,
+      "imdbRating": 5.9,
+      "matchedTitle": "The Running Jumping & Standing Still Film",
+      "matchedYear": 1959,
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "languages": [
+        "None"
+      ],
+      "runtimeMinutes": 11,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "small deaths|1996": {
+      "matched": true,
+      "imdbRating": 6.7,
+      "matchedTitle": "Small Deaths",
+      "matchedYear": 1996,
+      "genres": [
+        "Short",
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 11,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "all by myself the eartha kitt story|1982": {
+      "matched": true,
+      "imdbRating": 7.4,
+      "matchedTitle": "All by Myself: The Eartha Kitt Story",
+      "matchedYear": 1982,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 87,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "where are you taking me|2010": {
+      "matched": true,
+      "imdbRating": 8.5,
+      "matchedTitle": "Where Are You Taking Me?",
+      "matchedYear": 2010,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 72,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "grandma s boy|1922": {
+      "matched": true,
+      "imdbRating": 7,
+      "matchedTitle": "Grandma's Boy",
+      "matchedYear": 1922,
+      "genres": [
+        "Comedy",
+        "Family"
+      ],
+      "languages": [
+        "None",
+        "English"
+      ],
+      "runtimeMinutes": 60,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "beyond all barriers|1989": {
+      "matched": true,
+      "imdbRating": 5.9,
+      "matchedTitle": "Beyond All Barriers",
+      "matchedYear": 1989,
+      "genres": [
+        "Documentary",
+        "Sport"
+      ],
+      "languages": [
+        "Korean"
+      ],
+      "runtimeMinutes": 92,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "bud greenspan s athens 2004 stories of olympic glory|2005": {
+      "matched": true,
+      "imdbRating": 6.3,
+      "matchedTitle": "Bud Greenspan's Athens 2004: Stories of Olympic Glory",
+      "matchedYear": 2005,
+      "genres": [
+        "Documentary",
+        "Sport"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 96,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "didn t do it for love|1997": {
+      "matched": true,
+      "imdbRating": 6.4,
+      "matchedTitle": "Didn't Do It for Love",
+      "matchedYear": 1997,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 81,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "the giverny document|2019": {
+      "matched": true,
+      "imdbRating": 7.4,
+      "matchedTitle": "The Giverny Document",
+      "matchedYear": 2019,
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 40,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "zora neale hurston fieldwork footage|1928": {
+      "matched": true,
+      "imdbRating": 6.4,
+      "matchedTitle": "Zora Neale Hurston Fieldwork Footage",
+      "matchedYear": 1928,
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 4,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "commandment keeper church beaufort south carolina may 1940|1940": {
+      "matched": true,
+      "imdbRating": 6,
+      "matchedTitle": "Commandment Keeper Church, Beaufort South Carolina, May 1940",
+      "matchedYear": 1940,
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 42,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "good times wonderful times|1965": {
+      "matched": true,
+      "imdbRating": 6.9,
+      "matchedTitle": "Good Times, Wonderful Times",
+      "matchedYear": 1965,
+      "genres": [
+        "Documentary",
+        "Drama",
+        "War"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 70,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "any number can win|1963": {
+      "matched": true,
+      "imdbRating": 7.3,
+      "matchedTitle": "Any Number Can Win",
+      "matchedYear": 1963,
+      "genres": [
+        "Crime",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "French",
+        "English"
+      ],
+      "runtimeMinutes": 118,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "all in this tea|2006": {
+      "matched": true,
+      "imdbRating": 7.1,
+      "matchedTitle": "All in This Tea",
+      "matchedYear": 2006,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
+      "runtimeMinutes": 70,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "le sabotier du val de loire|1956": {
+      "matched": true,
+      "imdbRating": 7.2,
+      "matchedTitle": "Le sabotier du Val de Loire",
+      "matchedYear": 1956,
+      "genres": [
+        "Documentary",
+        "Short",
+        "Drama"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 26,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "a taxing woman s return|1988": {
+      "matched": true,
+      "imdbRating": 6.7,
+      "matchedTitle": "A Taxing Woman's Return",
+      "matchedYear": 1988,
+      "genres": [
+        "Comedy",
+        "Crime"
+      ],
+      "languages": [
+        "Japanese"
+      ],
+      "runtimeMinutes": 127,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "welcome mr marshall|1953": {
+      "matched": true,
+      "imdbRating": 7.9,
+      "matchedTitle": "Welcome Mr. Marshall!",
+      "matchedYear": 1953,
+      "genres": [
+        "Comedy"
+      ],
+      "languages": [
+        "Spanish",
+        "Latin",
+        "English"
+      ],
+      "runtimeMinutes": 78,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "satan s brew|1976": {
+      "matched": true,
+      "imdbRating": 6.7,
+      "matchedTitle": "Satan's Brew",
+      "matchedYear": 1976,
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "German"
+      ],
+      "runtimeMinutes": 112,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-05T20:48:13.208Z",
+      "bundledCacheHit": true
+    },
+    "liliana cavani on the night porter|2014": {
+      "matched": false,
+      "reason": "No confident IMDb match found",
+      "matcherVersion": 6,
+      "checkedAt": "2026-06-07T00:05:10.423Z"
     }
   }
 }

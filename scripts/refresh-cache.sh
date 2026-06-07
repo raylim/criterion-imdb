@@ -9,6 +9,7 @@ HOSTED_DIR="$REPO_DIR/docs"
 HOSTED_CACHE_FILE="$HOSTED_DIR/criterion-cache.json"
 HOSTED_REPORT_FILE="$HOSTED_DIR/criterion-movies.html"
 HOSTED_INDEX_FILE="$HOSTED_DIR/index.html"
+REFRESH_MAX_LOOKUPS="${REFRESH_MAX_LOOKUPS:-300}"
 
 echo "$LOG_PREFIX starting at $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
 
@@ -26,7 +27,7 @@ fi
 
 cd "$REPO_DIR"
 
-/usr/bin/env node "$REPO_DIR/criterion-imdb-suggester.js" --limit all --html --concurrency 8
+/usr/bin/env node "$REPO_DIR/criterion-imdb-suggester.js" --limit all --html --concurrency 2 --max-lookups "$REFRESH_MAX_LOOKUPS"
 
 mkdir -p "$HOSTED_DIR"
 cp "$REPO_DIR/firefox-extension/data/criterion-cache.json" "$HOSTED_CACHE_FILE"
