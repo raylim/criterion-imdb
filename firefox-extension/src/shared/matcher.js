@@ -1,6 +1,6 @@
 (function initMatcher(globalScope) {
   const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
-  const MATCHER_VERSION = 2;
+  const MATCHER_VERSION = 3;
   const OMDB_API_URL = "https://www.omdbapi.com/";
   const REQUEST_TIMEOUT_MS = 15000;
   const MIN_CONFIDENT_GUESS_SCORE = 12;
@@ -375,6 +375,10 @@
         if (!Number.isFinite(directRating)) {
           return {
             matched: false,
+            imdbId: directMovie.imdbID || "",
+            matchedTitle: directMovie.Title || film.title,
+            matchedYear: Number.parseInt(directMovie.Year, 10) || film.year || null,
+            noRatingYet: true,
             reason: `IMDb rating missing for ${directMovie.imdbID || film.title}`
           };
         }
@@ -433,6 +437,10 @@
     if (!Number.isFinite(imdbRating)) {
       return {
         matched: false,
+        imdbId: match.imdbId || "",
+        matchedTitle: movie.Title || match.suggestedTitle || film.title,
+        matchedYear: Number.parseInt(movie.Year || match.suggestedYear, 10) || match.suggestedYear || null,
+        noRatingYet: true,
         reason: `IMDb rating missing for ${match.imdbId}`
       };
     }

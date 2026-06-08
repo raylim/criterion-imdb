@@ -50,13 +50,12 @@ See:
 
 - `firefox-extension/RELEASE_NOTES.md`
 
-Suggested AMO version notes for 0.1.2:
+Suggested AMO version notes for 0.1.6:
 
-- Added remote score refresh support from GitHub-hosted cache data
-- Improved OMDb fallback and local caching for missing titles
-- Reduced badges on non-film shelves and refined collection / series handling
-- Improved initial load responsiveness with visible-first overlay updates
-- Added regression tests for overlay cleanup, batching, row exclusion, and series extraction
+- Fixed bundled-cache matching so reloaded add-ons pick up newly shipped score entries more reliably
+- Improved badge clickthroughs for exact matches, low-confidence guesses, and titles whose IMDb page exists but is still unrated
+- Refreshed cache coverage and low-confidence fallback data for missing Criterion titles including `Lumière, Le Cinéma!`
+- Added stronger regression tests around stale cache reuse, bundled cache merging, duplicate-title slug matching, and overlay link behavior
 
 ## Reviewer notes
 

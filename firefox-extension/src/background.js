@@ -83,6 +83,14 @@ function titleFromPath(path) {
   );
 }
 
+function rawSlugFromPath(path) {
+  return String(path || "")
+    .split("/")
+    .filter(Boolean)
+    .filter((segment) => segment !== "videos")
+    .pop() || "";
+}
+
 function isVideoPath(path) {
   return /(^|\/)videos(\/|$)/i.test(String(path || ""));
 }
@@ -219,6 +227,28 @@ function sanitizeCachePayload(payload) {
   };
 }
 
+function mergeCachePayloads(basePayload, overridingPayload) {
+  const mergedByPath = new Map();
+
+  for (const entry of basePayload?.entries || []) {
+    mergedByPath.set(entry.path, entry);
+  }
+
+  for (const entry of overridingPayload?.entries || []) {
+    mergedByPath.set(entry.path, entry);
+  }
+
+  const entries = [...mergedByPath.values()];
+  return {
+    generatedAt: sanitizeTextField(
+      overridingPayload?.generatedAt || basePayload?.generatedAt,
+      64
+    ),
+    count: entries.length,
+    entries
+  };
+}
+
 async function loadBundledPayload() {
   const response = await fetch(extensionApi.runtime.getURL(BUNDLED_CACHE_URL), { cache: "no-store" });
   if (!response.ok) {
@@ -305,19 +335,25 @@ async function loadActiveIndex(options = {}) {
 
   activeIndexPromise = (async () => {
     const settings = await getSettings();
+    const bundledPayload = await loadBundledPayload();
 
     if (!forceRemoteRefresh) {
       const storedRemote = await getStoredRemotePayload(settings.maxCacheAgeDays);
       if (storedRemote) {
-        return buildIndexFromPayload(storedRemote.payload, storedRemote.url);
+        return buildIndexFromPayload(
+          mergeCachePayloads(storedRemote.payload, bundledPayload),
+          `${storedRemote.url} + bundled extension cache`
+        );
       }
     }
 
     try {
       const remote = await fetchRemotePayload();
-      return buildIndexFromPayload(remote.payload, remote.url);
+      return buildIndexFromPayload(
+        mergeCachePayloads(remote.payload, bundledPayload),
+        `${remote.url} + bundled extension cache`
+      );
     } catch (_error) {
-      const bundledPayload = await loadBundledPayload();
       return buildIndexFromPayload(bundledPayload, "bundled extension cache");
     }
   })();
@@ -355,24 +391,51 @@ function parseOmdbApiKeys(rawValue) {
 function findBundledMatch(index, film) {
   const path = toCriterionPath(film.url);
   if (path && index.byPath.has(path)) {
-    return index.byPath.get(path);
+    return {
+      entry: index.byPath.get(path),
+      lowConfidence: false,
+      confidenceNote: ""
+    };
   }
 
   const slugTitle = titleFromPath(path);
   const slugMatches = slugTitle ? index.byNormalizedTitle.get(slugTitle) || [] : [];
+  const rawSlug = rawSlugFromPath(path);
+  if (rawSlug) {
+    const exactSlugMatch = slugMatches.find((entry) => rawSlugFromPath(entry.path) === rawSlug);
+    if (exactSlugMatch) {
+      return {
+        entry: exactSlugMatch,
+        lowConfidence: false,
+        confidenceNote: ""
+      };
+    }
+  }
   if (film.year) {
     const slugYearMatch = slugMatches.find((entry) => entry.year === film.year);
     if (slugYearMatch) {
-      return slugYearMatch;
+      return {
+        entry: slugYearMatch,
+        lowConfidence: false,
+        confidenceNote: ""
+      };
     }
   }
   if (slugMatches.length === 1) {
-    return slugMatches[0];
+    return {
+      entry: slugMatches[0],
+      lowConfidence: false,
+      confidenceNote: ""
+    };
   }
 
   const titleYearKey = `${normalizeText(film.title)}|${film.year || "unknown"}`;
   if (film.title && film.year && index.byTitleYear.has(titleYearKey)) {
-    return index.byTitleYear.get(titleYearKey);
+    return {
+      entry: index.byTitleYear.get(titleYearKey),
+      lowConfidence: false,
+      confidenceNote: ""
+    };
   }
 
   const titleKey = normalizeText(film.title);
@@ -380,24 +443,45 @@ function findBundledMatch(index, film) {
   if (film.title && film.year) {
     const titleYearFromList = titleMatches.find((entry) => entry.year === film.year);
     if (titleYearFromList) {
-      return titleYearFromList;
+      return {
+        entry: titleYearFromList,
+        lowConfidence: false,
+        confidenceNote: ""
+      };
     }
   }
   if (titleMatches.length === 1) {
-    return titleMatches[0];
+    return {
+      entry: titleMatches[0],
+      lowConfidence: false,
+      confidenceNote: ""
+    };
+  }
+
+  const slugHintMatch = rawSlug
+    ? titleMatches.find((entry) => rawSlugFromPath(entry.path) === rawSlug)
+    : null;
+  if (slugHintMatch) {
+    return {
+      entry: slugHintMatch,
+      lowConfidence: true,
+      confidenceNote: "Best guess from bundled Criterion cache"
+    };
   }
 
   return null;
 }
 
-function toLookupResult(film, bundled) {
-  if (!bundled) {
+function toLookupResult(film, bundledMatch) {
+  if (!bundledMatch || !bundledMatch.entry) {
     return {
       ...film,
       matched: false,
       reason: "No cached IMDb score found"
     };
   }
+
+  const bundled = bundledMatch.entry;
 
   return {
     ...film,
@@ -409,8 +493,8 @@ function toLookupResult(film, bundled) {
     matchedTitle: bundled.title,
     matchedYear: bundled.year || null,
     imdbId: bundled.imdbId || "",
-    lowConfidence: bundled.lowConfidence === true,
-    confidenceNote: bundled.confidenceNote || "",
+    lowConfidence: bundled.lowConfidence === true || bundledMatch.lowConfidence === true,
+    confidenceNote: bundledMatch.confidenceNote || bundled.confidenceNote || "",
     genres: Array.isArray(bundled.genres) ? bundled.genres : [],
     languages: Array.isArray(bundled.languages) ? bundled.languages : [],
     runtimeMinutes: Number.isInteger(bundled.runtimeMinutes) ? bundled.runtimeMinutes : null,
@@ -479,6 +563,10 @@ function normalizeMatchResult(film, result, source) {
     return {
       ...film,
       matched: false,
+      imdbId: result?.imdbId || "",
+      matchedTitle: result?.matchedTitle || "",
+      matchedYear: Number.isInteger(result?.matchedYear) ? result.matchedYear : null,
+      noRatingYet: result?.noRatingYet === true,
       reason: result?.reason || "No cached IMDb score found",
       checkedAt: new Date().toISOString(),
       source: source || "missing"
@@ -762,5 +850,9 @@ extensionApi.runtime.onMessage.addListener((message) => {
 globalThis.__criterionImdbBackgroundTest = {
   normalizeMatchResult,
   sanitizeCachePayload,
-  shouldReuseApiRecord
+  mergeCachePayloads,
+  shouldReuseApiRecord,
+  findBundledMatch,
+  toLookupResult,
+  rawSlugFromPath
 };

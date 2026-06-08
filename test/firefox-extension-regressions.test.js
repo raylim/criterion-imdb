@@ -253,6 +253,7 @@ function createOverlayContext() {
 
   const context = {
     console,
+    URLSearchParams,
     setTimeout(callback, delay) {
       const timer = { callback, delay };
       fakeTimers.push(timer);
@@ -310,23 +311,24 @@ function createDomScraperContext() {
 test("background does not reuse stale OMDb fallback records forever", () => {
   const context = createBackgroundContext();
   const { shouldReuseApiRecord } = context.__criterionImdbBackgroundTest;
+  const matcherVersion = context.CriterionImdbMatcher.MATCHER_VERSION;
 
   const staleRecord = {
     matched: true,
     source: "omdb",
-    matcherVersion: 2,
+    matcherVersion,
     checkedAt: new Date(Date.now() - (31 * 24 * 60 * 60 * 1000)).toISOString()
   };
   const freshRecord = {
     matched: true,
     source: "omdb",
-    matcherVersion: 2,
+    matcherVersion,
     checkedAt: new Date().toISOString()
   };
 
   assert.equal(shouldReuseApiRecord(staleRecord, 30), false);
   assert.equal(shouldReuseApiRecord(freshRecord, 30), true);
-  assert.equal(shouldReuseApiRecord({ ...freshRecord, matcherVersion: 1 }, 30), false);
+  assert.equal(shouldReuseApiRecord({ ...freshRecord, matcherVersion: matcherVersion - 1 }, 30), false);
 });
 
 test("background preserves low-confidence match metadata for UI rendering", () => {
@@ -349,6 +351,30 @@ test("background preserves low-confidence match metadata for UI rendering", () =
   assert.equal(normalized.lowConfidence, true);
   assert.match(normalized.confidenceNote, /Best guess/);
   assert.equal(normalized.source, "omdb");
+});
+
+test("background preserves no-rating-yet metadata for exact IMDb hits without scores", () => {
+  const context = createBackgroundContext();
+  const { normalizeMatchResult } = context.__criterionImdbBackgroundTest;
+
+  const normalized = normalizeMatchResult(
+    { title: "The Love That Remains", year: 2025 },
+    {
+      matched: false,
+      imdbId: "tt33381401",
+      matchedTitle: "The Love That Remains",
+      matchedYear: 2025,
+      noRatingYet: true,
+      reason: "IMDb rating missing for tt33381401"
+    },
+    "missing"
+  );
+
+  assert.equal(normalized.matched, false);
+  assert.equal(normalized.imdbId, "tt33381401");
+  assert.equal(normalized.matchedTitle, "The Love That Remains");
+  assert.equal(normalized.matchedYear, 2025);
+  assert.equal(normalized.noRatingYet, true);
 });
 
 test("matcher returns a low-confidence best guess when public metadata resolves but confidence is weak", async () => {
@@ -448,6 +474,75 @@ test("matcher keeps an exact direct OMDb title hit as low confidence when metada
   assert.match(result.confidenceNote, /Best guess/);
 });
 
+test("matcher resolves accented punctuation titles through IMDb suggestion fallback", async () => {
+  const context = createBackgroundContext();
+  const matcher = context.CriterionImdbMatcher;
+
+  const result = await matcher.lookupFilm(async (url) => {
+    if (String(url).includes("omdbapi.com/?t=")) {
+      return {
+        ok: true,
+        async json() {
+          return {
+            Response: "False",
+            Error: "Movie not found!"
+          };
+        }
+      };
+    }
+
+    if (String(url).includes("v2.sg.media-imdb.com/suggestion/")) {
+      return {
+        ok: true,
+        async json() {
+          return {
+            d: [
+              {
+                id: "tt10323412",
+                l: "Lumière, Le Cinéma!",
+                qid: "movie",
+                y: 2024,
+                s: "Thierry Frémaux, Francis Ford Coppola",
+                rank: 71351
+              }
+            ]
+          };
+        }
+      };
+    }
+
+    if (String(url).includes("omdbapi.com/?i=tt10323412")) {
+      return {
+        ok: true,
+        async json() {
+          return {
+            Response: "True",
+            imdbID: "tt10323412",
+            Title: "Lumière, Le Cinéma!",
+            Year: "2024",
+            Director: "Thierry Frémaux",
+            Genre: "Documentary",
+            Language: "French",
+            Runtime: "104 min",
+            imdbRating: "7.7"
+          };
+        }
+      };
+    }
+
+    throw new Error(`unexpected url ${url}`);
+  }, {
+    title: "Lumière, le cinéma!",
+    year: 2024,
+    director: "Thierry Frémaux"
+  }, "demo-key");
+
+  assert.equal(result.matched, true);
+  assert.equal(result.imdbId, "tt10323412");
+  assert.equal(result.imdbRating, 7.7);
+  assert.equal(result.lowConfidence, false);
+});
+
 test("background sanitizes remote cache payloads and strips malformed entries", () => {
   const context = createBackgroundContext();
   const { sanitizeCachePayload } = context.__criterionImdbBackgroundTest;
@@ -507,6 +602,135 @@ test("background accepts real bundled cache entries that do not include imdbId",
   assert.equal(payload.entries[0].path, realEntryWithoutImdbId.path);
   assert.equal(payload.entries[0].title, realEntryWithoutImdbId.title);
   assert.equal(payload.entries[0].imdbId, "");
+});
+
+test("bundled cache ships a low-confidence Lumiere, Le Cinema entry for Firefox", () => {
+  const bundledPayload = JSON.parse(
+    fs.readFileSync(path.join(repoRoot, "firefox-extension/data/criterion-cache.json"), "utf8")
+  );
+
+  const entry = bundledPayload.entries.find((candidate) => candidate.path === "/lumiere-le-cinema");
+
+  assert.ok(entry, "expected bundled Lumiere cache entry");
+  assert.equal(entry.title, "Lumière, Le Cinéma!");
+  assert.equal(entry.imdbRating, 7.7);
+  assert.equal(entry.lowConfidence, true);
+  assert.match(entry.confidenceNote, /2024 release/i);
+});
+
+test("background merges bundled cache entries into a stale remote payload", () => {
+  const context = createBackgroundContext();
+  const { mergeCachePayloads } = context.__criterionImdbBackgroundTest;
+
+  const merged = mergeCachePayloads(
+    {
+      generatedAt: "2026-06-01T00:00:00.000Z",
+      entries: [
+        {
+          path: "/dr-no",
+          title: "Dr. No",
+          normalizedTitle: "dr no",
+          year: 1962,
+          imdbRating: 7.2
+        }
+      ]
+    },
+    {
+      generatedAt: "2026-06-08T00:00:00.000Z",
+      entries: [
+        {
+          path: "/lumiere-le-cinema",
+          title: "Lumière, Le Cinéma!",
+          normalizedTitle: "lumiere le cinema",
+          year: 2024,
+          imdbRating: 7.7,
+          lowConfidence: true,
+          confidenceNote: "Best guess from public metadata"
+        }
+      ]
+    }
+  );
+
+  assert.equal(merged.entries.length, 2);
+  assert.equal(merged.generatedAt, "2026-06-08T00:00:00.000Z");
+  assert.ok(merged.entries.some((entry) => entry.path === "/dr-no"));
+  assert.ok(merged.entries.some((entry) => entry.path === "/lumiere-le-cinema"));
+});
+
+test("background uses raw slug as a bundled tiebreaker for duplicate titles", () => {
+  const context = createBackgroundContext();
+  const { findBundledMatch, toLookupResult } = context.__criterionImdbBackgroundTest;
+
+  const index = {
+    byPath: new Map(),
+    byTitleYear: new Map(),
+    byTitle: new Map([
+      ["the postman always rings twice", [
+        {
+          path: "/the-postman-always-rings-twice",
+          title: "The Postman Always Rings Twice",
+          year: 1946,
+          imdbRating: 7.4,
+          director: "Tay Garnett",
+          genres: ["crime"],
+          languages: ["english"],
+          runtimeMinutes: 113
+        },
+        {
+          path: "/the-postman-always-rings-twice-1",
+          title: "The Postman Always Rings Twice",
+          year: 1981,
+          imdbRating: 6.6,
+          director: "Bob Rafelson",
+          genres: ["crime"],
+          languages: ["english"],
+          runtimeMinutes: 122
+        }
+      ]]
+    ]),
+    byNormalizedTitle: new Map([
+      ["the postman always rings twice", [
+        {
+          path: "/the-postman-always-rings-twice",
+          title: "The Postman Always Rings Twice",
+          year: 1946,
+          imdbRating: 7.4,
+          director: "Tay Garnett",
+          genres: ["crime"],
+          languages: ["english"],
+          runtimeMinutes: 113
+        },
+        {
+          path: "/the-postman-always-rings-twice-1",
+          title: "The Postman Always Rings Twice",
+          year: 1981,
+          imdbRating: 6.6,
+          director: "Bob Rafelson",
+          genres: ["crime"],
+          languages: ["english"],
+          runtimeMinutes: 122
+        }
+      ]]
+    ])
+  };
+
+  const film = {
+    title: "The Postman Always Rings Twice",
+    year: null,
+    director: "",
+    url: "https://www.criterionchannel.com/leaving-june-30/videos/the-postman-always-rings-twice"
+  };
+
+  const bundledMatch = findBundledMatch(index, film);
+  assert.ok(bundledMatch);
+  assert.equal(bundledMatch.entry.path, "/the-postman-always-rings-twice");
+  assert.equal(bundledMatch.lowConfidence, false);
+
+  const result = toLookupResult(film, bundledMatch);
+  assert.equal(result.matched, true);
+  assert.equal(result.imdbRating, 7.4);
+  assert.equal(result.lowConfidence, false);
+  assert.equal(result.confidenceNote, "");
 });
 
 test("background rejects oversized remote cache payloads", () => {
@@ -635,6 +859,83 @@ test("low-confidence overlay details show matched year only when it differs", ()
 
   assert.match(withDifferentYear, /Best guess from public metadata \(1985\)/);
   assert.equal(withSameYear, "Best guess from public metadata");
+});
+
+test("overlay clickthrough uses IMDb title page for confident exact hits", () => {
+  const context = createOverlayContext();
+  const { buildResultUrl } = context.__criterionImdbOverlayTest;
+
+  const url = buildResultUrl({
+    matched: true,
+    imdbId: "tt0038854",
+    lowConfidence: false,
+    matchedTitle: "The Postman Always Rings Twice",
+    matchedYear: 1946
+  });
+
+  assert.equal(url, "https://www.imdb.com/title/tt0038854/");
+});
+
+test("overlay clickthrough falls back to IMDb search for low-confidence or missing titles", () => {
+  const context = createOverlayContext();
+  const { buildResultUrl } = context.__criterionImdbOverlayTest;
+
+  const lowConfidenceUrl = buildResultUrl({
+    matched: true,
+    imdbId: "tt0082934",
+    lowConfidence: true,
+    matchedTitle: "The Postman Always Rings Twice",
+    matchedYear: 1981
+  });
+  const missingUrl = buildResultUrl({
+    matched: false,
+    title: "Pauline at the Beach",
+    year: 1983
+  });
+
+  assert.equal(
+    lowConfidenceUrl,
+    "https://www.imdb.com/find/?q=The+Postman+Always+Rings+Twice+1981&s=tt"
+  );
+  assert.equal(
+    missingUrl,
+    "https://www.imdb.com/find/?q=Pauline+at+the+Beach+1983&s=tt"
+  );
+});
+
+test("overlay clickthrough goes to IMDb title page when the title exists but rating is not posted yet", () => {
+  const context = createOverlayContext();
+  const { buildResultUrl, formatMissingReason } = context.__criterionImdbOverlayTest;
+
+  const url = buildResultUrl({
+    matched: false,
+    imdbId: "tt33381401",
+    noRatingYet: true,
+    matchedTitle: "The Love That Remains",
+    matchedYear: 2025,
+    reason: "IMDb rating missing for tt33381401"
+  });
+
+  assert.equal(url, "https://www.imdb.com/title/tt33381401/");
+  assert.equal(
+    formatMissingReason({ reason: "IMDb rating missing for tt33381401" }),
+    "IMDb page exists, but no user rating is posted yet"
+  );
+});
+
+test("pending OMDb clickthrough uses scraped candidate metadata instead of noisy DOM text", () => {
+  const context = createOverlayContext();
+  const { buildResultUrl } = context.__criterionImdbOverlayTest;
+
+  const pendingUrl = buildResultUrl({
+    title: "The Love That Remains",
+    year: 2025
+  });
+
+  assert.equal(
+    pendingUrl,
+    "https://www.imdb.com/find/?q=The+Love+That+Remains+2025&s=tt"
+  );
 });
 
 test("deferred candidate merges preserve previously queued below-the-fold work", () => {

@@ -20,7 +20,7 @@ const DEFAULT_BUNDLED_CACHE_FILE = path.join(__dirname, "firefox-extension", "da
 const DEFAULT_MANUAL_BUNDLED_FILE = path.join(__dirname, "criterion-imdb-manual.json");
 const DEFAULT_SUPPLEMENTAL_URLS_FILE = path.join(__dirname, "criterion-imdb-supplemental-urls.json");
 const RETRYABLE_STATUS_CODES = new Set([429, 500, 502, 503, 504]);
-const MATCHER_VERSION = 6;
+const MATCHER_VERSION = 7;
 const ALLOWED_IMDB_KINDS = new Set([
   "movie",
   "feature",

@@ -15,6 +15,8 @@
   let debugMode = false;
   let deferredBatchTimer = null;
   let deferredBatchItems = new Map();
+  const IMDB_TITLE_BASE_URL = "https://www.imdb.com/title/";
+  const IMDB_SEARCH_BASE_URL = "https://www.imdb.com/find/";
 
   function scheduleScan() {
     if (scanScheduled) {
@@ -60,6 +62,56 @@
     }
 
     return details.join(" • ");
+  }
+
+  function buildImdbSearchUrl(title, year) {
+    const query = [title, Number.isInteger(year) ? String(year) : ""].filter(Boolean).join(" ");
+    if (!query) {
+      return "";
+    }
+
+    const params = new URLSearchParams({
+      q: query,
+      s: "tt"
+    });
+    return `${IMDB_SEARCH_BASE_URL}?${params.toString()}`;
+  }
+
+  function buildResultUrl(result) {
+    if (result?.imdbId && (!result.lowConfidence || result?.noRatingYet)) {
+      return `${IMDB_TITLE_BASE_URL}${encodeURIComponent(result.imdbId)}/`;
+    }
+
+    return buildImdbSearchUrl(
+      result?.matchedTitle || result?.title || "",
+      Number.isInteger(result?.matchedYear) ? result.matchedYear : result?.year
+    );
+  }
+
+  function applyClickthrough(pill, result) {
+    if (!pill) {
+      return;
+    }
+
+    const href = buildResultUrl(result);
+    pill.setAttribute("target", "_blank");
+    pill.setAttribute("rel", "noreferrer noopener");
+
+    if (!href) {
+      pill.removeAttribute?.("href");
+      pill.setAttribute("aria-disabled", "true");
+      pill.removeAttribute?.("title");
+      return;
+    }
+
+    pill.setAttribute("href", href);
+    pill.removeAttribute?.("aria-disabled");
+    pill.setAttribute(
+      "title",
+      result?.matched && result?.imdbId && !result.lowConfidence
+        ? "Open IMDb title page"
+        : "Search title on IMDb"
+    );
   }
 
   function needsSiblingHost(container) {
@@ -192,7 +244,7 @@
 
     const overlay = document.createElement("div");
     overlay.className = ROOT_CLASS;
-    const pill = document.createElement("div");
+    const pill = document.createElement("a");
     pill.className = "criterion-imdb-overlay__pill";
     pill.textContent = "IMDb …";
 
@@ -265,7 +317,7 @@
     }
 
     if (reason.startsWith("IMDb rating missing for ")) {
-      return "No IMDb rating available yet";
+      return "IMDb page exists, but no user rating is posted yet";
     }
 
     if (reason === "No cached IMDb score found") {
@@ -321,7 +373,8 @@
 
     if (!result.matched) {
       overlay.classList.add("is-missing");
-      pill.textContent = "IMDb n/a";
+      pill.textContent = result.noRatingYet ? "IMDb pending" : "IMDb n/a";
+      applyClickthrough(pill, result);
       details.textContent = formatMissingReason(result);
       container.classList.remove("criterion-imdb-overlay-dimmed");
       return;
@@ -345,6 +398,7 @@
     pill.textContent = result.lowConfidence
       ? `? IMDb ${result.imdbRating.toFixed(1)}`
       : `IMDb ${result.imdbRating.toFixed(1)}`;
+    applyClickthrough(pill, result);
     details.textContent = formatDetails(result, settings) || `Matched ${result.matchedTitle || result.title}`;
   }
 
@@ -353,13 +407,14 @@
     overlay.classList.add("is-loading");
   }
 
-  function markPendingOmdb(container) {
+  function markPendingOmdb(container, film) {
     const overlay = ensureOverlayNode(container);
     const pill = overlay.querySelector(".criterion-imdb-overlay__pill");
     const details = overlay.querySelector(".criterion-imdb-overlay__details");
     overlay.classList.remove("is-missing", "is-low-rated", "is-error", "is-success");
     overlay.classList.add("is-loading");
     pill.textContent = "IMDb …";
+    applyClickthrough(pill, film || {});
     details.textContent = "Checking OMDb…";
   }
 
@@ -480,7 +535,7 @@
       if (result.source === "pending") {
         pendingOmdb.push(candidate);
         if (!isSeriesResult(candidate.film)) {
-          markPendingOmdb(candidate.node);
+          markPendingOmdb(candidate.node, candidate.film);
         }
         return;
       }
@@ -626,9 +681,13 @@
   };
 
   globalScope.__criterionImdbOverlayTest = {
+    applyClickthrough,
+    buildImdbSearchUrl,
+    buildResultUrl,
     clearProcessedState,
     clearNodePending,
     formatDetails,
+    formatMissingReason,
     hasRenderedOverlay,
     isNodePending,
     markNodePending,

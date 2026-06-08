@@ -16,6 +16,7 @@
 }
 
 .criterion-imdb-overlay__pill {
+  display: inline-block;
   width: fit-content;
   padding: 0.28rem 0.6rem;
   border-radius: 999px;
@@ -24,6 +25,22 @@
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.criterion-imdb-overlay__pill:link,
+.criterion-imdb-overlay__pill:visited,
+.criterion-imdb-overlay__pill:hover,
+.criterion-imdb-overlay__pill:active,
+.criterion-imdb-overlay__pill:focus {
+  color: inherit;
+  text-decoration: none;
+}
+
+.criterion-imdb-overlay__pill[aria-disabled="true"] {
+  cursor: default;
+  pointer-events: none;
 }
 
 .criterion-imdb-overlay__details {

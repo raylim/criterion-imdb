@@ -1,5 +1,17 @@
 # Criterion IMDb Overlay Release Notes
 
+## 0.1.6
+
+Release date: 2026-06-08
+
+### Highlights
+
+- Fixed bundled-cache matching regressions that could leave valid titles without a badge, including duplicate-title slugs such as `The Postman Always Rings Twice`.
+- Improved badge behavior with clickable IMDb links, better handling for pending or unrated titles, and less ambiguous low-confidence messaging.
+- Ensured bundled cache updates are merged even when Firefox still has an older hosted cache stored locally, so add-on reloads pick up newly shipped entries right away.
+- Added and refreshed cache coverage for missing titles including `Lumière, Le Cinéma!`, with low-confidence fallback metadata when upstream sources disagree.
+- Bumped matcher cache invalidation and expanded regression coverage around stale cache reuse, bundled cache merging, clickthrough behavior, and accented-title matching.
+
 ## 0.1.5
 
 Release date: 2026-06-06
