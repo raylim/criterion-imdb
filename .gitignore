@@ -3,5 +3,6 @@ node_modules/
 .playwright-profile/
 .cache/criterion-browse.html
 .cache/criterion-refresh.log
+.DS_Store
 firefox-extension/dist/
 firefox-extension/*.zip

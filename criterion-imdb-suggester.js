@@ -559,13 +559,11 @@ function canReuseCachedRecord(film, record, refresh) {
 }
 
 async function fetchText(url) {
-  const response = await fetchWithRetry(url, "text/html,application/json");
-  return response.text();
+  return fetchWithRetry(url, "text/html,application/json", 4, {}, (response) => response.text());
 }
 
 async function fetchJson(url) {
-  const response = await fetchWithRetry(url, "application/json");
-  return response.json();
+  return fetchWithRetry(url, "application/json", 4, {}, (response) => response.json());
 }
 
 async function fetchCriterionApiJson(url) {
@@ -574,13 +572,13 @@ async function fetchCriterionApiJson(url) {
     throw new Error(`Missing Criterion API token for ${url}`);
   }
 
-  const response = await fetchWithRetry(
+  return fetchWithRetry(
     url,
     "application/json, text/plain, */*",
     4,
-    { Authorization: `Bearer ${token}` }
+    { Authorization: `Bearer ${token}` },
+    (response) => response.json()
   );
-  return response.json();
 }
 
 async function fetchOmdbById(imdbId, apiKeys) {
@@ -612,7 +610,24 @@ async function fetchOmdbById(imdbId, apiKeys) {
   throw lastError || new Error(`OMDb error for ${imdbId}`);
 }
 
-async function fetchWithRetry(url, accept, maxAttempts = 4, extraHeaders = {}) {
+async function withBodyReadTimeout(url, reader) {
+  let timeoutId = null;
+
+  try {
+    return await Promise.race([
+      reader(),
+      new Promise((_, reject) => {
+        timeoutId = setTimeout(() => reject(new Error(`Response body read timed out for ${url}`)), REQUEST_TIMEOUT_MS);
+      }),
+    ]);
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+}
+
+async function fetchWithRetry(url, accept, maxAttempts = 4, extraHeaders = {}, responseReader = null) {
   let lastStatus = null;
   let lastError = null;
 
@@ -639,7 +654,28 @@ async function fetchWithRetry(url, accept, maxAttempts = 4, extraHeaders = {}) {
     clearTimeout(timeoutId);
 
     if (response.ok) {
-      return response;
+      if (!responseReader) {
+        return response;
+      }
+
+      try {
+        return await withBodyReadTimeout(url, () => responseReader(response));
+      } catch (error) {
+        lastError = error;
+        if (attempt === maxAttempts) {
+          throw error;
+        }
+
+        try {
+          await response.body?.cancel?.();
+        } catch (_error) {
+          // Ignore stream cancellation errors and retry.
+        }
+
+        const delayMs = 750 * (2 ** (attempt - 1));
+        await sleep(delayMs);
+        continue;
+      }
     }
 
     lastStatus = response.status;
