@@ -36,6 +36,8 @@ const ALLOWED_IMDB_KINDS = new Set([
   "tvSpecial"
 ]);
 const REQUEST_TIMEOUT_MS = 15000;
+const MAX_BROWSE_COLLECTION_API_URLS = 250;
+const MAX_BROWSE_DETAIL_BACKFILL_URLS = 200;
 const OMDB_API_URL = "https://www.omdbapi.com/";
 const MIN_CONFIDENT_GUESS_SCORE = 12;
 const MIN_LOW_CONFIDENCE_GUESS_SCORE = 6;
@@ -666,8 +668,9 @@ async function fetchWithRetry(url, accept, maxAttempts = 4, extraHeaders = {}, r
           throw error;
         }
 
+        // Do not await cancellation: a stalled body can block cancellation too.
         try {
-          await response.body?.cancel?.();
+          void response.body?.cancel?.();
         } catch (_error) {
           // Ignore stream cancellation errors and retry.
         }
@@ -1076,12 +1079,19 @@ async function fetchBrowseApiSupplement(args) {
   const pageUrlsNeedingBackfill = new Set();
   const films = [];
   const seenFilmUrls = new Set();
-  const pendingCollectionApiUrls = new Set(
+  const initialCollectionApiUrls = [...new Set(
     hubPayloads
       .filter(Boolean)
       .flatMap((payload) => extractBrowseCollectionItemApiUrlsFromPayload({ rows: payload }))
       .filter(Boolean)
-  );
+  )];
+  const pendingCollectionApiUrls = new Set(initialCollectionApiUrls.slice(0, MAX_BROWSE_COLLECTION_API_URLS));
+
+  if (initialCollectionApiUrls.length > pendingCollectionApiUrls.size) {
+    console.warn(
+      `Capping browse collection API crawl at ${MAX_BROWSE_COLLECTION_API_URLS} of ${initialCollectionApiUrls.length} URLs`
+    );
+  }
   const seenCollectionApiUrls = new Set();
 
   while (pendingCollectionApiUrls.size > 0) {
@@ -1132,7 +1142,12 @@ async function fetchBrowseApiSupplement(args) {
           }
 
           const nestedUrl = extractVhxNestedItemsUrl(item);
-          if (nestedUrl && !/\/customers\//i.test(nestedUrl) && !seenCollectionApiUrls.has(nestedUrl)) {
+          if (
+            nestedUrl &&
+            !/\/customers\//i.test(nestedUrl) &&
+            !seenCollectionApiUrls.has(nestedUrl) &&
+            (seenCollectionApiUrls.size + pendingCollectionApiUrls.size) < MAX_BROWSE_COLLECTION_API_URLS
+          ) {
             pendingCollectionApiUrls.add(nestedUrl);
           }
         }
@@ -1430,11 +1445,18 @@ async function fetchBrowseSupplement(args) {
     apiFilms.push(mergedFilm);
   }
 
-  const apiBackfillUrls = [...new Set(
+  const allApiBackfillUrls = [...new Set(
     apiFilms
       .filter((film) => !isCompleteFilmMetadata(film))
       .map((film) => normalizeCriterionUrl(film.url))
   )];
+  const apiBackfillUrls = allApiBackfillUrls.slice(0, MAX_BROWSE_DETAIL_BACKFILL_URLS);
+
+  if (allApiBackfillUrls.length > apiBackfillUrls.length) {
+    console.warn(
+      `Capping browse detail backfill at ${MAX_BROWSE_DETAIL_BACKFILL_URLS} of ${allApiBackfillUrls.length} incomplete URLs`
+    );
+  }
 
   saveBrowseSupplementCache(args.browseCacheFile, {
     updatedAt: new Date().toISOString(),
@@ -1468,11 +1490,18 @@ async function fetchBrowseSupplement(args) {
     films.push(film);
   }
 
-  const incompleteUrls = [...new Set(
+  const allIncompleteUrls = [...new Set(
     films
       .filter((film) => film && film.url && (!Number.isInteger(film.year) || !film.director))
       .map((film) => normalizeCriterionUrl(film.url))
   )];
+  const incompleteUrls = allIncompleteUrls.slice(0, MAX_BROWSE_DETAIL_BACKFILL_URLS);
+
+  if (allIncompleteUrls.length > incompleteUrls.length) {
+    console.warn(
+      `Capping final browse detail backfill at ${MAX_BROWSE_DETAIL_BACKFILL_URLS} of ${allIncompleteUrls.length} incomplete URLs`
+    );
+  }
   const resolvedByUrl = new Map(
     (await fetchCriterionChannelPages(incompleteUrls, args))
       .filter((film) => film && film.url && Number.isInteger(film.year))

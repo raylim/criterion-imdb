@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"
+
 REPO_DIR="/Users/rlim/repos/criterion-imdb"
 ENV_FILE="/Users/rlim/.criterion-imdb.env"
 LOG_PREFIX="[criterion-imdb-refresh]"

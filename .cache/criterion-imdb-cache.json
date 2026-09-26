@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T19:46:38.876Z",
+  "updatedAt": "2026-09-22T02:48:52.598Z",
   "items": {
     "les 3 boutons|2015": {
       "matched": true,
@@ -14004,8 +14004,8 @@
     "fearless hyena ii|1983": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:49.910Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:14.776Z"
     },
     "the fearless hyena|1979": {
       "matched": true,
@@ -14045,10 +14045,25 @@
       "checkedAt": "2026-04-25T04:02:47.381Z"
     },
     "feeling good|1966": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:50.012Z"
+      "matched": true,
+      "imdbId": "tt1708524",
+      "imdbRating": 6.6,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "Feeling Good",
+      "matchedYear": 1971,
+      "genres": [
+        "Short",
+        "Comedy"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 12,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:15.569Z"
     },
     "feet first|1930": {
       "matched": true,
@@ -14150,10 +14165,26 @@
       "checkedAt": "2026-04-25T04:02:52.361Z"
     },
     "f for fake|1975": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:50.398Z"
+      "matched": true,
+      "imdbId": "tt0072962",
+      "imdbRating": 7.7,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "F for Fake",
+      "matchedYear": 1973,
+      "genres": [
+        "Documentary"
+      ],
+      "languages": [
+        "English",
+        "French",
+        "Spanish"
+      ],
+      "runtimeMinutes": 89,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:16.190Z"
     },
     "field notes|2014": {
       "matched": false,
@@ -14355,8 +14386,8 @@
     "first|2012": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:51.334Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:17.892Z"
     },
     "first case second case|1979": {
       "matched": true,
@@ -14595,14 +14626,14 @@
     "flickering ghosts of loves gone by|2021": {
       "matched": false,
       "reason": "IMDb rating missing for tt8122738",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:51.140Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:37.500Z"
     },
     "flickering lights|2023": {
       "matched": false,
       "reason": "IMDb rating missing for tt29669662",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:52.007Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:38.864Z"
     },
     "floating clouds|1955": {
       "matched": true,
@@ -14870,8 +14901,8 @@
     "foreign land|1984": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:52.035Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:40.974Z"
     },
     "forget me not|1936": {
       "matched": false,
@@ -14903,20 +14934,34 @@
     "for the time being|2021": {
       "matched": false,
       "reason": "IMDb rating missing for tt11604772",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:52.709Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:42.235Z"
     },
     "a fortress|2018": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:52.690Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:43.048Z"
     },
     "the foundation|2015": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:53.496Z"
+      "matched": true,
+      "imdbId": "tt1512813",
+      "imdbRating": 6.5,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "The Foundation",
+      "matchedYear": 2009,
+      "genres": [
+        "Comedy"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 30,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:44.873Z"
     },
     "the fountain|2007": {
       "matched": true,
@@ -15309,9 +15354,9 @@
     },
     "funeral|2018": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:53.465Z"
+      "reason": "OMDb error for tt45218378: Incorrect IMDb ID.",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:48.739Z"
     },
     "the funeral|1984": {
       "matched": true,
@@ -15414,8 +15459,8 @@
     "gang of four|1989": {
       "matched": false,
       "reason": "IMDb rating missing for tt0276978",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:54.062Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:49.447Z"
     },
     "gap toothed women|1987": {
       "matched": true,
@@ -15689,8 +15734,8 @@
     "genderation|2021": {
       "matched": false,
       "reason": "IMDb rating missing for tt14064214",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:54.477Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:51.340Z"
     },
     "genocide|1968": {
       "matched": true,
@@ -15931,20 +15976,20 @@
     "ghost in the shell stand alone complex episode 15|2005": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:54.945Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:08.616Z"
     },
     "ghost in the shell stand alone complex episode 21|2004": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:55.097Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:36.360Z"
     },
     "gigi from 9 to 5|2001": {
       "matched": false,
       "reason": "IMDb rating missing for tt12228562",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:55.617Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:25.368Z"
     },
     "gimme shelter|1970": {
       "matched": true,
@@ -16067,8 +16112,8 @@
     "girls at 12|1975": {
       "matched": false,
       "reason": "IMDb rating missing for tt14266276",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:55.742Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:30.818Z"
     },
     "girl shy|1924": {
       "matched": true,
@@ -16226,9 +16271,9 @@
     },
     "gloria mundi|1976": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:56.347Z"
+      "reason": "IMDb rating missing for tt0162976",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:31.581Z"
     },
     "god is an artist|2015": {
       "matched": false,
@@ -16277,8 +16322,8 @@
     "god is good|2024": {
       "matched": false,
       "reason": "IMDb rating missing for tt34208918",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:57.098Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:32.304Z"
     },
     "god respects us when we work but loves us when we dance|1968": {
       "matched": true,
@@ -16686,8 +16731,8 @@
     "the gold rush|1942": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:57.144Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:32.636Z"
     },
     "the gold rush 1925 version|1925": {
       "matched": true,
@@ -16810,9 +16855,9 @@
     },
     "the good fairy|1951": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:57.639Z"
+      "reason": "IMDb rating missing for tt0595382",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:33.146Z"
     },
     "good morning|1959": {
       "matched": true,
@@ -16858,8 +16903,8 @@
     "goose|2017": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:57.621Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:33.028Z"
     },
     "the gospel according to matthew|1964": {
       "matched": true,
@@ -17106,14 +17151,14 @@
     "grasshopper republic|2023": {
       "matched": false,
       "reason": "IMDb rating missing for tt27404709",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:58.435Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:34.031Z"
     },
     "graves in the garden|2020": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:57.822Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:35.025Z"
     },
     "the great beauty|2013": {
       "matched": true,
@@ -17286,38 +17331,38 @@
     "green porno bee|2008": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:58.420Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:45.851Z"
     },
     "green porno fly|2008": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:58.919Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:53.474Z"
     },
     "green porno snail|2008": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:58.968Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:05.795Z"
     },
     "green porno squid|2009": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:59.408Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:06.910Z"
     },
     "green porno whale|2009": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:59.722Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:12.022Z"
     },
     "green porno worm|2008": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:43:59.933Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:13.932Z"
     },
     "the green ray|1986": {
       "matched": true,
@@ -17459,8 +17504,8 @@
     "guanabacoa chronicle of my family|1966": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:00.305Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:16.792Z"
     },
     "guelwaar|1992": {
       "matched": true,
@@ -17982,8 +18027,8 @@
     "hawai|1999": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:00.809Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:32.045Z"
     },
     "haxan|1922": {
       "matched": true,
@@ -18171,8 +18216,8 @@
     "hemel|2024": {
       "matched": false,
       "reason": "IMDb rating missing for tt33131847",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:01.395Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:56.796Z"
     },
     "a hen in the wind|1948": {
       "matched": true,
@@ -18364,8 +18409,8 @@
     "heroin|2017": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:02.095Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:04.603Z"
     },
     "hester street|1975": {
       "matched": true,
@@ -18390,8 +18435,8 @@
     "he who dances on wood|2016": {
       "matched": false,
       "reason": "IMDb rating missing for tt6891626",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:02.343Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:04.829Z"
     },
     "the hidden fortress|1958": {
       "matched": true,
@@ -18542,8 +18587,8 @@
     "hinkelten|2023": {
       "matched": false,
       "reason": "IMDb rating missing for tt32327720",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:02.980Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:06.321Z"
     },
     "hiroshima mon amour|1959": {
       "matched": true,
@@ -18711,8 +18756,8 @@
     "home away from home|1994": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:03.976Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:11.968Z"
     },
     "home from the hill|1960": {
       "matched": true,
@@ -18736,8 +18781,8 @@
     "home sweet home|1982": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:03.178Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:13.533Z"
     },
     "homework|1989": {
       "matched": true,
@@ -18819,8 +18864,8 @@
     "hooghan|2018": {
       "matched": false,
       "reason": "IMDb rating missing for tt8980710",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:03.692Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:14.284Z"
     },
     "hooker on campus|2007": {
       "matched": true,
@@ -19088,14 +19133,14 @@
     "how can it be|2008": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:04.473Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:15.665Z"
     },
     "how do you like them bananas|1966": {
       "matched": false,
       "reason": "IMDb rating missing for tt1196174",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:04.564Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:16.451Z"
     },
     "how much wood would a woodchuck chuck|1976": {
       "matched": true,
@@ -19138,8 +19183,8 @@
     "how to carry water|2023": {
       "matched": false,
       "reason": "IMDb rating missing for tt28117412",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:05.230Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:16.649Z"
     },
     "how to get ahead in advertising|1989": {
       "matched": true,
@@ -19183,8 +19228,8 @@
     "how to shoot a ghost|2025": {
       "matched": false,
       "reason": "IMDb rating missing for tt37660781",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:05.484Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:16.907Z"
     },
     "hua yang de nian hua|2000": {
       "matched": true,
@@ -19228,8 +19273,8 @@
     "a human certainty|2021": {
       "matched": false,
       "reason": "IMDb rating missing for tt15133336",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:06.011Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:17.729Z"
     },
     "the human condition i|1959": {
       "matched": true,
@@ -19305,8 +19350,8 @@
     "l humanite|1999": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:06.205Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:18.504Z"
     },
     "humanity and paper balloons|1937": {
       "matched": true,
@@ -19413,9 +19458,9 @@
     },
     "hunting party|1964": {
       "matched": false,
-      "reason": "IMDb rating missing for tt9676172",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:07.057Z"
+      "reason": "OMDb error for tt8302990: Error getting data.",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:19.619Z"
     },
     "hyas and stenorhynchus|1927": {
       "matched": true,
@@ -19658,8 +19703,8 @@
     "i get so sad sometimes|2021": {
       "matched": false,
       "reason": "IMDb rating missing for tt18816128",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:07.406Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:26.410Z"
     },
     "i graduated but|1929": {
       "matched": true,
@@ -19701,8 +19746,8 @@
     "i held the truth in my hands|2020": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:07.582Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:27.310Z"
     },
     "ikiru|1952": {
       "matched": true,
@@ -20145,10 +20190,24 @@
       "checkedAt": "2026-04-25T04:12:33.508Z"
     },
     "the inheritance|1962": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:07.758Z"
+      "matched": true,
+      "imdbId": "tt0074487",
+      "imdbRating": 7,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "The Inheritance",
+      "matchedYear": 1976,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "Italian"
+      ],
+      "runtimeMinutes": 120,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:29.358Z"
     },
     "inland empire|2006": {
       "matched": true,
@@ -20887,8 +20946,8 @@
     "an island for miguel|1968": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:08.884Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:40.169Z"
     },
     "islands of fire|1954": {
       "matched": true,
@@ -20990,8 +21049,8 @@
     "it happens to us|1972": {
       "matched": false,
       "reason": "IMDb rating missing for tt0818496",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:09.091Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:43.713Z"
     },
     "it s always something|2021": {
       "matched": true,
@@ -21015,14 +21074,14 @@
     "it s him|2017": {
       "matched": false,
       "reason": "IMDb rating missing for tt6841378",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:09.379Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:44.325Z"
     },
     "it smells like springtime|2022": {
       "matched": false,
       "reason": "IMDb rating missing for tt22027508",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:09.683Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:44.964Z"
     },
     "it s not just you murray|1964": {
       "matched": true,
@@ -21047,14 +21106,14 @@
     "it s not me|2024": {
       "matched": false,
       "reason": "IMDb rating missing for tt27989261",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:09.914Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:45.885Z"
     },
     "it s raining frogs outside|2021": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:10.204Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:46.543Z"
     },
     "it was a dark and silly night|2008": {
       "matched": true,
@@ -21078,8 +21137,8 @@
     "it still rotates|1978": {
       "matched": false,
       "reason": "IMDb rating missing for tt9691298",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:10.536Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:47.231Z"
     },
     "ivan s childhood|1962": {
       "matched": true,
@@ -21143,8 +21202,8 @@
     "i wanna become the sky|2023": {
       "matched": false,
       "reason": "IMDb rating missing for tt27154456",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:11.040Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:48.130Z"
     },
     "i was a teenage serial killer|1993": {
       "matched": true,
@@ -21310,8 +21369,8 @@
     "james baldwin from another place|1973": {
       "matched": false,
       "reason": "IMDb rating missing for tt26625473",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:11.252Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:48.927Z"
     },
     "jamon jamon|1992": {
       "matched": true,
@@ -27388,8 +27447,8 @@
     "africa the jungle drums and revolution|1979": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:32.593Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:38:41.069Z"
     },
     "the age of swordfish|1954": {
       "matched": true,
@@ -27520,9 +27579,9 @@
     },
     "all the days of may|2023": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:44:51.699Z"
+      "reason": "IMDb rating missing for tt28669515",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:38:53.498Z"
     },
     "l amore|1948": {
       "matched": true,
@@ -27782,8 +27841,8 @@
     "basquiat black and white version|2024": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:45:20.543Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:39:25.824Z"
     },
     "bata wormhole|2020": {
       "matched": false,
@@ -28260,10 +28319,25 @@
       "bundledCacheHit": true
     },
     "butterfly|1967": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:46:10.061Z"
+      "matched": true,
+      "imdbId": "tt0082122",
+      "imdbRating": 4.7,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "Butterfly",
+      "matchedYear": 1981,
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 108,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:41:28.474Z"
     },
     "cafe au lait|1993": {
       "matched": true,
@@ -28379,16 +28453,31 @@
       "checkedAt": "2026-04-25T07:46:19.769Z"
     },
     "chains|1949": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:46:20.440Z"
+      "matched": true,
+      "imdbId": "tt0041232",
+      "imdbRating": 6.7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Chains",
+      "matchedYear": 1949,
+      "genres": [
+        "Crime",
+        "Drama"
+      ],
+      "languages": [
+        "Italian"
+      ],
+      "runtimeMinutes": 74,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:41:42.259Z"
     },
     "the challenge|1938": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:46:22.326Z"
+      "reason": "OMDb error for tt32567044: Error getting data.",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:41:43.426Z"
     },
     "charlotte et son jules|1959": {
       "matched": false,
@@ -28820,9 +28909,9 @@
     },
     "eggs|1970": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:47:09.650Z"
+      "reason": "OMDb error for tt43937774: Incorrect IMDb ID.",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:43:03.834Z"
     },
     "eight deadly shots part 2|1972": {
       "matched": false,
@@ -28902,8 +28991,8 @@
     "einschnitte|2010": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:47:21.418Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:43:17.924Z"
     },
     "ekleipsis|1998": {
       "matched": false,
@@ -28960,9 +29049,9 @@
     },
     "en passant|1991": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:47:29.499Z"
+      "reason": "IMDb rating missing for tt0087201",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:43:30.908Z"
     },
     "the end of the day|1939": {
       "matched": false,
@@ -29125,10 +29214,26 @@
       "checkedAt": "2026-04-25T07:47:50.150Z"
     },
     "les fiances du pont macdonald|1962": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:47:50.221Z"
+      "matched": true,
+      "imdbId": "tt1086289",
+      "imdbRating": 6.7,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "The Fiancés of the Bridge Mac Donald",
+      "matchedYear": 1961,
+      "genres": [
+        "Short",
+        "Comedy",
+        "Romance"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 5,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:16.865Z"
     },
     "film|1965": {
       "matched": false,
@@ -29219,9 +29324,9 @@
     },
     "fly fly sadness|2015": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:03.058Z"
+      "reason": "IMDb rating missing for tt4926904",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:39.637Z"
     },
     "the forgotten|1959": {
       "matched": false,
@@ -29232,20 +29337,48 @@
     "forza bastia|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:04.595Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:43.816Z"
     },
     "four journeys into mystic time trans|1978": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:06.237Z"
+      "matched": true,
+      "imdbId": "tt7030398",
+      "imdbRating": 6.5,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "Initiation",
+      "matchedYear": 1978,
+      "genres": [
+        "Short"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 28,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:46.619Z"
     },
     "four journeys into mystic time one two three|1978": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:06.457Z"
+      "matched": true,
+      "imdbId": "tt7030398",
+      "imdbRating": 6.5,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "Initiation",
+      "matchedYear": 1978,
+      "genres": [
+        "Short"
+      ],
+      "languages": [
+        "English"
+      ],
+      "runtimeMinutes": 28,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:45.680Z"
     },
     "four murders are enough darling|1971": {
       "matched": true,
@@ -29270,9 +29403,9 @@
     },
     "four times for children|1979": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:08.411Z"
+      "reason": "IMDb rating missing for tt41337166",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:47.506Z"
     },
     "fox film|2020": {
       "matched": false,
@@ -29283,8 +29416,8 @@
     "free|2007": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:10.632Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:47.876Z"
     },
     "le garcu|1995": {
       "matched": true,
@@ -29309,8 +29442,8 @@
     "gendertroublemakers|1993": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:12.210Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:50.300Z"
     },
     "the gentle art of japanese extortion|1992": {
       "matched": true,
@@ -29335,14 +29468,14 @@
     "ghost in the shell stand alone complex episode 10|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:15.212Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:53.682Z"
     },
     "ghost in the shell stand alone complex episode 1|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:15.786Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:52.631Z"
     },
     "ghost in the shell stand alone complex episode 10 english dubbed version|2003": {
       "matched": false,
@@ -29353,8 +29486,8 @@
     "ghost in the shell stand alone complex episode 11|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:18.435Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:44:54.697Z"
     },
     "ghost in the shell stand alone complex episode 11 english dubbed version|2003": {
       "matched": false,
@@ -29365,8 +29498,8 @@
     "ghost in the shell stand alone complex episode 12|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:20.880Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:00.405Z"
     },
     "ghost in the shell stand alone complex episode 12 english dubbed version|2003": {
       "matched": false,
@@ -29383,14 +29516,14 @@
     "ghost in the shell stand alone complex episode 13|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:23.127Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:01.631Z"
     },
     "ghost in the shell stand alone complex episode 14|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:25.076Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:07.561Z"
     },
     "ghost in the shell stand alone complex episode 14 english dubbed version|2003": {
       "matched": false,
@@ -29407,8 +29540,8 @@
     "ghost in the shell stand alone complex episode 16|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:27.245Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:14.986Z"
     },
     "ghost in the shell stand alone complex episode 16 english dubbed version|2003": {
       "matched": false,
@@ -29431,8 +29564,8 @@
     "ghost in the shell stand alone complex episode 18|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:31.770Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:22.417Z"
     },
     "ghost in the shell stand alone complex episode 18 english dubbed version|2003": {
       "matched": false,
@@ -29443,8 +29576,8 @@
     "ghost in the shell stand alone complex episode 19|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:33.994Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:28.010Z"
     },
     "ghost in the shell stand alone complex episode 19 english dubbed version|2003": {
       "matched": false,
@@ -29461,14 +29594,14 @@
     "ghost in the shell stand alone complex episode 2|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:37.872Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:35.246Z"
     },
     "ghost in the shell stand alone complex episode 20|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:38.684Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:35.568Z"
     },
     "ghost in the shell stand alone complex episode 20 english dubbed version|2003": {
       "matched": false,
@@ -29491,14 +29624,14 @@
     "ghost in the shell stand alone complex episode 22|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:43.013Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:42.489Z"
     },
     "ghost in the shell stand alone complex episode 23|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:44.476Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:43.418Z"
     },
     "ghost in the shell stand alone complex episode 23 english dubbed version|2003": {
       "matched": false,
@@ -29509,8 +29642,8 @@
     "ghost in the shell stand alone complex episode 24|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:46.608Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:49.673Z"
     },
     "ghost in the shell stand alone complex episode 24 english dubbed version|2003": {
       "matched": false,
@@ -29521,8 +29654,8 @@
     "ghost in the shell stand alone complex episode 25|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:48.718Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:50.606Z"
     },
     "ghost in the shell stand alone complex episode 25 english dubbed version|2003": {
       "matched": false,
@@ -29533,8 +29666,8 @@
     "ghost in the shell stand alone complex episode 26|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:50.699Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:45:56.773Z"
     },
     "ghost in the shell stand alone complex episode 26 english dubbed version|2003": {
       "matched": false,
@@ -29551,8 +29684,8 @@
     "ghost in the shell stand alone complex episode 3|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:53.265Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:03.736Z"
     },
     "ghost in the shell stand alone complex episode 3 english dubbed version|2002": {
       "matched": false,
@@ -29563,8 +29696,8 @@
     "ghost in the shell stand alone complex episode 4|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:55.522Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:05.127Z"
     },
     "ghost in the shell stand alone complex episode 4 english dubbed version|2002": {
       "matched": false,
@@ -29575,8 +29708,8 @@
     "ghost in the shell stand alone complex episode 5|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:57.556Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:10.062Z"
     },
     "ghost in the shell stand alone complex episode 5 english dubbed version|2002": {
       "matched": false,
@@ -29587,8 +29720,8 @@
     "ghost in the shell stand alone complex episode 6|2002": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:48:59.678Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:11.848Z"
     },
     "ghost in the shell stand alone complex episode 6 english dubbed version|2002": {
       "matched": false,
@@ -29599,8 +29732,8 @@
     "ghost in the shell stand alone complex episode 7|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:01.546Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:16.978Z"
     },
     "ghost in the shell stand alone complex episode 7 english dubbed version|2003": {
       "matched": false,
@@ -29617,14 +29750,14 @@
     "ghost in the shell stand alone complex episode 8|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:06.098Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:18.652Z"
     },
     "ghost in the shell stand alone complex episode 9|2003": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:06.674Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:23.968Z"
     },
     "ghost in the shell stand alone complex episode 9 english dubbed version|2003": {
       "matched": false,
@@ -29664,10 +29797,27 @@
       "checkedAt": "2026-04-25T07:49:11.088Z"
     },
     "godzilla|1954": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:11.900Z"
+      "matched": true,
+      "imdbId": "tt0047034",
+      "imdbRating": 7.6,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Godzilla",
+      "matchedYear": 1954,
+      "genres": [
+        "Horror",
+        "Sci-Fi"
+      ],
+      "languages": [
+        "Japanese",
+        "Portuguese",
+        "German"
+      ],
+      "runtimeMinutes": 96,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:46:32.436Z"
     },
     "golden demon|1954": {
       "matched": true,
@@ -29791,15 +29941,29 @@
     },
     "grown ups|1980": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:24.941Z"
+      "reason": "OMDb error for tt31806039: Error getting data.",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:16.083Z"
     },
     "the guitar mongoloid|2004": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:26.019Z"
+      "matched": true,
+      "imdbId": "tt0447641",
+      "imdbRating": 6,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Gitarrmongot",
+      "matchedYear": 2004,
+      "genres": [
+        "Drama"
+      ],
+      "languages": [
+        "Swedish"
+      ],
+      "runtimeMinutes": 89,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:17.682Z"
     },
     "gulpilil one red blood|2002": {
       "matched": false,
@@ -29820,10 +29984,25 @@
       "checkedAt": "2026-04-25T07:49:30.672Z"
     },
     "the hand|2004": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:30.732Z"
+      "matched": true,
+      "imdbId": "tt15165236",
+      "imdbRating": 7.3,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "The Hand",
+      "matchedYear": 2020,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "Mandarin"
+      ],
+      "runtimeMinutes": 56,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:24.953Z"
     },
     "the hat|1964": {
       "matched": false,
@@ -29913,27 +30092,42 @@
     },
     "hito|2023": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:45.823Z"
+      "reason": "OMDb error for tt43650300: Incorrect IMDb ID.",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:07.127Z"
     },
     "he who is without sin|1952": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:45.987Z"
+      "matched": true,
+      "imdbId": "tt0044495",
+      "imdbRating": 6,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "Chi è senza peccato....",
+      "matchedYear": 1952,
+      "genres": [
+        "Drama",
+        "Romance"
+      ],
+      "languages": [
+        "Italian"
+      ],
+      "runtimeMinutes": 97,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:05.532Z"
     },
     "home movie|1973": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:47.476Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:12.713Z"
     },
     "hope there s someone|2009": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:49.943Z"
+      "reason": "IMDb rating missing for tt33149631",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:14.831Z"
     },
     "the hop pickers|1964": {
       "matched": true,
@@ -29964,16 +30158,31 @@
       "checkedAt": "2026-04-25T07:49:53.264Z"
     },
     "a horseshoe for luck|1946": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:54.663Z"
+      "matched": true,
+      "imdbId": "tt0177117",
+      "imdbRating": 6.1,
+      "lowConfidence": true,
+      "confidenceNote": "Best guess from public metadata",
+      "matchedTitle": "Podkova pro stestí",
+      "matchedYear": 1946,
+      "genres": [
+        "Animation",
+        "Short"
+      ],
+      "languages": [
+        "Czech"
+      ],
+      "runtimeMinutes": 4,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:15.084Z"
     },
     "hospital|1977": {
       "matched": false,
       "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:49:56.851Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:15.773Z"
     },
     "hot pepper|1973": {
       "matched": true,
@@ -40880,9 +41089,9 @@
     },
     "the script|2023": {
       "matched": false,
-      "reason": "OMDb error for tt32636099: Error getting data.",
-      "matcherVersion": 6,
-      "checkedAt": "2026-04-25T07:56:32.945Z"
+      "reason": "IMDb rating missing for tt19114234",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:38:27.286Z"
     },
     "scrubbers|1982": {
       "matched": true,
@@ -53819,14 +54028,14 @@
     "grenada the future coming towards us|1983": {
       "matched": false,
       "reason": "IMDb rating missing for tt2375041",
-      "matcherVersion": 6,
-      "checkedAt": "2026-05-05T14:44:58.374Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:14.924Z"
     },
     "haiti the way of freedom|1973": {
       "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-05-05T14:44:59.035Z"
+      "reason": "IMDb rating missing for tt0123876",
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:47:18.948Z"
     },
     "his girl friday|1940": {
       "matched": true,
@@ -55107,10 +55316,24 @@
       "checkedAt": "2026-07-01T19:43:14.621Z"
     },
     "intermission|2007": {
-      "matched": false,
-      "reason": "No confident IMDb match found",
-      "matcherVersion": 6,
-      "checkedAt": "2026-06-03T05:04:06.203Z"
+      "matched": true,
+      "imdbId": "tt1058525",
+      "imdbRating": 5.7,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matchedTitle": "Entracte",
+      "matchedYear": 2007,
+      "genres": [
+        "Short"
+      ],
+      "languages": [
+        "French"
+      ],
+      "runtimeMinutes": 15,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:48:30.623Z"
     },
     "i hate you little girls|2008": {
       "matched": true,
@@ -55873,8 +56096,8 @@
     "room 666 and room 999|1982": {
       "matched": false,
       "reason": "OMDb error for tt34748516: Error getting data.",
-      "matcherVersion": 6,
-      "checkedAt": "2026-06-05T17:51:41.631Z"
+      "matcherVersion": 7,
+      "checkedAt": "2026-09-22T02:38:33.670Z"
     },
     "pauline at the beach newly added|1983": {
       "matched": true,
@@ -59155,6 +59378,27 @@
       "confidenceNote": "",
       "matcherVersion": 7,
       "checkedAt": "2026-06-08T17:21:29.703Z",
+      "bundledCacheHit": true
+    },
+    "and we ve got sabor|1967": {
+      "matched": true,
+      "imdbRating": 7.3,
+      "matchedTitle": "And . . . We&#039;ve Got Sabor",
+      "matchedYear": 1967,
+      "genres": [
+        "documentary",
+        "short"
+      ],
+      "languages": [
+        "spanish"
+      ],
+      "runtimeMinutes": 30,
+      "runtimeChecked": true,
+      "languageChecked": true,
+      "lowConfidence": false,
+      "confidenceNote": "",
+      "matcherVersion": 7,
+      "checkedAt": "2026-07-01T19:46:38.904Z",
       "bundledCacheHit": true
     }
   }
