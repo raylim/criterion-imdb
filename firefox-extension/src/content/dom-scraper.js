@@ -3,6 +3,14 @@
   const BLOCKED_PATH_PREFIXES = new Set([
     "/search",
     "/browse",
+    "/categories",
+    "/discover",
+    "/genres",
+    "/international-cinema",
+    "/leaving-soon",
+    "/live",
+    "/new",
+    "/short-films",
     "/help",
     "/terms",
     "/privacy",
@@ -26,6 +34,7 @@
     "browse",
     "archival treasures",
     "criterion originals",
+    "genres",
     "observations on film art",
     "popular collections",
     "new collections",
@@ -160,6 +169,8 @@
     return (
       clean === "now playing" ||
       clean === "search" ||
+      clean === "see more" ||
+      clean === "see all" ||
       clean === "all films" ||
       clean === "criterion.com" ||
       clean === "continue watching" ||
@@ -170,7 +181,14 @@
       clean === "fresh from theaters" ||
       clean === "popular movies" ||
       clean === "featured collections" ||
-      clean === "view all"
+      clean === "view all" ||
+      clean === "criterion originals" ||
+      clean === "criterion 24/7" ||
+      clean === "lgbtq+" ||
+      clean === "animation" ||
+      clean === "melodrama" ||
+      clean === "see what's new in september" ||
+      clean === "see what’s new in september"
     );
   }
 
@@ -237,6 +255,7 @@
     }
 
     const header =
+      row.querySelector(":scope > [aria-label]") ||
       row.querySelector(":scope > h1.horizontal-row-header") ||
       row.querySelector(":scope > header h1") ||
       row.querySelector(":scope > h1") ||
@@ -244,7 +263,9 @@
       row.querySelector(".horizontal-row-header") ||
       row.querySelector(".browse-row__title");
 
-    return normalizeWhitespace(header?.textContent).toLowerCase();
+    return normalizeWhitespace(
+      header?.getAttribute?.("aria-label") || header?.textContent
+    ).toLowerCase();
   }
 
   function isLikelyFilmLink(anchor) {

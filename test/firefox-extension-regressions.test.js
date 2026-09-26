@@ -980,19 +980,46 @@ test("scraper does not badge film-looking links inside the Browse row", () => {
   const { isLikelyFilmLink } = context.__criterionOverlayDomTest;
 
   const row = new FakeElement("section");
-  const header = new FakeElement("h1", ["horizontal-row-header"]);
-  header.textContent = "Browse";
-  row.setQuerySelector(":scope > h1.horizontal-row-header", header);
-  row.setQuerySelector(".horizontal-row-header", header);
+  const rail = new FakeElement("div", [], { "aria-label": "Browse" });
+  row.setQuerySelector(":scope > [aria-label]", rail);
 
   const anchor = new FakeAnchorElement({
     href: "https://www.criterionchannel.com/robo-cop",
     "aria-label": "RoboCop"
   });
   anchor.textContent = "RoboCop";
-  row.appendChild(anchor);
+  rail.appendChild(anchor);
+  row.appendChild(rail);
 
   assert.equal(isLikelyFilmLink(anchor), false);
+});
+
+test("scraper ignores September category and live links", () => {
+  const context = createDomScraperContext();
+  const { isLikelyFilmLink } = context.__criterionOverlayDomTest;
+
+  const links = [
+    new FakeAnchorElement({
+      href: "https://www.criterionchannel.com/live/1emmgvqX/criterion-24-7",
+      "aria-label": "Criterion 24/7"
+    }),
+    new FakeAnchorElement({
+      href: "https://www.criterionchannel.com/genres/lgbtq-plus",
+      "aria-label": "LGBTQ+"
+    }),
+    new FakeAnchorElement({
+      href: "https://www.criterionchannel.com/categories/melodrama",
+      "aria-label": "Melodrama"
+    }),
+    new FakeAnchorElement({
+      href: "https://www.criterionchannel.com/new",
+      "aria-label": "See what's new in September"
+    })
+  ];
+
+  for (const link of links) {
+    assert.equal(isLikelyFilmLink(link), false, link.href);
+  }
 });
 
 test("scraper keeps real series cards instead of filtering them as collections", () => {
