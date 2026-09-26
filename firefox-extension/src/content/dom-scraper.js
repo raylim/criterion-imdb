@@ -23,6 +23,7 @@
     "/all-films"
   ]);
   const BLOCKED_ROW_HEADERS = new Set([
+    "browse",
     "archival treasures",
     "criterion originals",
     "observations on film art",

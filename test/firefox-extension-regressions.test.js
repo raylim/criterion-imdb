@@ -975,6 +975,26 @@ test("scraper blocks film-looking links under blocked row headers", () => {
   assert.equal(isLikelyFilmLink(anchor), false);
 });
 
+test("scraper does not badge film-looking links inside the Browse row", () => {
+  const context = createDomScraperContext();
+  const { isLikelyFilmLink } = context.__criterionOverlayDomTest;
+
+  const row = new FakeElement("section");
+  const header = new FakeElement("h1", ["horizontal-row-header"]);
+  header.textContent = "Browse";
+  row.setQuerySelector(":scope > h1.horizontal-row-header", header);
+  row.setQuerySelector(".horizontal-row-header", header);
+
+  const anchor = new FakeAnchorElement({
+    href: "https://www.criterionchannel.com/robo-cop",
+    "aria-label": "RoboCop"
+  });
+  anchor.textContent = "RoboCop";
+  row.appendChild(anchor);
+
+  assert.equal(isLikelyFilmLink(anchor), false);
+});
+
 test("scraper keeps real series cards instead of filtering them as collections", () => {
   const context = createDomScraperContext();
   const { extractFilm } = context.__criterionOverlayDomTest;
